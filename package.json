@@ -1,0 +1,28 @@
+{
+  "name": "tiga",
+  "version": "1.0.0",
+  "description": "tiga cli",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IFmiss/Tiga.git"
+  },
+  "keywords": [
+    "tiga"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IFmiss/Tiga/issues"
+  },
+  "homepage": "https://github.com/IFmiss/Tiga#readme",
+  "dependencies": {
+    "commander": "^4.1.0",
+    "download-git-repo": "^3.0.2",
+    "glob": "^7.1.6",
+    "ora": "^4.0.3"
+  }
+}
