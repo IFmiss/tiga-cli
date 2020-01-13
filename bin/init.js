@@ -2,10 +2,18 @@ const program = require('commander')
 const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
+const inquirer = require('inquirer')
+
+const {
+  isDirSync,
+  removeFileOrDirSync
+} = require('./../utils/file')
 
 const download = require('./../utils/download')
 
 program.usage('<project-name>')
+
+let next
 
 // 根据输入，获取项目名称
 let projectName = process.argv[2]
@@ -24,26 +32,43 @@ console.log('projectName', projectName)
 if (list.length) {  // 如果当前目录不为空
   if (list.some(n => {
     const fileName = path.resolve(process.cwd(), n);
-    const isDir = fs.statSync(fileName).isDirectory();
+    const isDir = isDirSync(fileName);
     return projectName === n && isDir
   })) {
-    console.log(`项目${projectName}已经存在`);
-    // remove(path.resolve(process.cwd(), projectName))
-    return;
+    console.log('hihasdasd')
+    inquirer
+      .prompt([
+        {
+          name: 'CoverDir',
+          type: 'confirm',
+          message: `项目名称: ${projectName} 已经存在, 确认覆盖此文件夹?`,
+          default: true
+        }
+      ]).then(answers => {
+        if (answers.CoverDir) {
+          removeFileOrDirSync(projectName)
+          select(projectName)
+          return
+        }
+      }).catch(err => {
+        throw err
+      })
+    return
   }
+  select(projectName)
 } else if (rootName === projectName) {
+    // 父级目录和子目录相同
     rootName = '.'
 } else {
     rootName = projectName
+    select(projectName)
 }
-
-select(projectName)
 
 function select (name) {
   console.log('name', name)
   if (name !== '.') {
+    // 创建文件夹
     fs.mkdirSync(name)
-    console.log(`start init ${name}`)
     setTimeout(() => {
       download(name).then((target) => {
         return {
@@ -57,9 +82,5 @@ function select (name) {
       })
     }, 300)
   }
-  // 选择安装的模块
-  console.log(`start init ${projectName}`)
-  return
-  download(name)
 }
 
