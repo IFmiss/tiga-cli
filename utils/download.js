@@ -1,7 +1,7 @@
 const download = require('download-git-repo')
 const ora = require('ora')
 const path = require('path')
-const repoUrl = 'IFmiss/logger#master'
+const repoUrl = 'IFmiss/tiga-template-react#master'
 
 module.exports = function (target) {
   return new Promise((resolve, reject) => {

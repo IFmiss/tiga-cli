@@ -3,51 +3,58 @@ const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
 const inquirer = require('inquirer')
+inquirer.registerPrompt('selectLine', require('inquirer-select-line'));
+const download = require('./../utils/download')
 
 const {
   isDirSync,
   removeFileOrDirSync
 } = require('./../utils/file')
 
-const download = require('./../utils/download')
+const {
+  sleep
+} = require('./../utils/utils')
+
+const {
+  initPackageJson
+} = require('./../utils/template')
+
 
 program.usage('<project-name>')
 
-let next
-
 // 根据输入，获取项目名称
-let projectName = process.argv[2]
+console.log('process.argv', process.argv)
+
+const projectName = process.argv[2]
+let rootName = path.basename(process.cwd())
 
 if (!projectName) {  // project-name 必填
   // 相当于执行命令的--help选项，显示help信息，这是commander内置的一个命令选项
-  program.help() 
+  program.help()
   return
 }
 
 const list = glob.sync('*')  // 遍历当前目录
-let rootName = path.basename(process.cwd())
-console.log(list)
-console.log('process.argv', process.argv)
-console.log('projectName', projectName)
-if (list.length) {  // 如果当前目录不为空
+
+// 如果当前目录不为空
+if (list.length) {
+  // 判断文件是否存在
   if (list.some(n => {
     const fileName = path.resolve(process.cwd(), n);
     const isDir = isDirSync(fileName);
     return projectName === n && isDir
   })) {
-    console.log('hihasdasd')
     inquirer
       .prompt([
         {
-          name: 'CoverDir',
+          name: 'ok',
           type: 'confirm',
           message: `项目名称: ${projectName} 已经存在, 确认覆盖此文件夹?`,
-          default: true
         }
       ]).then(answers => {
-        if (answers.CoverDir) {
+        if (answers.ok) {
           removeFileOrDirSync(projectName)
-          select(projectName)
+          inputBaseInfo(projectName)
           return
         }
       }).catch(err => {
@@ -55,32 +62,92 @@ if (list.length) {  // 如果当前目录不为空
       })
     return
   }
-  select(projectName)
+  inputBaseInfo(projectName)
 } else if (rootName === projectName) {
     // 父级目录和子目录相同
     rootName = '.'
 } else {
     rootName = projectName
-    select(projectName)
+    inputBaseInfo(projectName)
 }
 
-function select (name) {
-  console.log('name', name)
+// 安装之前需要下载的信息
+async function inputBaseInfo(name) {
+  let projectInfo = {
+    name
+  }
+  // 输入描述，和开发人
+  inquirer.prompt([
+    {
+      name: 'description',
+      message: '请输入项目描述'
+    },
+    {
+      name: 'author',
+      message: '请输入作者名称'
+    }
+  ]).then(({ description, author }) => {
+    projectInfo = Object.assign({}, projectInfo, {
+      description,
+      author
+    })
+    // 安装什么环境
+
+    inquirer.prompt([
+      {
+        name: 'useRouter',
+        type: 'confirm',
+        message: `是否使用 React-Router ?`,
+      }, {
+        name: 'useTypeScript',
+        type: 'confirm',
+        message: `是否使用 TypeScript ?`,
+      }, {
+        type: 'list',
+        message: '是否有数据状态管理的需求 ?',
+        name: 'useStore',
+        choices: ['redux', 'mobx', 'none'],
+      }, {
+        type: 'list',
+        message: '选择一个css 预处理 ?',
+        name: 'useStyle',
+        choices: ['less', 'scss', 'none'],
+      }
+    ]).then(({ useRouter, useTypeScript, useStore, useStyle }) => {
+      projectInfo = Object.assign({}, projectInfo, {
+        useRouter,
+        useTypeScript,
+        useStore,
+        useStyle
+      })
+      console.log('projectInfo', projectInfo)
+      start(projectInfo)
+    })
+  })
+}
+
+async function start (projectInfo) {
+  const { name } = projectInfo
   if (name !== '.') {
     // 创建文件夹
     fs.mkdirSync(name)
-    setTimeout(() => {
-      download(name).then((target) => {
-        return {
-          name: name,
-          root: name,
-          downloadTemp: target
-        }
-      }).catch(err => {
-        // 失败了用红色，增强提示
-        console.log(err);
-      })
-    }, 300)
+    await sleep(300)
+    try {
+      const target = await download(name)
+      // const obj = {
+      //   name: name,
+      //   root: rootName,
+      //   downloadTemp: target
+      // }
+      console.log(projectInfo)
+      initPackageJson(projectInfo)
+    } catch (e) {
+      // 失败了用红色，增强提示
+      console.log(e);
+      console.log(chalk.red(`创建失败：${e.message}`))
+    }
+    return
   }
+  program.help()
 }
 
