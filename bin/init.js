@@ -16,7 +16,8 @@ const {
 } = require('./../utils/utils')
 
 const {
-  initPackageJson
+  initPackageJson,
+  initFile
 } = require('./../utils/template')
 
 
@@ -63,18 +64,16 @@ if (list.length) {
     return
   }
   inputBaseInfo(projectName)
-} else if (rootName === projectName) {
-    // 父级目录和子目录相同
-    rootName = '.'
 } else {
-    rootName = projectName
+    // rootName = projectName
     inputBaseInfo(projectName)
 }
 
 // 安装之前需要下载的信息
 async function inputBaseInfo(name) {
   let projectInfo = {
-    name
+    name,
+    rootName
   }
   // 输入描述，和开发人
   inquirer.prompt([
@@ -120,6 +119,8 @@ async function inputBaseInfo(name) {
         useStore,
         useStyle
       })
+      // initPackageJson(projectInfo)
+      // return
       console.log('projectInfo', projectInfo)
       start(projectInfo)
     })
@@ -140,7 +141,8 @@ async function start (projectInfo) {
       //   downloadTemp: target
       // }
       console.log(projectInfo)
-      initPackageJson(projectInfo)
+      // initPackageJson(projectInfo)
+      initFile(projectInfo)
     } catch (e) {
       // 失败了用红色，增强提示
       console.log(e);
