@@ -28,6 +28,7 @@ const fileUtils = {
    * @param { String } fileName 
    */
   removeFileOrDirSync (fileName) {
+    console.log('try delete file: ' + fileName)
     // 是否存在
     if (!fileUtils.existsSync(fileName)) {
       return false

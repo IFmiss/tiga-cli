@@ -5,7 +5,7 @@ const repoUrl = 'IFmiss/tiga-template-react#master'
 
 module.exports = function (target) {
   return new Promise((resolve, reject) => {
-    let mergeTarget = path.join(target || 'tiga_project')
+    let mergeTarget = path.join(target || '.', '.download-temp')
     const spinner = ora(`正在下载项目模板...`)
 
     spinner.start()

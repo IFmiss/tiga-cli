@@ -142,7 +142,10 @@ async function start (projectInfo) {
       // }
       console.log(projectInfo)
       // initPackageJson(projectInfo)
-      initFile(projectInfo)
+      const newProjectInfo = Object.assign({}, projectInfo, {
+        downloadTemp: target
+      })
+      initFile(newProjectInfo)
     } catch (e) {
       // 失败了用红色，增强提示
       console.log(e);
