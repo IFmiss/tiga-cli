@@ -1,6 +1,10 @@
 const program = require('commander')
 
-program.version(require('./../package').version)
-        .usage('[Tiga] [项目名称]')
-        .command('init', '创建新项目')
+program.usage('tiga  <command>')
+        .version(require('./../package').version, '-v', 'output tiga version')
+        .description('tiga-cli')
+
+        .command('init [project-name]', 'create new project')
+        .command('update', 'update version')
+        .command('v', '版本查看')
         .parse(process.argv)

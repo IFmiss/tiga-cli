@@ -3,19 +3,17 @@ const Metalsmith = require('metalsmith')
 const path = require('path')
 const minimatch = require("minimatch")
 const fs = require('fs')
+const {
+  init: HandlebarsRegister
+} = require('./handlebars.register')
 
 const {
   existsSync,
-  removeFileOrDirSync
+  removeFileOrDirSync,
+  isImage
 } = require('./file')
 
-// 注册 equal 动作
-// handlebars.registerHelper('equal', function(v1, v2, options) {
-//   if(v1 === v2) {
-//     return options.fn(this);
-//   }
-//   return options.inverse(this);
-// });
+HandlebarsRegister()
 
 const Tpl = {
   initPackageJson: (projectInfo) => {
@@ -46,15 +44,23 @@ const Tpl = {
         const meta = metalsmith.metadata();
         Object.keys(files).forEach(fileName => {
           const fileText = files[fileName].contents.toString()
-          if (fileName === 'package.json') {
-            files[fileName].contents = handlebars.compile(fs.readFileSync(packjsonTemp).toString())(meta);
+          // 是否是图片
+          console.log(isImage(fileName), fileName)
+          if (isImage(fileName)) {
+            fs.copyFileSync(path.join(projectInfo.downloadTemp, fileName),
+                            path.join(projectInfo.name, fileName))
           } else {
-            files[fileName].contents = Buffer.from(handlebars.compile(fileText)(meta));
+            if (fileName === 'package.json') {
+              files[fileName].contents = handlebars.compile(fs.readFileSync(packjsonTemp).toString())(meta);
+            } else {
+              files[fileName].contents = Buffer.from(handlebars.compile(fileText)(meta));
+            }
           }
         })
         done();
       }).build(err => {
         removeFileOrDirSync(projectInfo.downloadTemp)
+        Tpl.removeIgnoreTemplate(projectInfo)
         err ? reject(err) : resolve(projectInfo)
       })
     })
@@ -82,7 +88,7 @@ const Tpl = {
               console.log('ignorePattern', ignorePattern)
               if (minimatch(fileName, ignorePattern)) {
                 delete files[fileName]
-                // console.log('delete -------------- ', path.join(projectInfo.downloadTemp, fileName))
+                console.log('delete -------------- ', path.join(projectInfo.downloadTemp, fileName))
                 await removeFileOrDirSync(path.join(projectInfo.downloadTemp, fileName))
               }
             })
@@ -94,6 +100,11 @@ const Tpl = {
         })
       }
     })
+  },
+
+  removeIgnoreTemplate: async (projectInfo) => {
+    const ignoreFile = path.join(projectInfo.name, 'templates.ignore')
+    await removeFileOrDirSync(ignoreFile)
   }
 }
 

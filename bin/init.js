@@ -2,9 +2,11 @@ const program = require('commander')
 const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
+const ora = require('ora')
 const inquirer = require('inquirer')
 inquirer.registerPrompt('selectLine', require('inquirer-select-line'));
 const download = require('./../utils/download')
+const chalk = require('chalk')
 
 const {
   isDirSync,
@@ -17,7 +19,8 @@ const {
 
 const {
   initPackageJson,
-  initFile
+  initFile,
+  removeIgnoreFile
 } = require('./../utils/template')
 
 
@@ -54,8 +57,7 @@ if (list.length) {
         }
       ]).then(answers => {
         if (answers.ok) {
-          removeFileOrDirSync(projectName)
-          inputBaseInfo(projectName)
+          inputBaseInfo(projectName, true)
           return
         }
       }).catch(err => {
@@ -70,7 +72,7 @@ if (list.length) {
 }
 
 // 安装之前需要下载的信息
-async function inputBaseInfo(name) {
+async function inputBaseInfo(name, cover) {
   let projectInfo = {
     name,
     rootName
@@ -112,7 +114,7 @@ async function inputBaseInfo(name) {
         name: 'useStyle',
         choices: ['less', 'scss', 'none'],
       }
-    ]).then(({ useRouter, useTypeScript, useStore, useStyle }) => {
+    ]).then(async ({ useRouter, useTypeScript, useStore, useStyle }) => {
       projectInfo = Object.assign({}, projectInfo, {
         useRouter,
         useTypeScript,
@@ -121,8 +123,25 @@ async function inputBaseInfo(name) {
       })
       // initPackageJson(projectInfo)
       // return
-      console.log('projectInfo', projectInfo)
-      start(projectInfo)
+      // console.log('projectInfo', projectInfo)
+      console.log()
+      console.log('====================')
+      console.log('====================')
+      console.log()
+
+      if (cover) {
+        Object.assign(projectInfo, {
+          coverDir: true
+        })
+        const spinner = ora()
+        spinner.start(`删除目录下已存在的 [${projectInfo.name}] 文件夹...  \n`)
+        // 为了防止 要覆盖的文件内容少导致无法渲染 start文案 而直接显示 succeed 文案结果的问题
+        await sleep(500)
+
+        await removeFileOrDirSync(projectName)
+        spinner.succeed(`[${projectInfo.name}] 原文件清除成功 \n`)
+      }
+      await start(projectInfo)
     })
   })
 }
@@ -145,7 +164,7 @@ async function start (projectInfo) {
       const newProjectInfo = Object.assign({}, projectInfo, {
         downloadTemp: target
       })
-      initFile(newProjectInfo)
+      removeIgnoreFile(newProjectInfo)
     } catch (e) {
       // 失败了用红色，增强提示
       console.log(e);

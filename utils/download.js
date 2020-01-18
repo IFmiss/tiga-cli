@@ -19,7 +19,10 @@ module.exports = function (target) {
         return
       }
 
-      spinner.succeed(`模版下载完成: \n cd ${mergeTarget} \n npm install \n`)
+      spinner.succeed(`模版下载完成: \n
+                       cd ${mergeTarget} \n
+                       npm install || yarn \n
+                       npm run dev || yarn dev`)
       resolve(mergeTarget)
     })
   }, (err) => {
