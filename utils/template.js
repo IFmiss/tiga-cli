@@ -2,7 +2,7 @@ const handlebars = require('handlebars')
 const Metalsmith = require('metalsmith')
 const path = require('path')
 const minimatch = require("minimatch")
-const fs = require('fs')
+const fs = require('fs-extra')
 const {
   init: HandlebarsRegister
 } = require('./handlebars.register')
@@ -66,7 +66,8 @@ const Tpl = {
     })
   },
 
-  removeIgnoreFile: (projectInfo) => {
+  removeIgnoreFile: async (projectInfo) => {
+    await Tpl.moveFileDirSync(projectInfo)
     return new Promise((resolve, reject) => {
       const metalsmith = Metalsmith(process.cwd())
                       .metadata(projectInfo)
@@ -105,6 +106,24 @@ const Tpl = {
   removeIgnoreTemplate: async (projectInfo) => {
     const ignoreFile = path.join(projectInfo.name, 'templates.ignore')
     await removeFileOrDirSync(ignoreFile)
+  },
+
+  moveFileDirSync: async (projectInfo) => {
+    if (projectInfo.useStore === 'none') {
+      return Promise.resolve(projectInfo)
+    }
+    return new Promise((resolve, reject) => {
+      const storeDir = path.join(projectInfo.downloadTemp, 'src/store')
+      const copyedDir = path.join(projectInfo.downloadTemp, 'src/store', projectInfo.useStore)
+      fs.copy(copyedDir, storeDir, err => {
+        if (err) {
+          console.error(err)
+          reject(err)
+          return
+        }
+        resolve(projectInfo)
+      })
+    })
   }
 }
 
