@@ -1,15 +1,19 @@
-const program = require('commander')
+#!/usr/bin/env node
+const program = require('commander');
 const {
   init
-} = require('./init')
+} = require('./init');
 
 program.on('--help', function(){
-     console.log('')
+     console.log('');
      console.log('Examples:');
      console.log('  [version]   tiga -v or --version');
      console.log('  [init]      tiga init test-file');
-     console.log('')
+     console.log('');
 })
+
+program
+		 .version(require('./../package').version, '-v, --version', 'tiga version')
 
 program
      .command('init [project]')
@@ -21,7 +25,4 @@ program
 
 program
      .command('update', 'update tiga version')
-
-program
-     .version(require('./../package').version, '-v, --version', 'tiga version')
      .parse(process.argv)
