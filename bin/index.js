@@ -1,7 +1,7 @@
+const program = require('commander')
 const {
   init
 } = require('./init')
-const program = require('commander')
 
 program.on('--help', function(){
      console.log('')
