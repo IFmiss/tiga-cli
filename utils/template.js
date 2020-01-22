@@ -45,7 +45,6 @@ const Tpl = {
         Object.keys(files).forEach(fileName => {
           const fileText = files[fileName].contents.toString()
           // 是否是图片
-          console.log(isImage(fileName), fileName)
           if (isImage(fileName)) {
             fs.copyFileSync(path.join(projectInfo.downloadTemp, fileName),
                             path.join(projectInfo.name, fileName))
@@ -58,9 +57,9 @@ const Tpl = {
           }
         })
         done();
-      }).build(err => {
-        removeFileOrDirSync(projectInfo.downloadTemp)
-        Tpl.removeIgnoreTemplate(projectInfo)
+      }).build(async err => {
+        await removeFileOrDirSync(projectInfo.downloadTemp)
+        await Tpl.removeIgnoreTemplate(projectInfo)
         err ? reject(err) : resolve(projectInfo)
       })
     })
@@ -84,12 +83,9 @@ const Tpl = {
                                     .split('\n').filter(item => !!item.length)
           Object.keys(files).forEach(fileName => {
             // 移除被忽略的文件
-            console.log('fileName', fileName)
             ignores.forEach(async ignorePattern => {
-              console.log('ignorePattern', ignorePattern)
               if (minimatch(fileName, ignorePattern)) {
                 delete files[fileName]
-                console.log('delete -------------- ', path.join(projectInfo.downloadTemp, fileName))
                 await removeFileOrDirSync(path.join(projectInfo.downloadTemp, fileName))
               }
             })
@@ -97,7 +93,7 @@ const Tpl = {
           done()
         }).build(err => {
           // removeFileOrDirSync(projectInfo.name)
-          err ? reject(err) : Tpl.initFile(projectInfo);
+          err ? reject(err) : resolve(projectInfo)
         })
       }
     })

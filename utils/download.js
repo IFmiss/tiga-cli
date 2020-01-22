@@ -3,29 +3,40 @@ const ora = require('ora')
 const path = require('path')
 const repoUrl = 'IFmiss/tiga-template-react#master'
 
-module.exports = function (target) {
-  return new Promise((resolve, reject) => {
-    let mergeTarget = path.join(target || '.', '.download-temp')
-    const spinner = ora(`正在下载项目模板...`)
+const Download = {
+  projectName: '',
 
-    spinner.start()
+  spinner: ora(`正在下载项目模板...`),
 
-    download(repoUrl, mergeTarget, {
-      clone: true
-    }, function (err) {
-      if (err) {
-        spinner.fail()
-        reject(err)
-        return
-      }
-
-      spinner.succeed(`模版下载完成: \n
-                       cd ${mergeTarget} \n
-                       npm install || yarn \n
-                       npm run dev || yarn dev`)
-      resolve(mergeTarget)
+  init: (target) => {
+    Download.projectName = target
+    return new Promise((resolve, reject) => {
+      let mergeTarget = path.join(target || '.', '.download-temp')
+  
+      Download.spinner.start()
+  
+      download(repoUrl, mergeTarget, {
+        clone: true
+      }, function (err) {
+        if (err) {
+          Download.spinner.fail()
+          reject(err)
+          return
+        }
+  
+        resolve(mergeTarget)
+      })
+    }, (err) => {
+      reject(err)
     })
-  }, (err) => {
-    reject(err)
-  })
+  },
+
+  finish: () => {
+    Download.spinner.succeed(`模版下载完成: \n 
+    cd ${Download.projectName} \n 
+    npm install || yarn \n
+    npm run dev || yarn dev  \n`)
+  }
 }
+
+module.exports = Download

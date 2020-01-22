@@ -1,10 +1,27 @@
+const {
+  init
+} = require('./init')
 const program = require('commander')
 
-program.usage('tiga  <command>')
-        .version(require('./../package').version, '-v', 'output tiga version')
-        .description('tiga-cli')
+program.on('--help', function(){
+     console.log('')
+     console.log('Examples:');
+     console.log('  [version]   tiga -v or --version');
+     console.log('  [init]      tiga init test-file');
+     console.log('')
+})
 
-        .command('init [project-name]', 'create new project')
-        .command('update', 'update version')
-        .command('v', '版本查看')
-        .parse(process.argv)
+program
+     .command('init [project]')
+     .action(function (name) {
+        if (name) {
+					init(name)
+        }
+		 })
+
+program
+     .command('update', 'update tiga version')
+
+program
+     .version(require('./../package').version, '-v, --version', 'tiga version')
+     .parse(process.argv)

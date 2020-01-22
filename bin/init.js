@@ -18,57 +18,54 @@ const {
 } = require('./../utils/utils')
 
 const {
-  initPackageJson,
-  initFile,
-  removeIgnoreFile
+  removeIgnoreFile,
+  initFile
 } = require('./../utils/template')
 
 
-program.usage('<project-name>')
-
-// 根据输入，获取项目名称
-console.log('process.argv', process.argv)
-
-const projectName = process.argv[2]
+let projectName = ''
 let rootName = path.basename(process.cwd())
 
-if (!projectName) {  // project-name 必填
-  // 相当于执行命令的--help选项，显示help信息，这是commander内置的一个命令选项
-  program.help()
-  return
-}
-
-const list = glob.sync('*')  // 遍历当前目录
-
-// 如果当前目录不为空
-if (list.length) {
-  // 判断文件是否存在
-  if (list.some(n => {
-    const fileName = path.resolve(process.cwd(), n);
-    const isDir = isDirSync(fileName);
-    return projectName === n && isDir
-  })) {
-    inquirer
-      .prompt([
-        {
-          name: 'ok',
-          type: 'confirm',
-          message: `项目名称: ${projectName} 已经存在, 确认覆盖此文件夹?`,
-        }
-      ]).then(answers => {
-        if (answers.ok) {
-          inputBaseInfo(projectName, true)
-          return
-        }
-      }).catch(err => {
-        throw err
-      })
+function init (name) {
+  console.log();
+  if (!name) {  // project-name 必填
+    // 相当于执行命令的--help选项，显示help信息，这是commander内置的一个命令选项
+    program.help()
     return
   }
-  inputBaseInfo(projectName)
-} else {
-    // rootName = projectName
-    inputBaseInfo(projectName)
+  
+  projectName = name
+  const list = glob.sync('*')  // 遍历当前目录
+  
+  // 如果当前目录不为空
+  if (list.length) {
+    // 判断文件是否存在
+    if (list.some(n => {
+      const fileName = path.resolve(process.cwd(), n);
+      const isDir = isDirSync(fileName);
+      return name === n && isDir
+    })) {
+      inquirer
+        .prompt([
+          {
+            name: 'ok',
+            type: 'confirm',
+            message: `项目名称: ${name} 已经存在, 确认覆盖此文件夹?`,
+          }
+        ]).then(answers => {
+          if (answers.ok) {
+            inputBaseInfo(name, true)
+            return
+          }
+        }).catch(err => {
+          throw err
+        })
+      return
+    }
+    inputBaseInfo(name)
+  } else {
+    inputBaseInfo(name)
+  }  
 }
 
 // 安装之前需要下载的信息
@@ -121,12 +118,7 @@ async function inputBaseInfo(name, cover) {
         useStore,
         useStyle
       })
-      // initPackageJson(projectInfo)
-      // return
-      // console.log('projectInfo', projectInfo)
-      console.log()
-      console.log('====================')
-      console.log('====================')
+
       console.log()
 
       if (cover) {
@@ -153,18 +145,15 @@ async function start (projectInfo) {
     fs.mkdirSync(name)
     await sleep(300)
     try {
-      const target = await download(name)
-      // const obj = {
-      //   name: name,
-      //   root: rootName,
-      //   downloadTemp: target
-      // }
-      console.log(projectInfo)
-      // initPackageJson(projectInfo)
+      const mergeTarget = await download.init(name)
+
       const newProjectInfo = Object.assign({}, projectInfo, {
-        downloadTemp: target
+        downloadTemp: mergeTarget
       })
-      removeIgnoreFile(newProjectInfo)
+      await removeIgnoreFile(newProjectInfo)
+      await initFile(newProjectInfo)
+      download.finish()
+
     } catch (e) {
       // 失败了用红色，增强提示
       console.log(e);
@@ -175,3 +164,6 @@ async function start (projectInfo) {
   program.help()
 }
 
+module.exports = {
+  init
+}
