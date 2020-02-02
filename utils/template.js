@@ -74,7 +74,7 @@ const Tpl = {
   /**
    * 根据 templates.ignore 删除不需要的文件
    */
-  removeIgnoreFile: async (projectInfo) => {
+  initIgnoreFile: async (projectInfo) => {
     await Tpl.moveFileDirSync(projectInfo)
     return new Promise((resolve, reject) => {
       const metalsmith = Metalsmith(process.cwd())
@@ -101,7 +101,6 @@ const Tpl = {
           })
           done()
         }).build(err => {
-          // removeFileOrDirSync(projectInfo.name)
           err ? reject(err) : resolve(projectInfo)
         })
       }

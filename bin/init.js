@@ -18,14 +18,19 @@ const {
 } = require('./../utils/utils')
 
 const {
-  removeIgnoreFile,
+  initIgnoreFile,
   initFile
 } = require('./../utils/template')
-
 
 let projectName = ''
 let rootName = path.basename(process.cwd())
 
+init('test_cli')
+
+/**
+ * 初始化动作，校验是否已有重名项目
+ * @param { String } name   项目名称
+ */
 function init (name) {
   console.log();
   if (!name) {  // project-name 必填
@@ -68,7 +73,11 @@ function init (name) {
   }  
 }
 
-// 安装之前需要下载的信息
+/**
+ * 安装之前需要下载的信息 
+ * @param { String } name   项目名称
+ * @param { Boolean } cover   是否需要覆盖文件夹
+ */
 async function inputBaseInfo(name, cover) {
   let projectInfo = {
     name,
@@ -161,7 +170,7 @@ async function start (projectInfo) {
       const newProjectInfo = Object.assign({}, projectInfo, {
         downloadTemp: mergeTarget
       })
-      await removeIgnoreFile(newProjectInfo)
+      await initIgnoreFile(newProjectInfo)
       await initFile(newProjectInfo)
       download.finish()
 
