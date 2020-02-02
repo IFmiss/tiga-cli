@@ -13,9 +13,15 @@ const {
   isImage
 } = require('./file')
 
+/**
+ * 注册 Handlebars 动作
+ */
 HandlebarsRegister()
 
 const Tpl = {
+  /**
+   * 初始化 package.json 文件
+   */
   initPackageJson: (projectInfo) => {
     const packageObj = {
       name: projectInfo.name,
@@ -65,6 +71,9 @@ const Tpl = {
     })
   },
 
+  /**
+   * 根据 templates.ignore 删除不需要的文件
+   */
   removeIgnoreFile: async (projectInfo) => {
     await Tpl.moveFileDirSync(projectInfo)
     return new Promise((resolve, reject) => {
@@ -99,11 +108,17 @@ const Tpl = {
     })
   },
 
+  /**
+   * 删除 templates.ignore
+   */
   removeIgnoreTemplate: async (projectInfo) => {
     const ignoreFile = path.join(projectInfo.name, 'templates.ignore')
     await removeFileOrDirSync(ignoreFile)
   },
 
+  /**
+   * 针对 状态 管理，mobx，redux 拷贝至store目录下
+   */
   moveFileDirSync: async (projectInfo) => {
     if (projectInfo.useStore === 'none') {
       return Promise.resolve(projectInfo)

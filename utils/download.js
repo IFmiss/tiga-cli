@@ -6,7 +6,7 @@ const repoUrl = 'IFmiss/tiga-template-react#master'
 const Download = {
   projectName: '',
 
-  spinner: ora(`正在下载项目模板...`),
+  spinner: ora(`正在下载项目模板... \n`),
 
   init: (target) => {
     Download.projectName = target
@@ -27,6 +27,7 @@ const Download = {
         resolve(mergeTarget)
       })
     }, (err) => {
+      Download.spinner.fail()
       reject(err)
     })
   },

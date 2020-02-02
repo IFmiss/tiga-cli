@@ -110,21 +110,24 @@ async function inputBaseInfo(name, cover) {
         message: '选择一个css 预处理 ?',
         name: 'useStyle',
         choices: ['less', 'scss', 'none'],
-      }, {
-        name: 'useGitManager',
-        type: 'confirm',
-        message: `是否使用 git hook ?`,
-      }, {
+      },
+      //  {
+      //   name: 'useGitManager',
+      //   type: 'confirm',
+      //   message: `是否使用 git hook ?`,
+      // },
+      {
         name: 'useTest',
         type: 'confirm',
         message: `是否使用 单元测试 (mocha) ?`,
       }
-    ]).then(async ({ useRouter, useTypeScript, useStore, useStyle }) => {
+    ]).then(async ({ useRouter, useTypeScript, useStore, useStyle, useTest }) => {
       projectInfo = Object.assign({}, projectInfo, {
         useRouter,
         useTypeScript,
         useStore,
-        useStyle
+        useStyle,
+        useTest
       })
 
       console.log()

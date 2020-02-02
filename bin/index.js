@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 const program = require('commander');
+
 const {
   init
 } = require('./init');
+
+const {
+	updateTiga
+} = require('./update')
 
 program.on('--help', function(){
      console.log('');
@@ -24,5 +29,8 @@ program
 		 })
 
 program
-     .command('update', 'update tiga version')
+		 .command('update', 'update tiga version')
+		 .action(function () {
+				updateTiga()
+		 })
      .parse(process.argv)

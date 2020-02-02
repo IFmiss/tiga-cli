@@ -6,9 +6,9 @@
 - [x] 可配置 typescript
 - [x] 可配置 redux, mobx 状态 管理
 - [x] 可配置 React-router
-- [ ] 可配置 git hook
 - [x] 开发环境 环境配置
-- [ ] 可选择 单元测试
+- [x] 可选择 单元测试
+- [ ] 可配置 git hook
 
 ## 安装
 ```code
