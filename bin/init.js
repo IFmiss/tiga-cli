@@ -25,8 +25,6 @@ const {
 let projectName = ''
 let rootName = path.basename(process.cwd())
 
-init('test_cli')
-
 /**
  * 初始化动作，校验是否已有重名项目
  * @param { String } name   项目名称
