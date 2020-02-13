@@ -1,19 +1,19 @@
 const download = require('download-git-repo')
 const ora = require('ora')
 const path = require('path')
-const repoUrl = 'IFmiss/tiga-template-react#git_commit_msg_02_13'
+const repoUrl = 'IFmiss/tiga-template-react#master'
 
 const Download = {
   projectName: '',
 
-  spinner: ora(`正在下载项目模板...`),
+  spinner: ora(),
 
   init: (target) => {
     Download.projectName = target
     return new Promise((resolve, reject) => {
       let mergeTarget = path.join(target || '.', '.download-temp')
   
-      Download.spinner.start()
+      Download.spinner.start('正在下载项目模板...')
   
       download(repoUrl, mergeTarget, {
         clone: true
@@ -23,7 +23,9 @@ const Download = {
           reject(err)
           return
         }
-  
+        
+        Download.spinner.text = ''
+        Download.spinner.stopAndPersist()
         resolve(mergeTarget)
       })
     }, (err) => {
@@ -33,7 +35,6 @@ const Download = {
   },
 
   finish: () => {
-    console.log()
     Download.spinner.succeed(`模版下载完成: \n 
     cd ${Download.projectName} \n 
     npm install || yarn \n

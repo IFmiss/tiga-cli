@@ -134,15 +134,7 @@ const Tpl = {
       path.join(projectInfo.downloadTemp, 'src/store', projectInfo.useStore),
       path.join(projectInfo.downloadTemp, 'src/store')
     ))
-    
-    // if (projectInfo.useGitHook) {
-    //   //  创建一个 .git 空文件夹，再复制 .git文件夹内容
-    //   fs.mkdirSync('.git')
-    //   moveTask.push(copy(
-    //     path.join(projectInfo.downloadTemp, 'git'),
-    //     path.join(projectInfo.downloadTemp, '.git')
-    //   ))
-    // }
+
     return Promise.all(moveTask)
   },
 

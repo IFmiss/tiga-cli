@@ -8,7 +8,9 @@ const {
 } = require('shelljs')
 
 const Task = {
-  spinner: ora('开始更新 tiga-cli ... \n'),
+  spinner: ora({
+    text: '开始更新 tiga-cli ...'
+  }),
   exec: async (script) => {
     try {
       await process.execSync(script)
@@ -27,6 +29,7 @@ const Task = {
       Task.spinner.warn(chalk.red(`[update] tiga-cli 更新失败 \n`))
       exit(1)
     }
+    console.log('\n')
     Task.spinner.succeed('[update]: tiga-cli 更新成功 \n')
   },
 }
