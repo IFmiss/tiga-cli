@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 const rm = require('rimraf').sync
 
@@ -42,6 +42,21 @@ const fileUtils = {
    */
    removeFileOrDirSync (fileName) {
     rm(fileName)
+  },
+
+  /**
+   * 复制文件
+   */
+  copy: (from, to) => {
+    return new Promise((resolve, reject) => {
+      fs.copy(from, to, err => {
+        if (err) {
+          reject(err)
+          return
+        }
+        resolve(to)
+      })
+    })
   }
 }
 

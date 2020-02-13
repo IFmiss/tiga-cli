@@ -6,7 +6,7 @@ const repoUrl = 'IFmiss/tiga-template-react#git_commit_msg_02_13'
 const Download = {
   projectName: '',
 
-  spinner: ora(`正在下载项目模板... \n`),
+  spinner: ora(`正在下载项目模板...`),
 
   init: (target) => {
     Download.projectName = target
@@ -33,6 +33,7 @@ const Download = {
   },
 
   finish: () => {
+    console.log()
     Download.spinner.succeed(`模版下载完成: \n 
     cd ${Download.projectName} \n 
     npm install || yarn \n

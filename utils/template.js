@@ -5,7 +5,8 @@ const minimatch = require("minimatch")
 const fs = require('fs-extra')
 const {
   exec,
-  exit
+  exit,
+  cd
 } = require('shelljs')
 const {
   init: HandlebarsRegister
@@ -14,7 +15,8 @@ const {
 const {
   existsSync,
   removeFileOrDirSync,
-  isImage
+  isImage,
+  copy
 } = require('./file')
 
 /**
@@ -121,33 +123,52 @@ const Tpl = {
 
   /**
    * 针对 状态 管理，mobx，redux 拷贝至store目录下
+   * git初始化文件的移动
    */
   moveFileDirSync: async (projectInfo) => {
+    let moveTask = []
     if (projectInfo.useStore === 'none') {
       return Promise.resolve(projectInfo)
     }
-    return new Promise((resolve, reject) => {
-      const storeDir = path.join(projectInfo.downloadTemp, 'src/store')
-      const copyedDir = path.join(projectInfo.downloadTemp, 'src/store', projectInfo.useStore)
-      fs.copy(copyedDir, storeDir, err => {
-        if (err) {
-          console.error(err)
-          reject(err)
-          return
-        }
-        resolve(projectInfo)
-      })
-    })
+    moveTask.push(copy(
+      path.join(projectInfo.downloadTemp, 'src/store', projectInfo.useStore),
+      path.join(projectInfo.downloadTemp, 'src/store')
+    ))
+    
+    // if (projectInfo.useGitHook) {
+    //   //  创建一个 .git 空文件夹，再复制 .git文件夹内容
+    //   fs.mkdirSync('.git')
+    //   moveTask.push(copy(
+    //     path.join(projectInfo.downloadTemp, 'git'),
+    //     path.join(projectInfo.downloadTemp, '.git')
+    //   ))
+    // }
+    return Promise.all(moveTask)
   },
 
   /**
    * 初始化 git hook （实际上是初始化 git 环境）
    */
-  initGitHook: async () => {
-    if (exec('git init').code !== 0) {
-      console.log(chalk.red(`git init 初始化失败 \n`))
-      exit(1)
-    }
+  initGitHook: (path) => {
+    console.log('')
+    return new Promise((resolve, reject) => {
+      if (cd(path).code !== 0) {
+        console.log(chalk.red(`无法进入[${path}]目录执行git初始化 \n`))
+        exit(1)
+        reject()
+      }
+  
+      if (exec('git init').code !== 0) {
+        console.log(chalk.red(`git init 初始化失败 \n`))
+        exit(1)
+        reject()
+      }
+
+      console.log('')
+      console.log('git init 初始化成功')
+      console.log('')
+      resolve()
+    })
   }
 }
 

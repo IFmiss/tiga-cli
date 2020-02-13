@@ -1,7 +1,7 @@
 {
   "name": "tiga-cli",
   "version": "1.0.4",
-  "description": "tiga cli",
+  "description": "Quickly build a react project",
   "bin": {
     "tiga": "./bin/index.js"
   },
@@ -13,7 +13,9 @@
     "url": "git+https://github.com/IFmiss/Tiga.git"
   },
   "keywords": [
-    "tiga"
+    "tiga",
+    "tiga-cli",
+    "react-cli"
   ],
   "author": "",
   "license": "ISC",

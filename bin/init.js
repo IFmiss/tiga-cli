@@ -172,7 +172,7 @@ async function start (projectInfo) {
       })
       await initIgnoreFile(newProjectInfo)
       await initFile(newProjectInfo)
-      newProjectInfo.useGitHook && await initGitHook()
+      newProjectInfo.useGitHook && await initGitHook(name)
       download.finish()
 
     } catch (e) {
