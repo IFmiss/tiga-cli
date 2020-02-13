@@ -1,6 +1,6 @@
 {
   "name": "tiga-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "tiga cli",
   "bin": {
     "tiga": "./bin/index.js"

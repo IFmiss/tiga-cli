@@ -9,7 +9,7 @@
 - [x] 可配置 React-router
 - [x] 开发环境 环境配置
 - [x] 可选择 单元测试 mocha
-- [ ] 可配置 git hook
+- [x] 可配置 git hook
 
 ## 安装
 ```code
