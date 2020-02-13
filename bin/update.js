@@ -23,15 +23,12 @@ const Task = {
 
   updateTiga: () => {
     Task.spinner.start()
-    // Task.exec('npm install -g tiga-cli')
-    if (exec('npm install -g tiga-cli').code !== 0) {
+    if (exec('npm update tiga-cli -g').code !== 0) {
       Task.spinner.warn(chalk.red(`[update] tiga-cli 更新失败 \n`))
       exit(1)
     }
     Task.spinner.succeed('[update]: tiga-cli 更新成功 \n')
   },
 }
-
-Task.updateTiga()
 
 module.exports = Task
