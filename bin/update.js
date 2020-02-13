@@ -2,8 +2,13 @@ const chalk = require('chalk')
 const ora = require('ora')
 const process = require('child_process');
 
+const {
+  exec,
+  exit
+} = require('shelljs')
+
 const Task = {
-  spinner: ora('开始更新 tiga-cli ...'),
+  spinner: ora('开始更新 tiga-cli ... \n'),
   exec: async (script) => {
     try {
       await process.execSync(script)
@@ -18,8 +23,15 @@ const Task = {
 
   updateTiga: () => {
     Task.spinner.start()
-    Task.exec('npm install -g tiga-cli')
+    // Task.exec('npm install -g tiga-cli')
+    if (exec('npm install -g tiga-cli').code !== 0) {
+      Task.spinner.warn(chalk.red(`[update] tiga-cli 更新失败 \n`))
+      exit(1)
+    }
+    Task.spinner.succeed('[update]: tiga-cli 更新成功 \n')
   },
 }
+
+Task.updateTiga()
 
 module.exports = Task

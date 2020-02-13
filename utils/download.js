@@ -1,7 +1,7 @@
 const download = require('download-git-repo')
 const ora = require('ora')
 const path = require('path')
-const repoUrl = 'IFmiss/tiga-template-react#master'
+const repoUrl = 'IFmiss/tiga-template-react#git_commit_msg_02_13'
 
 const Download = {
   projectName: '',

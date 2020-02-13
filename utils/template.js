@@ -4,6 +4,10 @@ const path = require('path')
 const minimatch = require("minimatch")
 const fs = require('fs-extra')
 const {
+  exec,
+  exit
+} = require('shelljs')
+const {
   init: HandlebarsRegister
 } = require('./handlebars.register')
 
@@ -134,6 +138,16 @@ const Tpl = {
         resolve(projectInfo)
       })
     })
+  },
+
+  /**
+   * 初始化 git hook （实际上是初始化 git 环境）
+   */
+  initGitHook: async () => {
+    if (exec('git init').code !== 0) {
+      console.log(chalk.red(`git init 初始化失败 \n`))
+      exit(1)
+    }
   }
 }
 

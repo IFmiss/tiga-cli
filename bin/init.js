@@ -19,11 +19,14 @@ const {
 
 const {
   initIgnoreFile,
-  initFile
+  initFile,
+  initGitHook
 } = require('./../utils/template')
 
 let projectName = ''
 let rootName = path.basename(process.cwd())
+
+init('test_cli')
 
 /**
  * 初始化动作，校验是否已有重名项目
@@ -118,23 +121,24 @@ async function inputBaseInfo(name, cover) {
         name: 'useStyle',
         choices: ['less', 'scss', 'none'],
       },
-      //  {
-      //   name: 'useGitManager',
-      //   type: 'confirm',
-      //   message: `是否使用 git hook ?`,
-      // },
+       {
+        name: 'useGitHook',
+        type: 'confirm',
+        message: `是否使用 git hook ?`,
+      },
       {
         name: 'useTest',
         type: 'confirm',
         message: `是否使用 单元测试 (mocha) ?`,
       }
-    ]).then(async ({ useRouter, useTypeScript, useStore, useStyle, useTest }) => {
+    ]).then(async ({ useRouter, useTypeScript, useStore, useStyle, useTest, useGitHook }) => {
       projectInfo = Object.assign({}, projectInfo, {
         useRouter,
         useTypeScript,
         useStore,
         useStyle,
-        useTest
+        useTest,
+        useGitHook
       })
 
       console.log()
@@ -170,6 +174,7 @@ async function start (projectInfo) {
       })
       await initIgnoreFile(newProjectInfo)
       await initFile(newProjectInfo)
+      newProjectInfo.useGitHook && await initGitHook()
       download.finish()
 
     } catch (e) {
