@@ -1,6 +1,6 @@
 {
   "name": "tiga-cli",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Quickly build a react project",
   "bin": {
     "tiga": "./bin/index.js"
