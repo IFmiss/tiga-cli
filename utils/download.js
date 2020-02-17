@@ -15,9 +15,7 @@ const Download = {
   
       Download.spinner.start('正在下载项目模板...')
   
-      download(repoUrl, mergeTarget, {
-        clone: true
-      }, function (err) {
+      download(repoUrl, mergeTarget, {}, function (err) {
         if (err) {
           Download.spinner.fail()
           reject(err)

@@ -2,7 +2,7 @@
 
 基于react的前端脚手架
 
-支持一下功能
+支持以下功能
 - [x] 可配置 css 预处理 less, scss
 - [x] 可配置 typescript
 - [x] 可配置 redux, mobx 状态 管理
