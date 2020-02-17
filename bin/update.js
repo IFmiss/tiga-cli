@@ -25,7 +25,7 @@ const Task = {
 
   updateTiga: () => {
     Task.spinner.start()
-    if (exec('npm update tiga-cli global').code !== 0) {
+    if (exec('npm update tiga-cli -g').code !== 0) {
       Task.spinner.warn(chalk.red(`[update] tiga-cli 更新失败 \n`))
       exit(1)
     }
