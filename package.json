@@ -1,0 +1,24 @@
+{
+  "name": "root",
+  "private": true,
+  "description": "Quickly build web projects",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "b": "lerna bootstrap & lerna link",
+    "dev": "lerna run dev --stream",
+    "build": "lerna run build --stream"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IFmiss/tiga-cli.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "author": "ifmiss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IFmiss/tiga-cli/issues"
+  },
+  "homepage": "https://github.com/IFmiss/tiga-cli#readme"
+}
