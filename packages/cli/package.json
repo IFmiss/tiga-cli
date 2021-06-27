@@ -2,6 +2,7 @@
   "name": "tiga-cli",
   "version": "2.0.0",
   "description": "Quickly build web projects",
+  "type": "module",
   "bin": {
     "tiga": "./dist/index.js"
   },
