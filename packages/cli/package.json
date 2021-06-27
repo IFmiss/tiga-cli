@@ -2,7 +2,9 @@
   "name": "tiga-cli",
   "version": "2.0.0",
   "description": "Quickly build web projects",
-  "main": "index.js",
+  "bin": {
+    "tiga": "./dist/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.ts",
@@ -29,6 +31,7 @@
     "eslint": "^7.29.0",
     "eslint-plugin-prettier": "^3.4.0",
     "lerna": "^4.0.0",
+    "nodemon": "^2.0.7",
     "prettier": "^2.3.1",
     "rollup": "^2.52.2",
     "rollup-plugin-clear": "^2.0.7",

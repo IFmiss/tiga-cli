@@ -14,16 +14,9 @@ import { terser } from 'rollup-plugin-terser';
 export default {
   input: `index.ts`,
   output: [{
-    file: `dist/cjs/index.js`,
+    file: `dist/index.js`,
     format: 'cjs',
-  }, {
-    file: `dist/esm/index.js`,
-    format: 'esm',
-    exports: 'named',
-  }, {
-    file: `dist/umd/index.js`,
-    format: 'umd',
-    name: 'index.js',
+    banner: '#!/usr/bin/env node'
   }],
   plugins: [
     clear({
