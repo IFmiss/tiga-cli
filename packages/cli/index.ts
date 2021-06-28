@@ -1,6 +1,6 @@
-#!/usr/bin/env node
-const program = require('commander');
+const { program } = require('commander');
 const pkg = require('./package.json');
+import exec from './exec';
 
 // outputHelp
 program.on('--help', function () {
@@ -22,7 +22,7 @@ program
   .action(function (name, otherD, cmd) {
     if (name) {
       console.info('name', name, otherD, cmd);
-      // init(name)
+      exec.init(name, cmd)
     }
   });
 

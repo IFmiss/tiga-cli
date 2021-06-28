@@ -14,7 +14,7 @@ import { terser } from 'rollup-plugin-terser';
 export default {
   input: `index.ts`,
   output: [{
-    file: `dist/index.js`,
+    file: `tiga.js`,
     format: 'cjs',
     banner: '#!/usr/bin/env node'
   }],

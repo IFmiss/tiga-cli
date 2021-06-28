@@ -4,7 +4,7 @@
   "description": "Quickly build web projects",
   "type": "module",
   "bin": {
-    "tiga": "./dist/index.js"
+    "tiga": "./tiga.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
