@@ -1,3 +1,3 @@
-export function init(name, cmd) {
-  console.info('init')
+export default function init(name, options) {
+  console.info('init', name, options)
 }

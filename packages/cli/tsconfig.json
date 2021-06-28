@@ -5,6 +5,6 @@
     "__tests__/**/*"
   ],
   "compilerOptions": {
-    "module": "ESNext"
+    "module": "commonjs"
   }
 }
