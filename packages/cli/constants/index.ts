@@ -18,15 +18,18 @@ export const LAYOUT_MAP: {
   viewport: '移动端 viewport 适配解决方案'
 };
 
-type TypeCreateCss = 'less' | 'style-component';
+type TypeCss = 'less' | 'style-component';
 
-type PkgTool = 'pnpm' | 'npm' | 'yarn';
+type TypePkgTool = 'pnpm' | 'yarn' | 'npm';
+
+type TypeLint = 'eslint' | 'prettier' | 'commitlint' | 'stylelint';
 
 type TypeCreateOptions = {
   name: string;
   git?: boolean;
-  css?: TypeCreateCss;
+  css?: TypeCss;
   layout?: TypeLayoutTemplate;
   template?: TypeTemplate;
-  pkgtool?: PkgTool;
+  pkgtool?: TypePkgTool;
+  lint?: TypeLint;
 };

@@ -6,6 +6,11 @@ export async function rmFileOrDir(path: string) {
   rm(path);
 }
 
+export async function overWriteProject() {
+  const pwd = process.cwd();
+  console.info(pwd);
+}
+
 export function isDirSync(fileName: string) {
   const stat = fs.statSync(fileName);
   return stat.isDirectory();
