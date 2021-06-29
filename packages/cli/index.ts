@@ -4,7 +4,7 @@ const pkg = require('./package.json');
 import { Command } from 'commander';
 import chalk from 'chalk';
 import leven from 'leven';
-import { init } from './exec';
+import { create } from './exec';
 
 const program = new Command();
 
@@ -21,14 +21,13 @@ program
   .usage('<command> [options]')
 
 program
-  .command('init <name>')
+  .command('create <name>')
   .description('create a new project powered by tiga-cli')
-  .option('-r, --recursive, --recursive <type>', 'Remove recursively')
-  .option('-d --drink [drink]')
+  .option('-t --typescript', 'use typescript')
   .option('-g --git', 'use git')
   .action((name, options) => {
     if (name) {
-      init(name, options)
+      create(name, options)
     }
   })
 

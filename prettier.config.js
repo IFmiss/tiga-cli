@@ -8,5 +8,5 @@ module.exports = {
   // 是否使用单引号包裹字符串，默认为false
   singleQuote: true,
   // 列宽，默认为80
-  printWidth: 80,
+  printWidth: 80
 };
