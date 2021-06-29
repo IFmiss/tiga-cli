@@ -10,6 +10,7 @@ import { rmFileOrDir } from '../utils/file';
 export default async function create(name, options) {
   // create
   const needOverWrite = await checkOverwrite();
+
   if (needOverWrite) {
     // 清楚当前目录
     const spinner = ora();

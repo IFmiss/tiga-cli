@@ -17,3 +17,16 @@ export const LAYOUT_MAP: {
   rem: '移动端rem解决方案',
   viewport: '移动端 viewport 适配解决方案'
 };
+
+type TypeCreateCss = 'less' | 'style-component';
+
+type PkgTool = 'pnpm' | 'npm' | 'yarn';
+
+type TypeCreateOptions = {
+  name: string;
+  git?: boolean;
+  css?: TypeCreateCss;
+  layout?: TypeLayoutTemplate;
+  template?: TypeTemplate;
+  pkgtool?: PkgTool;
+};
