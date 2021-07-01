@@ -1,9 +1,16 @@
-import rm from 'rimraf';
+const rm = require('rimraf').sync;
 import fs from 'fs-extra';
-import path from 'path';
+import glob from 'glob';
 
-export async function rmFileOrDir(path: string) {
+export function rmFileOrDir(path: string) {
   rm(path);
+}
+
+export function rmAllFromDir(dirPath: string) {
+  glob.sync(dirPath).forEach((path) => {
+    console.info(path);
+    rm(path);
+  });
 }
 
 export async function overWriteProject() {

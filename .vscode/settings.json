@@ -3,6 +3,7 @@
   "eslint.alwaysShowStatus": true,
   "eslint.debug": true,
   "eslint.format.enable": true,
+  "editor.tabSize": 2,
   "eslint.validate": [
     "javascript",
     "javascriptreact",

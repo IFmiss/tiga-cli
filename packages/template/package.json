@@ -1,5 +1,5 @@
 {
-  "name": "@tiga-cli/template",
+  "name": "tiga-cli-template",
   "version": "0.0.0",
   "description": "cli template",
   "author": "wei-d <wei.d@binance.us>",
@@ -40,5 +40,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "tiga-cli": "^2.0.0"
   }
 }

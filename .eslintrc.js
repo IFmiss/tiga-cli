@@ -27,7 +27,7 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   rules: {
-    '@typescript-eslint/indent': ['warn', 2],
+    '@typescript-eslint/indent': 0,
     '@typescript-eslint/no-empty-interface': ['off'],
     '@typescript-eslint/camelcase': ['off'],
     'react-hooks/rules-of-hooks': 'error',

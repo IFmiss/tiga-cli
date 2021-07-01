@@ -2,26 +2,32 @@ type InitOptions = {};
 
 import inquirer, { QuestionCollection } from 'inquirer';
 import glob from 'glob';
+import {
+  CSS_MAP,
+  DEFAULT_CREATE_OPTOPNS,
+  RenderTemplateOptions,
+  TypeCreateOptions
+} from './../constants/index';
+import { v4 as uuid } from 'uuid';
 import ora from 'ora';
 import { INIT_FILE, LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
-import { rmFileOrDir } from '../utils/file';
+import { rmAllFromDir } from '../utils/file';
 
-let mergeOptions = {
-  name: 'tiga-test',
-  git: false
-};
-
-export default async function create(name, options) {
-  console.info('options', options);
-  // create
+export default async function create(
+  name: string,
+  options: Omit<TypeCreateOptions, 'name'>
+) {
+  // check overwrite before create
   const overwrite = await checkOverwrite();
 
-  // 第一次 check
-  mergeOptions = Object.assign({}, mergeOptions, {
-    overwrite
+  const mergeOptions = Object.assign({}, DEFAULT_CREATE_OPTOPNS, {
+    overwrite,
+    name
   });
 
-  // 初始化配置
+  console.info('123123');
+
+  // init config
   const config = await inquirer.prompt([
     ...baseQuestions,
     ...layoutQuestions,
@@ -30,18 +36,32 @@ export default async function create(name, options) {
     ...pkgtoolQuestions
   ]);
 
-  // 最终合并
-  mergeOptions = Object.assign({}, mergeOptions, config);
+  const renderTplOptions: RenderTemplateOptions = Object.assign(
+    {},
+    mergeOptions,
+    {
+      ...config,
+      uuid: uuid(),
+      path: process.cwd(),
+      date: new Date().toString(),
+      templatePkg: TEMPLATE_MAP[config?.template || 'react-spa'].pkg
+    }
+  );
 
-  console.info(mergeOptions);
+  console.info('renderTplOptions', renderTplOptions);
 
-  // 开始构建前，二次确认是否覆盖
+  // double confirm before create
   if (overwrite) {
-    await checkOverwrite(true);
+    const res = await checkOverwrite(true);
+    res && rmAllFromDir(renderTplOptions.path);
   }
+
+  // create template
+  const module = await import(renderTplOptions.templatePkg);
+  module.default(renderTplOptions);
 }
 
-// 是否需要校验
+// check need overwrite
 const checkOverwrite = async (comfirm2nd: boolean = false) => {
   const list = glob.sync('*');
   return new Promise((resolve, reject) => {
@@ -63,7 +83,7 @@ const checkOverwrite = async (comfirm2nd: boolean = false) => {
           }
         });
     } else {
-      return Promise.resolve(false);
+      resolve(false);
     }
   });
 };
@@ -73,19 +93,22 @@ const baseQuestions: Array<QuestionCollection> = [
     name: 'template',
     message: '请选择项目类型',
     type: 'list',
-    choices: Object.entries(TEMPLATE_MAP)[1],
-    when: () => {
-      return true;
+    choices: () => {
+      return Object.entries(TEMPLATE_MAP).map((item) => ({
+        name: item[1].description,
+        value: item[0]
+      }));
     }
   },
   {
     name: 'css',
     message: 'css 预处理模式 (都支持 css modules)',
     type: 'list',
-    choices: ['less', 'style-component'],
-    when: (answer) => {
-      console.info('answer', answer);
-      return true;
+    choices: () => {
+      return Object.entries(CSS_MAP).map((item) => ({
+        name: item[1],
+        value: item[0]
+      }));
     }
   }
 ];
@@ -95,9 +118,11 @@ const layoutQuestions: Array<QuestionCollection> = [
     name: 'layout',
     message: 'layout 格式',
     type: 'list',
-    choices: Object.entries(LAYOUT_MAP)[1],
-    when: () => {
-      return true;
+    choices: () => {
+      return Object.entries(LAYOUT_MAP).map((item) => ({
+        name: item[1],
+        value: item[0]
+      }));
     }
   }
 ];
@@ -106,10 +131,7 @@ const typescriptQuestions: Array<QuestionCollection> = [
   {
     name: 'typescript',
     message: '使用typescript？',
-    type: 'confirm',
-    when: () => {
-      return true;
-    }
+    type: 'confirm'
   }
 ];
 
