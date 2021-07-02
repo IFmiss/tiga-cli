@@ -1,11 +1,8 @@
 {
-  "name": "tiga-cli",
-  "version": "2.0.0",
-  "description": "Quickly build web projects",
+  "name": "react-spa",
+  "version": "0.0.1",
+  "description": "react-spa",
   "main": "index.ts",
-  "bin": {
-    "tiga": "./bin/tiga.js"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.ts",
@@ -30,7 +27,6 @@
     "@types/commander": "^2.12.2",
     "@types/inquirer": "^7.3.2",
     "@types/node": "^15.12.4",
-    "@types/shelljs": "^0.8.8",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
     "eslint": "^7.29.0",
@@ -56,9 +52,7 @@
     "inquirer": "^8.1.1",
     "leven": "^3.1.0",
     "rimraf": "^3.0.2",
-    "shelljs": "^0.8.4",
     "slash": "^4.0.0",
-    "tiga-cli-template": "^0.0.0",
     "uuid": "^8.3.2"
   }
 }

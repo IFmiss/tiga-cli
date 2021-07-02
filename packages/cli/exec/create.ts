@@ -8,17 +8,20 @@ import {
   RenderTemplateOptions,
   TypeCreateOptions
 } from './../constants/index';
+import path from 'path';
 import { v4 as uuid } from 'uuid';
 import ora from 'ora';
 import { INIT_FILE, LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
-import { rmAllFromDir } from '../utils/file';
+import { isDirSync, mkdir, rmFileOrDir } from '../utils/file';
+import checkPkgTool from '../utils/checkPkgTool';
+import install from '../utils/install';
 
 export default async function create(
   name: string,
   options: Omit<TypeCreateOptions, 'name'>
 ) {
   // check overwrite before create
-  const overwrite = await checkOverwrite();
+  const overwrite = await checkOverwrite(name);
 
   const mergeOptions = Object.assign({}, DEFAULT_CREATE_OPTOPNS, {
     overwrite,
@@ -42,7 +45,8 @@ export default async function create(
     {
       ...config,
       uuid: uuid(),
-      path: process.cwd(),
+      runtimePath: process.cwd(),
+      projectPath: `${process.cwd()}/${name}`,
       date: new Date().toString(),
       templatePkg: TEMPLATE_MAP[config?.template || 'react-spa'].pkg
     }
@@ -52,20 +56,32 @@ export default async function create(
 
   // double confirm before create
   if (overwrite) {
-    const res = await checkOverwrite(true);
-    res && rmAllFromDir(renderTplOptions.path);
+    const res = await checkOverwrite(name, true);
+    res && rmFileOrDir(renderTplOptions.projectPath);
   }
+
+  // rebuild dir
+  mkdir(renderTplOptions.projectPath);
 
   // create template
   const module = await import(renderTplOptions.templatePkg);
   module.default(renderTplOptions);
+
+  // run install
+  await install(renderTplOptions);
 }
 
 // check need overwrite
-const checkOverwrite = async (comfirm2nd: boolean = false) => {
+const checkOverwrite = async (name, comfirm2nd: boolean = false) => {
   const list = glob.sync('*');
   return new Promise((resolve, reject) => {
-    if (list.length) {
+    if (
+      // check dir name exist
+      list.some((n) => {
+        const isDir = isDirSync(path.resolve(process.cwd(), n));
+        return name === n && isDir;
+      })
+    ) {
       inquirer
         .prompt({
           name: 'overwrite',
@@ -78,7 +94,7 @@ const checkOverwrite = async (comfirm2nd: boolean = false) => {
           if (overwrite) {
             resolve(overwrite);
           } else {
-            console.info('cancel');
+            reject('cancel');
             process.exit(0);
           }
         });

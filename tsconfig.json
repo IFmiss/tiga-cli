@@ -16,6 +16,7 @@
     "downlevelIteration": true,
     "allowJs": false,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "typeRoots": [
       "node_modules/@types",
       "global.d.ts",

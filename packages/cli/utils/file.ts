@@ -6,11 +6,8 @@ export function rmFileOrDir(path: string) {
   rm(path);
 }
 
-export function rmAllFromDir(dirPath: string) {
-  glob.sync(dirPath).forEach((path) => {
-    console.info(path);
-    rm(path);
-  });
+export function mkdir(dirPath: string) {
+  dirPath && fs.ensureDirSync(dirPath, { mode: 0o2777 });
 }
 
 export async function overWriteProject() {

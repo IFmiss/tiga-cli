@@ -1,12 +1,12 @@
-type TypeTemplate = 'react-spa' | 'react-components';
+export type TypeTemplate = 'react-spa' | 'react-components';
 
-type TypeLayoutTemplate = 'px' | 'viewport' | 'rem';
+export type TypeLayoutTemplate = 'px' | 'viewport' | 'rem';
 
-type TypeCss = 'less' | 'scss' | 'stylus' | 'style-component';
+export type TypeCss = 'less' | 'scss' | 'stylus' | 'style-component';
 
-type TypePkgTool = 'pnpm' | 'yarn' | 'npm';
+export type TypePkgTool = 'pnpm' | 'yarn' | 'npm';
 
-type TypeLint = 'eslint' | 'prettier' | 'commitlint' | 'stylelint';
+export type TypeLint = 'eslint' | 'prettier' | 'commitlint' | 'stylelint';
 
 export const INIT_FILE = 'init.json';
 
@@ -69,5 +69,6 @@ export type RenderTemplateOptions = {
   uuid: string;
   templatePkg: string;
   date: string;
-  path: string;
+  runtimePath: string;
+  projectPath: string;
 } & TypeCreateOptions;
