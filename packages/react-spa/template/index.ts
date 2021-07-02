@@ -1,5 +1,5 @@
-import { fmtUpStart } from '../../utils/str';
-import tplExp from '../../utils/tplExp';
+import { fmtUpStart } from '../utils/str';
+import tplExp from '../utils/tplExp';
 import type { RenderTemplateOptions } from 'tiga-cli';
 
 export default function compileIndex(options: RenderTemplateOptions): string {

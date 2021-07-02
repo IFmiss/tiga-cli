@@ -1,6 +1,5 @@
 const rm = require('rimraf').sync;
 import fs from 'fs-extra';
-import glob from 'glob';
 
 export function rmFileOrDir(path: string) {
   rm(path);

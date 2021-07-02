@@ -10,11 +10,11 @@ import {
 } from './../constants/index';
 import path from 'path';
 import { v4 as uuid } from 'uuid';
-import ora from 'ora';
-import { INIT_FILE, LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
+import { LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
 import { isDirSync, mkdir, rmFileOrDir } from '../utils/file';
-import checkPkgTool from '../utils/checkPkgTool';
 import install from '../utils/install';
+import Spinner from '../utils/spinner';
+import signale, { warn, info, error, success } from '../utils/logger';
 
 export default async function create(
   name: string,
@@ -27,8 +27,6 @@ export default async function create(
     overwrite,
     name
   });
-
-  console.info('123123');
 
   // init config
   const config = await inquirer.prompt([
@@ -52,12 +50,13 @@ export default async function create(
     }
   );
 
-  console.info('renderTplOptions', renderTplOptions);
-
   // double confirm before create
   if (overwrite) {
     const res = await checkOverwrite(name, true);
-    res && rmFileOrDir(renderTplOptions.projectPath);
+    if (res) {
+      info(`开始清除已存在的${name}项目`);
+      rmFileOrDir(renderTplOptions.projectPath);
+    }
   }
 
   // rebuild dir

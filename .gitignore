@@ -1,6 +1,8 @@
 /node_modules/
 /dist/
+/__test__/
 /build/
 /packages/**/node_modules/
+/packages/**/__test__/
 .DS_Store
 

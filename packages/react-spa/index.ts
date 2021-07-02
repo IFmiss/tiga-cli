@@ -1,4 +1,4 @@
-import renderContextFile from '../utils/render';
+import renderContextFile from './utils/render';
 import compileIndex from './template/index';
 import pkg from './template/package.json';
 import * as fsExtra from 'fs-extra';
@@ -11,7 +11,7 @@ export default function renderRCC(options: RenderTemplateOptions) {
 
   const TPL_MAP = {
     [`index.${reactExt}`]: renderContextFile(compileIndex, options),
-    [`package.json`]: JSON.stringify(pkg, undefined, 2)
+    [`package.json`]: JSON.stringify(pkg, null, 2)
   };
 
   for (const [k, v] of Object.entries(TPL_MAP)) {

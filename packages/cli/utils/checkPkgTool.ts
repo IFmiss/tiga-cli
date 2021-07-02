@@ -1,15 +1,13 @@
 import { spawnSync } from 'child_process';
 import type { TypePkgTool } from './../constants';
 
-import ora from 'ora';
 import inquirer from 'inquirer';
-
-const spinner = ora();
+import { error, warn } from './logger';
 
 export default function checkPkgTool(pkgTool: TypePkgTool) {
   let hasPkgTool = false;
   return new Promise((resolve, reject) => {
-    const { status } = spawnSync(`${pkgTool} -v`, {
+    const { status } = spawnSync(pkgTool, ['-v'], {
       stdio: 'ignore'
     });
 
@@ -20,7 +18,7 @@ export default function checkPkgTool(pkgTool: TypePkgTool) {
 
     if (!hasPkgTool) {
       if (pkgTool === 'npm') {
-        spinner.warn(`缺少 npm 包管理工具, 请自行安装`);
+        warn(`缺少 npm 包管理工具, 请自行安装`);
         reject();
         process.exit(0);
       }
@@ -37,19 +35,15 @@ export default function checkPkgTool(pkgTool: TypePkgTool) {
             process.exit(0);
           }
 
-          spinner.start();
-
           const { status } = spawnSync(`npm install -g ${pkgTool} --color`, {
             shell: true,
             stdio: 'inherit'
           });
           if (status === 0) {
-            spinner.stop();
             resolve(true);
           } else {
-            spinner.stop();
             reject();
-            console.info(`${pkgTool}安装失败`);
+            error(`${pkgTool}安装失败`);
             process.exit(0);
           }
         });

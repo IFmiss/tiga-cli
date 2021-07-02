@@ -13,20 +13,29 @@ import { terser } from 'rollup-plugin-terser';
 
 export default {
   input: `index.ts`,
-  output: [{
-    file: `tiga.js`,
-    format: 'cjs',
-    banner: '#!/usr/bin/env node'
-  }],
+  output: [
+    {
+      file: 'dist/index.js',
+      format: 'cjs',
+      banner: '#!/usr/bin/env node'
+    }
+  ],
   plugins: [
     clear({
       targets: ['dist']
     }),
     json(),
-    typescript2(),
+    typescript2({
+      tsconfigOverride: {
+        compilerOptions: {
+          module: 'esnext'
+        }
+      }
+    }),
     babel({
       exclude: 'node_modules/**',
-      babelHelpers: 'runtime'
+      babelHelpers: 'runtime',
+      skipPreflightCheck: true
     }),
     resolve({
       mainFields: 'main',
@@ -36,16 +45,8 @@ export default {
       include: 'node_modules/**',
       sourceMap: true,
       namedExports: {
-        react: [
-          'useState',
-          'useEffect',
-          'useMemo',
-          'useCallBack',
-          'useRef'
-        ],
-        'react-router-dom': [
-          'useLocation'
-        ]
+        react: ['useState', 'useEffect', 'useMemo', 'useCallBack', 'useRef'],
+        'react-router-dom': ['useLocation']
       }
     }),
     terser({
