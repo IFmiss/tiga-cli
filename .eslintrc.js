@@ -25,7 +25,6 @@ module.exports = {
       version: 'detect'
     }
   },
-  ignorePatterns: ['/node_modules/', '/dist/'],
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   rules: {
     '@typescript-eslint/indent': 0,

@@ -12,9 +12,14 @@ import path from 'path';
 import { v4 as uuid } from 'uuid';
 import { LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
 import { isDirSync, mkdir, rmFileOrDir } from '../utils/file';
-import install from '../utils/install';
-import Spinner from '../utils/spinner';
-import signale, { warn, info, error, success } from '../utils/logger';
+import {
+  logWarn,
+  logInfo,
+  logError,
+  logSuccess,
+  installDependencies,
+  installTpl
+} from '@tiga-cli/utils';
 
 export default async function create(
   name: string,
@@ -45,7 +50,7 @@ export default async function create(
       uuid: uuid(),
       runtimePath: process.cwd(),
       projectPath: `${process.cwd()}/${name}`,
-      date: new Date().toString(),
+      date: new Date().getTime().toString(),
       templatePkg: TEMPLATE_MAP[config?.template || 'react-spa'].pkg
     }
   );
@@ -54,7 +59,7 @@ export default async function create(
   if (overwrite) {
     const res = await checkOverwrite(name, true);
     if (res) {
-      info(`开始清除已存在的${name}项目`);
+      logInfo(`开始清除已存在的${name}项目`);
       rmFileOrDir(renderTplOptions.projectPath);
     }
   }
@@ -63,11 +68,13 @@ export default async function create(
   mkdir(renderTplOptions.projectPath);
 
   // create template
-  const module = await import(renderTplOptions.templatePkg);
-  module.default(renderTplOptions);
+  // const module = await import(renderTplOptions.templatePkg);
+  // module.default(renderTplOptions);
+  console.info('renderTplOptions', renderTplOptions);
+  installTpl(renderTplOptions);
 
   // run install
-  await install(renderTplOptions);
+  // await installDependencies(renderTplOptions);
 }
 
 // check need overwrite

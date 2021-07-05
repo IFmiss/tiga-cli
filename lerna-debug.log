@@ -1,14 +1,11 @@
 0 silly argv {
-0 silly argv   _: [ 'add' ],
-0 silly argv   scope: 'tiga-cli',
-0 silly argv   dev: true,
-0 silly argv   D: true,
-0 silly argv   globs: [],
+0 silly argv   _: [ 'create' ],
 0 silly argv   lernaVersion: '4.0.0',
 0 silly argv   '$0': 'lerna',
-0 silly argv   pkg: '@typescript-eslint/eslint-recommended'
+0 silly argv   name: 'tiga-cli/utils'
 0 silly argv }
 1 notice cli v4.0.0
 2 verbose rootPath /Users/user/sf/tiga-cli
-3 error HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/@typescript-eslint%2feslint-recommended - Not found
-3 error     at /Users/user/sf/tiga-cli/node_modules/npm-registry-fetch/check-response.js:95:15
+3 error TypeError: Cannot read property 'toLocaleLowerCase' of undefined
+3 error     at camelCase (/Users/user/sf/tiga-cli/node_modules/@lerna/create/node_modules/yargs-parser/build/index.cjs:8:15)
+3 error     at CreateCommand.initialize (/Users/user/sf/tiga-cli/node_modules/@lerna/create/index.js:63:22)

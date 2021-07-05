@@ -1,7 +1,7 @@
-import { RenderTemplateOptions } from './../constants';
+import { RenderTemplateOptions } from 'tiga-cli';
 import { spawnSync } from 'child_process';
+import { info, error } from './logger';
 import checkPkgTool from './checkPkgTool';
-import { error, info } from './logger';
 
 const INSTALL_MAP = {
   yarn: 'yarn',

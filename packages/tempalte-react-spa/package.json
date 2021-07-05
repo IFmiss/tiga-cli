@@ -1,11 +1,11 @@
 {
-  "name": "@tiga-cli/react-spa",
+  "name": "@tiga-cli/tempalte-react-spa",
   "version": "0.0.1",
   "description": "> TODO: description",
   "author": "ifmiss <185098535@qq.com>",
-  "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/react-spa#readme",
+  "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tempalte-react-spa#readme",
   "license": "ISC",
-  "main": "lib/react-spa.js",
+  "bin": "./dist/bin/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "rollup -c ./../../rollup.config.js"
+    "build": "npm run clear && tsc",
+    "clear": "rm -rf ./dist"
   },
   "bugs": {
     "url": "https://github.com/IFmiss/tiga-cli/issues"

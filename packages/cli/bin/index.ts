@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const pkg = require('./../package.json');
 import { Command } from 'commander';
 import chalk from 'chalk';

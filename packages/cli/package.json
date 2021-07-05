@@ -2,14 +2,16 @@
   "name": "tiga-cli",
   "version": "2.0.0",
   "description": "Quickly build web projects",
-  "main": "index.ts",
+  "main": "./dist/index.js",
   "bin": {
-    "tiga": "./bin/tiga.js"
+    "tiga": "./build/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.ts",
-    "build": "rollup -c ./../../rollup.config.js"
+    "clear": "rm -rf ./dist",
+    "build:lib": "npm run clear && tsc --project ./tsconfig.build.json",
+    "build": "rollup -c && npm run build:lib"
   },
   "repository": {
     "type": "git",
@@ -50,6 +52,7 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
+    "@tiga-cli/utils": "0.0.1",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
     "glob": "^7.1.7",

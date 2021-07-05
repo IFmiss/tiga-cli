@@ -1,11 +1,11 @@
-# `core`
+# `@tiga-cli/utils`
 
 > TODO: description
 
 ## Usage
 
 ```
-const core = require('core');
+const utils = require('@tiga-cli/utils');
 
 // TODO: DEMONSTRATE API
 ```

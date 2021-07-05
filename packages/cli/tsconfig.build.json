@@ -4,6 +4,9 @@
     "node_modules/",
     "__tests__/**/*"
   ],
+  "include": [
+    "./index.ts"
+  ],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,

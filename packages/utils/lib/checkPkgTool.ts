@@ -1,10 +1,9 @@
-import { spawnSync } from 'child_process';
-import type { TypePkgTool } from './../constants';
-
 import inquirer from 'inquirer';
+import { spawnSync } from 'child_process';
+import type { TypePkgTool } from 'tiga-cli';
 import { error, warn } from './logger';
 
-export default function checkPkgTool(pkgTool: TypePkgTool) {
+export default function checkPkgTool(pkgTool: TypePkgTool): Promise<boolean> {
   let hasPkgTool = false;
   return new Promise((resolve, reject) => {
     const { status } = spawnSync(pkgTool, ['-v'], {
@@ -13,7 +12,7 @@ export default function checkPkgTool(pkgTool: TypePkgTool) {
 
     if (status === 0) {
       hasPkgTool = true;
-      resolve(void 0);
+      resolve(true);
     }
 
     if (!hasPkgTool) {
