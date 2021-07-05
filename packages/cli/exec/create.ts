@@ -1,12 +1,11 @@
-type InitOptions = {};
-
 import inquirer, { QuestionCollection } from 'inquirer';
 import glob from 'glob';
 import {
   CSS_MAP,
   DEFAULT_CREATE_OPTOPNS,
   RenderTemplateOptions,
-  TypeCreateOptions
+  TypeCreateOptions,
+  TypeTemplate
 } from './../constants/index';
 import path from 'path';
 import { v4 as uuid } from 'uuid';
@@ -46,12 +45,13 @@ export default async function create(
     {},
     mergeOptions,
     {
-      ...config,
+      ...(config as any),
       uuid: uuid(),
       runtimePath: process.cwd(),
       projectPath: `${process.cwd()}/${name}`,
       date: new Date().getTime().toString(),
-      templatePkg: TEMPLATE_MAP[config?.template || 'react-spa'].pkg
+      templatePkg:
+        TEMPLATE_MAP[(config?.template as TypeTemplate) || 'react-spa'].pkg
     }
   );
 
