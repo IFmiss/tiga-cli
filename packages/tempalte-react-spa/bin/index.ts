@@ -1,11 +1,10 @@
-#!/usr/bin/env node
+#!/usr/bin/env
 
-const pkg = require('./../package.json');
 import { Command } from 'commander';
+// import pkg from './../package.json';
 const program = new Command();
 import { RenderTemplateOptions } from 'tiga-cli';
-import render from '..';
-
+import render from './../index';
 program
   .command('init')
   .description('create a new project powered by tiga-cli')
@@ -27,6 +26,7 @@ program
   .option('--templatePkg <value>', 'templatePkg')
   .option('--overwrite')
   .action((args) => {
+    console.info('args', args);
     render(args as RenderTemplateOptions);
   });
 

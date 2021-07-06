@@ -1,6 +1,6 @@
 import { RenderTemplateOptions } from 'tiga-cli';
 import { spawnSync } from 'child_process';
-import { info, error } from './logger';
+import { info as logInfo, error as logError } from './logger';
 import checkPkgTool from './checkPkgTool';
 
 const INSTALL_MAP = {
@@ -9,8 +9,10 @@ const INSTALL_MAP = {
   pnpm: 'pnpm install'
 };
 
-export default async function install(renderTplOptions: RenderTemplateOptions) {
-  info('开始安装依赖...');
+export default async function installDependencies(
+  renderTplOptions: RenderTemplateOptions
+) {
+  logInfo('开始安装依赖...');
   const { pkgtool, projectPath } = renderTplOptions;
   await checkPkgTool(pkgtool);
 
@@ -23,7 +25,7 @@ export default async function install(renderTplOptions: RenderTemplateOptions) {
   );
   if (status !== 0) {
     console.info();
-    error('初始化失败了');
+    logError('初始化失败了 method [installDependencies]');
     process.exit(0);
   }
 }

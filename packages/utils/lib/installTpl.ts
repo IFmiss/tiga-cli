@@ -8,8 +8,9 @@ export default function installTpl(options: RenderTemplateOptions) {
   logInfo('shellParams', shellParams);
 
   // 执行命令
-  const { status } = spawnSync(
-    `node -r ts-node/register  ./../../tempalte-react-spa/bin/index.ts init ${shellParams}`,
+  const { status, error } = spawnSync(
+    // `node -r ts-node/register  ./../../tempalte-react-spa/bin/index.ts init ${shellParams}`,
+    `npx ./../../tempalte-react-spa/dist/bin/index.js init ${shellParams}`,
     {
       shell: true,
       stdio: 'inherit'
@@ -18,7 +19,7 @@ export default function installTpl(options: RenderTemplateOptions) {
 
   if (status !== 0) {
     console.info();
-    logError('初始化失败了');
+    logError('初始化失败了 method [installTpl]', error);
     process.exit(0);
   }
 }
