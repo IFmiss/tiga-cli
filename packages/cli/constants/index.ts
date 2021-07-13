@@ -1,6 +1,6 @@
 export type TypeTemplate = 'react-spa' | 'react-components';
 
-export type TypeLayoutTemplate = 'px' | 'viewport' | 'rem';
+export type TypeLayout = 'px' | 'viewport' | 'rem';
 
 export type TypeCss = 'less' | 'scss' | 'stylus' | 'style-component';
 
@@ -27,7 +27,7 @@ export const TEMPLATE_MAP: {
 };
 
 export const LAYOUT_MAP: {
-  [props in TypeLayoutTemplate]: string;
+  [props in TypeLayout]: string;
 } = {
   px: 'px 通用场景',
   viewport: 'viewport 适配方案',
@@ -48,7 +48,7 @@ export type TypeCreateOptions = {
   git: boolean;
   typescript: boolean;
   css: TypeCss;
-  layout: TypeLayoutTemplate;
+  layout: TypeLayout;
   template: TypeTemplate;
   pkgtool: TypePkgTool;
   lint: Array<TypeLint>;

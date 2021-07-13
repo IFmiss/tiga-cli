@@ -1,5 +1,8 @@
 /dist/
+/__tests__/
 /node_modules/
 /**/node_modules/
 /**/dist
+/**/build
+/**/__tests__
 /**/build

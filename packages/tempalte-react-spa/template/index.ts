@@ -1,8 +1,9 @@
 import { fmtUpStart } from '../utils/str';
 import tplExp from '../utils/tplExp';
 import type { RenderTemplateOptions } from 'tiga-cli';
+import type { InitShellType } from '@tiga-cli/tpl-core';
 
-export default function compileIndex(options: RenderTemplateOptions): string {
+export default function compileIndex(options: InitShellType): string {
   const { name, css, typescript } = options;
 
   const lowerName = name.toLocaleLowerCase();

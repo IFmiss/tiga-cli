@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "target": "ES5",
-    "module": "commonjs",
+    "target": "esnext",
+    "module": "esnext",
     "removeComments": false,
     "declaration": false,
     "outDir": "./dist",
@@ -26,15 +26,16 @@
       "dom",
       "esnext"
     ],
+    "paths": {
+      "@/*": ["src/*"],
+      "@pages/*": ["src/pages/*"],
+      "@components/*": ["src/components/*"]
+    },
     "sourceMap": false,
     "noImplicitAny": false
   },
   "exclude": [
-    "node_modules/",
-    "dist/",
-    "packages/**/template",
-    "packages/**/dist",
-    "packages/**/__tests__",
-    "packages/**/node_modules"
-  ],
+    "node_modules",
+    "dist"
+  ]
 }

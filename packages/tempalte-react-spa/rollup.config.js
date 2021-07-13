@@ -12,7 +12,7 @@ import { terser } from 'rollup-plugin-terser';
 // console.info('packageName', packageName)
 
 export default {
-  input: `./bin/index`,
+  input: `./bin/index.ts`,
   output: [
     {
       file: './build/index.js',
@@ -33,7 +33,7 @@ export default {
       }
     }),
     babel({
-      exclude: 'node_modules/**',
+      exclude: /node_modules/,
       babelHelpers: 'runtime',
       skipPreflightCheck: true
     }),
@@ -42,12 +42,8 @@ export default {
       modulesOnly: true
     }),
     commonjs({
-      include: 'node_modules/**',
-      sourceMap: true,
-      namedExports: {
-        react: ['useState', 'useEffect', 'useMemo', 'useCallBack', 'useRef'],
-        'react-router-dom': ['useLocation']
-      }
+      include: /node_modules/,
+      sourceMap: true
     }),
     terser({
       output: {

@@ -1,7 +1,7 @@
-export default async function sleep (timer: number): Promise<void> {
+export default async function sleep(timer: number): Promise<void> {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve()
-    }, timer)
-  })
+      resolve();
+    }, timer);
+  });
 }

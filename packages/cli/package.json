@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.ts",
     "clear": "rm -rf ./dist",
-    "build:lib": "npm run clear && tsc --project ./tsconfig.build.json",
+    "build:lib": "npm run clear && tsc",
     "build": "rollup -c && npm run build:lib"
   },
   "repository": {
