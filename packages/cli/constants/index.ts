@@ -1,12 +1,17 @@
 export type TypeTemplate = 'react-spa' | 'react-components';
 
-export type TypeLayout = 'px' | 'viewport' | 'rem';
+export type TypeLayout = 'px' | 'viewport';
 
-export type TypeCss = 'less' | 'scss' | 'stylus' | 'style-component';
+export type TypeCss = 'less' | 'sass' | 'stylus';
 
 export type TypePkgTool = 'pnpm' | 'yarn' | 'npm';
 
-export type TypeLint = 'eslint' | 'prettier' | 'commitlint' | 'stylelint';
+export type TypeLint =
+  | 'eslint'
+  | 'prettier'
+  | 'commitlint'
+  | 'stylelint'
+  | 'lint-staged';
 
 export const INIT_FILE = 'init.json';
 
@@ -30,17 +35,15 @@ export const LAYOUT_MAP: {
   [props in TypeLayout]: string;
 } = {
   px: 'px 通用场景',
-  viewport: 'viewport 适配方案',
-  rem: 'rem 适配方案'
+  viewport: 'viewport 适配方案'
 };
 
 export const CSS_MAP: {
   [props in TypeCss]: string;
 } = {
   less: 'less + css moudles',
-  scss: 'scss + css moudles',
-  stylus: 'stylus + css moudles',
-  'style-component': 'style-component'
+  sass: 'scss + css moudles',
+  stylus: 'stylus + css moudles'
 };
 
 export type TypeCreateOptions = {

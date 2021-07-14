@@ -1,7 +1,6 @@
 #!/usr/bin/env
 
 import { Command } from 'commander';
-// import pkg from './../package.json';
 const program = new Command();
 import { RenderTemplateOptions } from 'tiga-cli';
 import render from './../index';
