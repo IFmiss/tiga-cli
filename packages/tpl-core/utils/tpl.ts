@@ -10,13 +10,18 @@ export default function tpl(str: string, options?: TplExpOptions) {
   const exp = new RegExp(`^${' '.repeat(spaceCount)}`, 'gm');
   return (
     str
+      // remove start 换行
       .replace(/^\n/, '')
+      // 整体缩紧
       .replace(exp, '')
-      // 清除带换行符的行
-      .replace(/(\s*)(--rm-row--)\n/g, '')
+      // 清除带换行符的行,且清除前面的空格
+      .replace(/(\x20*)(--rm-row--)\n/g, '')
+      // 清除需要删掉的space
       .replace(/--rm-space--/g, '')
-      .replace(/^\n/, '')
+      // .replace(/^\n/, '')
+      // 清除结尾空格
       .replace(/\s*$/g, '')
+      // 结尾添加换行符号
       .concat(endNewline ? '\n' : '')
   );
 }

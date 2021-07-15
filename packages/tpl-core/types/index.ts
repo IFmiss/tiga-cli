@@ -10,7 +10,6 @@ export type InitShellType = {
   eslint?: boolean;
   prettier?: boolean;
   commitlint?: boolean;
-  'lint-staged'?: boolean;
   stylelint?: boolean;
   overwrite?: boolean;
   uuid?: string;

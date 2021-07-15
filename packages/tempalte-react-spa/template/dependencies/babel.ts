@@ -8,6 +8,7 @@ const BABEL_DEFAULT = {
     '@babel/preset-env': '^7.14.7',
     '@babel/preset-react': '^7.14.5',
     '@babel/runtime-corejs3': '^7.14.7',
+    'core-js': '^3.15.2',
     'babel-loader': '^8.2.2'
   },
   dependencies: {}

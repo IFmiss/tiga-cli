@@ -3,5 +3,6 @@ module.exports = {
     require('autoprefixer')({
       grid: true
     }),
-    require('postcss-preset-env'),  ]
+    require('postcss-preset-env'),
+  ]
 };

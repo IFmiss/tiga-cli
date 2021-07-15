@@ -6,6 +6,7 @@ import sass from './sass';
 import postcss from './postcss';
 import typescript from './typescript';
 import babel from './babel';
+import { GeneralModuleDependencies } from './types';
 
 export const pkg2Array = (pkg: { [props: string]: string }): Array<string> => {
   const arr = [];
@@ -20,7 +21,9 @@ export const EMPTY_DEFAULT = {
   dependencies: {}
 };
 
-export default function (options: InitShellType) {
+export default function pkgDependencies(
+  options: InitShellType
+): GeneralModuleDependencies<Array<string>> {
   const devDependencies = [
     ...pkg2Array(react.devDependencies),
     ...pkg2Array(eslint(options).devDependencies),
@@ -39,4 +42,19 @@ export default function (options: InitShellType) {
     ...(options?.typescript ? pkg2Array(sass.dependencies) : []),
     ...pkg2Array(babel(options).dependencies)
   ];
+
+  return {
+    devDependencies: devDependencies,
+    dependencies
+  };
+}
+
+export function dependencies2Str(
+  options: InitShellType
+): GeneralModuleDependencies<string> {
+  const pkg = pkgDependencies(options);
+  return {
+    devDependencies: pkg.dependencies.join(' '),
+    dependencies: pkg.dependencies.join(' ')
+  };
 }

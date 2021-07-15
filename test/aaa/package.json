@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "webpack serve --config ./config/webpack.dev.js",    "lint:es": "eslint . --ext .js,.ts,.tsx src/",
+    "serve": "webpack serve --config ./config/webpack.dev.js",
+    "lint:es": "eslint . --ext .js,.ts,.tsx src/",
 		"lint:es:fix": "eslint . --ext .js,.ts,.tsx,.jsx src/ --fix",
     "lint:prettier": "prettier --check src/",
 		"lint:prettier:fix": "prettier --write src/",

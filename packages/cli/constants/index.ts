@@ -6,12 +6,7 @@ export type TypeCss = 'less' | 'sass' | 'stylus';
 
 export type TypePkgTool = 'pnpm' | 'yarn' | 'npm';
 
-export type TypeLint =
-  | 'eslint'
-  | 'prettier'
-  | 'commitlint'
-  | 'stylelint'
-  | 'lint-staged';
+export type TypeLint = 'eslint' | 'prettier' | 'commitlint' | 'stylelint';
 
 export const INIT_FILE = 'init.json';
 
