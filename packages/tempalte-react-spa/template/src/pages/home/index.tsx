@@ -1,15 +1,22 @@
-import React, { memo } from 'react';
-import styles from './home.less';
-// import PropTypes from 'prop-types';
+import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import type { InitShellType } from '@tiga-cli/tpl-core';
 
-export interface HomeProps {}
+export default function compileComponent(options: InitShellType): string {
+  const { typescript } = options;
+  const str = `
+    import React, { memo } from 'react';
+    import styles from './home.less';
+    ${row(
+      `
+    export interface HomeProps {}`,
+      typescript
+    )}
 
-const Home: React.FC<HomeProps> = () => {
-  return <h3 className={styles.home}>this is home</h3>;
-};
+    const Home${typescript ? ': React.FC<HomeProps>' : ''} = () => {
+      return <h3 className={styles.home}>this is home</h3>;
+    };
 
-//Home.propTypes = {
-//	props: PropTypes.string
-//};
-
-export default memo(Home);
+    export default memo(Home);
+  `;
+  return tpl(str);
+}

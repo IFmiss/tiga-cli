@@ -9,5 +9,5 @@ export default function compileIndex(options?: InitShellType): string {
 
     ReactDOM.render(<App />, document.getElementById('root'));
   `;
-  return str;
+  return tpl(str);
 }

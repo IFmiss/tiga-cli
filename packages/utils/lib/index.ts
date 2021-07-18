@@ -9,3 +9,7 @@ export { default as Spinner } from './spinner';
 export { default as checkPkgTool } from './checkPkgTool';
 export { default as installDependencies } from './installDependencies';
 export { default as installTpl } from './installTpl';
+
+export { mkdir as mkdir } from './file';
+export { exists as exists } from './file';
+export { writeFileSync as writeFileSync } from './file';

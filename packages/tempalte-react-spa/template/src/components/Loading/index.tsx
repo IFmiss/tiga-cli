@@ -1,15 +1,33 @@
-import React, { memo } from 'react';
-import styles from './loading.less';
-// import PropTypes from 'prop-types';
+import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import type { InitShellType } from '@tiga-cli/tpl-core';
 
-export interface LoadingProps {}
+export default function compileComponent(options: InitShellType): string {
+  const { typescript } = options;
+  const str = `
+    import React, { memo } from 'react';
+    import styles from './loading.less';
+    import PropTypes from 'prop-types';
+    ${row(
+      `
+    export interface LoadingProps {
+      text?: string;
+    }`,
+      typescript
+    )}
 
-const Loading: React.FC<LoadingProps> = () => {
-  return <div className={styles.loading}>loading ...</div>;
-};
+    const Loading${
+      typescript ? ': React.FC<LoadingProps>' : ''
+    } = ({ text = 'loading ...' }) => {
+      return <div className={styles.loading}>{text}</div>;
+    };
 
-//Loading.propTypes = {
-//	props: PropTypes.string
-//};
+    Loading.propTypes = {
+      text: PropTypes.string
+    };
 
-export default memo(Loading);
+    export default memo(Loading);
+  `;
+  return tpl(str, {
+    endNewline: true
+  });
+}

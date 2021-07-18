@@ -1,16 +1,22 @@
-// import { PROJECT_NAME } from '@/constants';
-// import React, { memo } from 'react';
-// import styles from './hello.less';
-// // import PropTypes from 'prop-types';
+import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import type { InitShellType } from '@tiga-cli/tpl-core';
 
-// export interface HelloProps {}
+export default function compileComponent(options: InitShellType): string {
+  const { typescript } = options;
+  const str = `
+    import React, { memo } from 'react';
+    import styles from './hello.less';
+    ${row(
+      `
+    export interface HelloProps {}`,
+      typescript
+    )}
 
-// const Hello: React.FC<HelloProps> = () => {
-//   return <h3 className={styles.hello}>{PROJECT_NAME} 🥬</h3>;
-// };
+    const Hello${typescript ? ': React.FC<HelloProps>' : ''} = () => {
+      return <h3 className={styles.hello}> DEMO-REACT-SPA 🥬</h3>;
+    };
 
-// //Hello.propTypes = {
-// //	props: PropTypes.string
-// //};
-
-// export default memo(Hello);
+    export default memo(Hello);
+  `;
+  return tpl(str);
+}

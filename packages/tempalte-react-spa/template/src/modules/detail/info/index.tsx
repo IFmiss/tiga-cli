@@ -1,25 +1,32 @@
-import React, { memo } from 'react';
-import { useParams, useLocation } from 'react-router';
-import styles from './info.less';
-// import PropTypes from 'prop-types';
+import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import type { InitShellType } from '@tiga-cli/tpl-core';
 
-export interface InfoProps {}
+export default function compileComponent(options: InitShellType): string {
+  const { typescript } = options;
+  const str = `
+    import React, { memo } from 'react';
+    import { useParams, useLocation } from 'react-router';
+    import styles from './info.less';
+    ${row(
+      `
+    export interface InfoProps {}`,
+      typescript
+    )}
 
-const Info: React.FC<InfoProps> = () => {
-  const p = useParams<{ id: string }>();
-  const l = useLocation();
-  return (
-    <div className={styles.info}>
-      <p>this is Info</p>
-      <p>path: {l.pathname}</p>
-      <p>state: {JSON.stringify(l.state)}</p>
-      <p>id: {p?.id}</p>
-    </div>
-  );
-};
+    const Info${typescript ? ': React.FC<InfoProps>' : ''} = () => {
+      const p = useParams${typescript ? '<{ id: string }>' : ''}();
+      const l = useLocation();
+      return (
+        <div className={styles.info}>
+          <p>this is Info</p>
+          <p>path: {l.pathname}</p>
+          <p>state: {JSON.stringify(l.state)}</p>
+          <p>id: {p?.id}</p>
+        </div>
+      );
+    };
 
-//Info.propTypes = {
-//	props: PropTypes.string
-//};
-
-export default memo(Info);
+    export default memo(Info);
+  `;
+  return tpl(str);
+}

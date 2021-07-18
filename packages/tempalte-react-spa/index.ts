@@ -1,4 +1,7 @@
-import { renderContextFile, tpl } from '@tiga-cli/tpl-core';
+import { InitShellType } from '@tiga-cli/tpl-core';
+import { writeFileSync } from '@tiga-cli/utils';
+import fsExtra from 'fs-extra';
+
 import commitlintConfig from './template/commitlint/config';
 import eslintIgnore from './template/eslint/ignore';
 import babelConfig from './template/babel/config';
@@ -15,23 +18,10 @@ import tiga from './template/tiga/index';
 import tsConfig from './template/typescript/config';
 import packageJson from './template/pkg/index';
 import declaration from './template/declaration/index';
-import compileIndex from './template/src/index';
-import indexStyle from './template/src/index_style';
-import html from './template/src/index_html';
-import compileApp from './template/src/app';
-import routerConfig from './template/src/router/config';
-import routerComponent from './template/src/router/index';
-import routerDeclaration from './template/src/router/router_declaration';
+import srcFileMap from './template/src/srcFileMap';
 
-// import pkg from './template/package.json';
-import * as fsExtra from 'fs-extra';
-import { InitShellType } from '@tiga-cli/tpl-core';
-
-export default function renderRCC(options: InitShellType) {
-  const { projectPath, typescript, css } = options;
-
-  const reactExt = typescript ? 'tsx' : 'jsx';
-  const styleExt = css;
+export default async function renderRCC(options: InitShellType) {
+  const { projectPath, typescript } = options;
 
   const TPL_MAP = {
     [`.commitlintrc.js`]: commitlintConfig,
@@ -50,22 +40,15 @@ export default function renderRCC(options: InitShellType) {
     ['tsconfig.json']: tsConfig,
     ['package.json']: packageJson(options),
     ...(typescript ? { ['src/global.d.ts']: declaration } : null),
-    [`src/index.${reactExt}`]: compileIndex(),
-    [`src/index.${styleExt}`]: indexStyle,
-    ['src/index.html']: html,
-    [`src/app.${reactExt}`]: compileApp(options),
-    [`src/router/config.${reactExt}`]: routerConfig(options),
-    [`src/router/index.${reactExt}`]: routerComponent,
-    ...(typescript ? { ['src/router/router.d.ts']: routerDeclaration } : null)
-    // [`package.json`]: JSON.stringify(pkg, null, 2)
+    ...srcFileMap(options)
   };
 
-  for (const [k, v] of Object.entries(TPL_MAP)) {
-    try {
-      fsExtra.writeFileSync(`${projectPath}/${k}`, v, 'UTF-8');
-    } catch (e) {
-      console.error(e);
-      fsExtra.rmdir(projectPath);
+  try {
+    for (const [k, v] of Object.entries(TPL_MAP)) {
+      await writeFileSync(`${projectPath}/${k}`, v);
     }
+  } catch (e) {
+    console.error(e);
+    fsExtra.rmdir(projectPath as any);
   }
 }

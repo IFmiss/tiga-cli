@@ -6,7 +6,7 @@ interface TplExpOptions {
 // --rm-row-- 用于删除行
 // --rm-space--  用于删除一个空格
 export default function tpl(str: string, options?: TplExpOptions) {
-  const { spaceCount = 4, endNewline = false } = options || {};
+  const { spaceCount = 4, endNewline = true } = options || {};
   const exp = new RegExp(`^${' '.repeat(spaceCount)}`, 'gm');
   return (
     str

@@ -2,6 +2,7 @@ import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
 export default function compileRouterConfig(options: InitShellType): string {
+  const { typescript } = options;
   const str = `
     import React, { lazy } from 'react';
     import Home from '@/pages/home';
@@ -10,7 +11,7 @@ export default function compileRouterConfig(options: InitShellType): string {
     const Detail = lazy(() => import('@/pages/detail'));
     const DetailInfo = lazy(() => import('@/modules/detail/info'));
 
-    const routes: IRoute[] = [
+    const routes${typescript ? ': IRoute[]' : ''} = [
       {
         path: '/',
         exact: true,
