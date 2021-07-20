@@ -1,7 +1,7 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
-export default function compileBabelConfig(options: InitShellType) {
+export default function compile(options: InitShellType) {
   const { typescript } = options;
 
   const str = `

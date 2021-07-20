@@ -1,14 +1,14 @@
 import * as vm from 'vm';
 
 interface TplExpOptions {
-  spaceCount: number;
+  indent: number;
 }
 
 // --rm-row-- 用于删除行
 // --rm-space--  用于删除一个空格
 export function tplFmtCode(str: string, options?: TplExpOptions) {
-  const spaceCount = options?.spaceCount ?? 4;
-  const exp = new RegExp(`^${' '.repeat(spaceCount)}`, 'gm');
+  const indent = options?.indent ?? 4;
+  const exp = new RegExp(`^${' '.repeat(indent)}`, 'gm');
   return (
     str
       .replace(/^\n/, '')

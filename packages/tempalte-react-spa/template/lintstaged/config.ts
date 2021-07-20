@@ -1,9 +1,7 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
-export default function compileLintStagedConfig(
-  options: InitShellType
-): string {
+export default function compile(options: InitShellType): string {
   const { prettier, stylelint, eslint } = options;
   const str = `
     module.exports = {

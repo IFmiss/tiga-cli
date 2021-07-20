@@ -1,6 +1,8 @@
 export default `.DS_Store
+.temp_cache/
 node_modules/
 /dist/
+/build/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

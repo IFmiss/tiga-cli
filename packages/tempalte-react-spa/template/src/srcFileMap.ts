@@ -18,9 +18,9 @@ import compileLoading from './components/Loading';
 import loadingStyle from './components/Loading/loading_style';
 
 export default function srcFileMap(options: InitShellType) {
-  const { typescript, css } = options;
+  const { typescript, less, stylus, sass } = options;
   const rExt = typescript ? 'tsx' : 'jsx';
-  const sExt = css;
+  const sExt = less ? 'less' : sass ? 'scss' : stylus ? 'stylus' : 'css';
 
   return {
     [`src/index.${rExt}`]: compileIndex(),

@@ -1,6 +1,15 @@
 import { InitShellType } from '@tiga-cli/tpl-core';
-import { writeFileSync } from '@tiga-cli/utils';
+import {
+  writeFileSync,
+  sh,
+  getInstallCmd,
+  logInfo,
+  logError,
+  logSuccess
+} from '@tiga-cli/utils';
 import fsExtra from 'fs-extra';
+
+import { dependencies2Str } from './template/dependencies';
 
 import commitlintConfig from './template/commitlint/config';
 import eslintIgnore from './template/eslint/ignore';
@@ -18,10 +27,13 @@ import tiga from './template/tiga/index';
 import tsConfig from './template/typescript/config';
 import packageJson from './template/pkg/index';
 import declaration from './template/declaration/index';
+import webpackBase from './template/webpack/base.config';
+import webpackDev from './template/webpack/dev.config';
+import webpackProd from './template/webpack/prod.config';
 import srcFileMap from './template/src/srcFileMap';
 
 export default async function renderRCC(options: InitShellType) {
-  const { projectPath, typescript } = options;
+  const { projectPath, typescript, pkgtool } = options;
 
   const TPL_MAP = {
     [`.commitlintrc.js`]: commitlintConfig,
@@ -40,6 +52,9 @@ export default async function renderRCC(options: InitShellType) {
     ['tsconfig.json']: tsConfig,
     ['package.json']: packageJson(options),
     ...(typescript ? { ['src/global.d.ts']: declaration } : null),
+    ['config/webpack.base.config.js']: webpackBase(options),
+    ['config/webpack.dev.config.js']: webpackDev(options),
+    ['config/webpack.prod.config.js']: webpackProd(options),
     ...srcFileMap(options)
   };
 
@@ -48,7 +63,20 @@ export default async function renderRCC(options: InitShellType) {
       await writeFileSync(`${projectPath}/${k}`, v);
     }
   } catch (e) {
-    console.error(e);
+    logError(e);
     fsExtra.rmdir(projectPath as any);
   }
+
+  // Since npm pkg only supports version 7.0, use npm install to install some dependencies first
+  // await sh(options.pkgtool)
+  const relyMap = dependencies2Str(options);
+  const errorHandler = (error) => {
+    logError('install failed', error);
+  };
+  logInfo('start installing general dependencies 📦');
+  // install dependencies
+  sh(`${getInstallCmd(pkgtool)} ${relyMap.dependencies}`, { errorHandler });
+  // install devDependencies
+  sh(`${getInstallCmd(pkgtool)} ${relyMap.dependencies}`, { errorHandler });
+  logSuccess('install customize pkg success');
 }

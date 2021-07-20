@@ -2,7 +2,9 @@ import type { TypeTemplate, TypeLayout, TypeCss, TypePkgTool } from 'tiga-cli';
 
 export type InitShellType = {
   name: string;
-  css?: TypeCss;
+  less?: boolean;
+  stylus?: boolean;
+  sass?: boolean;
   layout?: TypeLayout;
   typescript?: boolean;
   template?: TypeTemplate;

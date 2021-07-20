@@ -1,7 +1,7 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
-export default function compileRouterComponent(options: InitShellType): string {
+export default function compile(options: InitShellType): string {
   const { typescript } = options;
   const str = `
     import React, { lazy, Suspense } from 'react';

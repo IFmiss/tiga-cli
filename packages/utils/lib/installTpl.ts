@@ -10,7 +10,7 @@ export default function installTpl(options: RenderTemplateOptions) {
   // 执行命令
   const { status, error } = spawnSync(
     // `node -r ts-node/register  ./../../tempalte-react-spa/bin/index.ts init ${shellParams}`,
-    `npx ./../../tempalte-react-spa/dist/bin/index.js init ${shellParams}`,
+    `npx ./../packages/tempalte-react-spa/dist/bin/index.js init ${shellParams}`,
     {
       shell: true,
       stdio: 'inherit'

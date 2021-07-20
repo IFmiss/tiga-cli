@@ -1,7 +1,7 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
-export default function compilePostcssConfig(options: InitShellType): string {
+export default function compile(options: InitShellType): string {
   const { eslint, stylelint, prettier } = options;
 
   if (!eslint && !stylelint && !prettier) {
@@ -22,8 +22,7 @@ export default function compilePostcssConfig(options: InitShellType): string {
 
   const str = `
     "lint": "${lint.join(' && ')}",
-    \t\t"lint:fix": "${lint_fix.join(' && ')}",
-  `;
+    \t\t"lint:fix": "${lint_fix.join(' && ')}",`;
 
   return tpl(str);
 }

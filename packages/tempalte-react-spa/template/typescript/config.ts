@@ -34,6 +34,9 @@ export default `{
     "sourceMap": false,
     "noImplicitAny": false
   },
+  "include": [
+    "src/"
+  ],
   "exclude": [
     "node_modules",
     "dist"

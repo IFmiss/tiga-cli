@@ -1,2 +1,4 @@
-export default `*.md
-`;
+export default `/node_modules/**/*
+/dist/
+/build/
+*.md`;

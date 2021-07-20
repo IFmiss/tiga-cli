@@ -10,7 +10,7 @@ README.md
 const ignoreWithStylelint = `README.md
 `;
 
-export default function prettierIgnore(options: InitShellType): string {
+export default function compile(options: InitShellType): string {
   if (options.stylelint) {
     return ignoreWithoutStylelint;
   }

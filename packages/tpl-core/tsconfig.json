@@ -1,14 +1,15 @@
 {
   "extends": "./../../tsconfig.json",
-  "exclude": [
-    "node_modules/",
-    "dist/",
-    "__tests__/**/*"
-  ],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
     "declarationDir": "./dist",
     "outDir": "./dist",
-  }
+  },
+  "exclude": [
+    "node_modules/",
+    "__tests__/**/*",
+    "dist/",
+    "build/",
+  ]
 }

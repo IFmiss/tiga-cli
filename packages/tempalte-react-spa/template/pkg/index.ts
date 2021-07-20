@@ -5,7 +5,7 @@ import eslintScript from './../eslint/script';
 import prettierScript from './../prettier/script';
 import lintAll from './../lintall/index';
 
-export default function compilePostcssConfig(options: InitShellType): string {
+export default function compile(options: InitShellType): string {
   const { name, stylelint, eslint, prettier, commitlint } = options;
   const str = `
     {

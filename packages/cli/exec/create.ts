@@ -125,7 +125,8 @@ const baseQuestions: Array<QuestionCollection> = [
   {
     name: 'css',
     message: 'css 预处理模式 (都支持 css modules)',
-    type: 'list',
+    type: 'checkbox',
+    default: ['less'],
     choices: () => {
       return Object.entries(CSS_MAP).map((item) => ({
         name: item[1],
