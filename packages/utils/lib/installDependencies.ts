@@ -1,4 +1,4 @@
-import { RenderTemplateOptions, TypePkgTool } from 'tiga-cli';
+import { TypePkgTool } from 'tiga-cli';
 import { spawnSync } from 'child_process';
 import { info as logInfo, error as logError } from './logger';
 import checkPkgTool from './checkPkgTool';
@@ -16,13 +16,12 @@ export const getInstallCmd = function (tool: TypePkgTool = 'pnpm') {
 };
 
 export default async function installDependencies(
-  renderTplOptions: RenderTemplateOptions
+  pkgtool: TypePkgTool = 'pnpm'
 ) {
   logInfo('开始安装依赖...');
-  const { pkgtool, projectPath } = renderTplOptions;
   await checkPkgTool(pkgtool);
 
-  const str = `cd ${projectPath} && ${getInstallCmd(pkgtool)}`;
+  const str = getInstallCmd(pkgtool);
 
   const { status } = spawnSync(str, {
     shell: true,

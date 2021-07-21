@@ -15,3 +15,6 @@ export { default as sh } from './sh';
 export { mkdir as mkdir } from './file';
 export { exists as exists } from './file';
 export { writeFileSync as writeFileSync } from './file';
+
+export { default as initGit } from './initGit';
+export { default as initGitHook } from './initGit';

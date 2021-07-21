@@ -1,3 +1,4 @@
+import { chdir } from 'process';
 import { InitShellType } from '@tiga-cli/tpl-core';
 import {
   writeFileSync,
@@ -5,7 +6,10 @@ import {
   getInstallCmd,
   logInfo,
   logError,
-  logSuccess
+  logSuccess,
+  installDependencies,
+  initGitHook,
+  initGit
 } from '@tiga-cli/utils';
 import fsExtra from 'fs-extra';
 
@@ -33,7 +37,7 @@ import webpackProd from './template/webpack/prod.config';
 import srcFileMap from './template/src/srcFileMap';
 
 export default async function renderRCC(options: InitShellType) {
-  const { projectPath, typescript, pkgtool } = options;
+  const { projectPath, typescript, pkgtool, git, commitlint } = options;
 
   const TPL_MAP = {
     [`.commitlintrc.js`]: commitlintConfig,
@@ -67,16 +71,23 @@ export default async function renderRCC(options: InitShellType) {
     fsExtra.rmdir(projectPath as any);
   }
 
+  // install
   // Since npm pkg only supports version 7.0, use npm install to install some dependencies first
   // await sh(options.pkgtool)
   const relyMap = dependencies2Str(options);
-  const errorHandler = (error) => {
-    logError('install failed', error);
-  };
+  const errorText = 'install failed';
   logInfo('start installing general dependencies 📦');
   // install dependencies
-  sh(`${getInstallCmd(pkgtool)} ${relyMap.dependencies}`, { errorHandler });
+  sh(`${getInstallCmd(pkgtool)} ${relyMap.dependencies}`, { errorText });
   // install devDependencies
-  sh(`${getInstallCmd(pkgtool)} ${relyMap.dependencies}`, { errorHandler });
+  sh(`${getInstallCmd(pkgtool)} ${relyMap.dependencies}`, { errorText });
   logSuccess('install customize pkg success');
+
+  // to project path
+  chdir(projectPath);
+  await installDependencies(pkgtool);
+
+  // initGit and hooks
+  git && initGit();
+  commitlint && initGitHook();
 }

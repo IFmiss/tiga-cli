@@ -1,20 +1,23 @@
 import { spawnSync, StdioOptions } from 'child_process';
+import { error as logError } from './logger';
 
 export default function sh(
   str: string,
   options?: {
     stdio?: StdioOptions;
-    errorHandler?: (error: Error | undefined) => void;
+    errorText?: string;
   }
 ): void {
-  const { status, error } = spawnSync(str, {
+  const { errorText } = (options = { errorText: 'failed' });
+  const { status, stderr } = spawnSync(str, {
     shell: true,
     stdio: options?.stdio || 'inherit'
   });
 
   if (status !== 0) {
     console.info();
-    options?.errorHandler?.(error);
+    logError('install failed', stderr.toString());
+    errorText && logError(errorText);
     process.exit(0);
   }
 }

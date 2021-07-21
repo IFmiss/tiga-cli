@@ -10,7 +10,7 @@ program
   .option('--name <value>', 'project name')
   .option('-t --typescript', 'use typescript')
   .option('-g --git', 'use git')
-  .option('--scss', 'scss style')
+  .option('--sass', 'scss/sass style')
   .option('--less', 'less style')
   .option('--stylus', 'stylus style')
   .option('--layout <type>', 'layout style', 'viewport')

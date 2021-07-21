@@ -5,10 +5,11 @@ export type InitShellType = {
   less?: boolean;
   stylus?: boolean;
   sass?: boolean;
+  git?: boolean;
   layout?: TypeLayout;
   typescript?: boolean;
   template?: TypeTemplate;
-  pkgtool?: TypePkgTool;
+  pkgtool: TypePkgTool;
   eslint?: boolean;
   prettier?: boolean;
   commitlint?: boolean;
@@ -16,7 +17,7 @@ export type InitShellType = {
   overwrite?: boolean;
   uuid?: string;
   runtimePath?: string;
-  projectPath?: string;
+  projectPath: string;
   date?: string;
   templatePkg?: string;
 };
