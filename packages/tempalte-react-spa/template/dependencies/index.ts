@@ -12,7 +12,7 @@ import { GeneralModuleDependencies } from './types';
 export const pkg2Array = (pkg: { [props: string]: string }): Array<string> => {
   const arr: Array<string> = [];
   for (const [k, v] of Object.entries(pkg)) {
-    arr.push(`${k}@${v}`);
+    arr.push(`"${k}": "${v}"`);
   }
   return arr;
 };
@@ -58,7 +58,7 @@ export function dependencies2Str(
 ): GeneralModuleDependencies<string> {
   const pkg = pkgDependencies(options);
   return {
-    devDependencies: pkg.dependencies.join(' '),
+    devDependencies: pkg.devDependencies.join(' '),
     dependencies: pkg.dependencies.join(' ')
   };
 }

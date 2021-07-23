@@ -5,8 +5,11 @@ import eslintScript from './../eslint/script';
 import prettierScript from './../prettier/script';
 import lintAll from './../lintall/index';
 
+import pkgDependencies from './../dependencies';
+
 export default function compile(options: InitShellType): string {
   const { name, stylelint, eslint, prettier, commitlint } = options;
+  const { dependencies, devDependencies } = pkgDependencies(options);
   const str = `
     {
       "name": "${name}",
@@ -15,23 +18,22 @@ export default function compile(options: InitShellType): string {
       "main": "index.js",
       "scripts": {
         "test": "echo \\"Error: no test specified\\" && exit 1",
-        "serve": "webpack serve --config ./config/webpack.dev.js",
+        "serve": "webpack serve --config ./config/webpack.dev.config.js",
+        "build": "webpack --config ./config/webpack.prod.config.js",
         ${row(styleLintScript, stylelint)}
         ${row(eslintScript, eslint)}
         ${row(prettierScript, prettier)}
         ${lintAll(options)}
-        ${row('"pre-commit": "lint-staged"', commitlint)}
+        ${row('"pre-commit": "lint-staged"', commitlint)},
+        "sort:pkg": "sort-package-json"
       },
       "author": "",
       "license": "ISC",
       "dependencies": {
+        ${dependencies.toString()}
       },
       "devDependencies": {
-        "css-loader": "^5.2.6",
-        "file-loader": "^6.2.0",
-        "html-webpack-plugin": "^5.3.2",
-        "style-loader": "^3.0.0",
-        "url-loader": "^4.1.1"
+        ${devDependencies.toString()}
       }
     }
   `;

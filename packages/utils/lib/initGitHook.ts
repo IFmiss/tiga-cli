@@ -5,21 +5,10 @@ import sh from './sh';
 export default async function initGitHook() {
   logInfo('开始初始化自定义 git hook...');
   sh(
-    '`npx husky install && npx husky add .husky/pre-commit "npm pre-commit" && npx husky add .husky/pre-commit "npm pre-commit"`',
+    `npx husky install && npx husky add .husky/pre-commit "npm pre-commit" && npx husky add .husky/commit-msg 'npx commitlint --edit $1'`,
     {
-      errorText: '初始化失败了'
+      errorText: '初始化失败了',
+      stdio: 'ignore'
     }
   );
-  const { status } = spawnSync(
-    `npx husky install && npx husky add .husky/pre-commit "npm pre-commit" && npx husky add .husky/pre-commit "npm pre-commit"`,
-    {
-      shell: true,
-      stdio: 'inherit'
-    }
-  );
-  if (status !== 0) {
-    console.info();
-    logError('初始化失败了 method [installDependencies]');
-    process.exit(0);
-  }
 }

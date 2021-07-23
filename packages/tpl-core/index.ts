@@ -3,5 +3,6 @@ export { default as tpl } from './utils/tpl';
 export { renderRow as renderRow } from './utils/tpl';
 export { fileStringify as fileStringify } from './utils/tpl';
 export { strUpStart as strUpStart } from './utils/str';
+export { default as styleExt } from './utils/styleExt';
 
 export type { InitShellType as InitShellType } from './types';

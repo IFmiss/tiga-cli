@@ -1,13 +1,14 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import { tpl, renderRow as row, styleExt } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
+  const sExt = styleExt(options);
   const str = `
     import React from 'react';
     import { HashRouter as Router, Link } from 'react-router-dom';
     import routes, { RouterView } from '@/router';
     import Hello from '@/components/Hello';
-    import styles from './index.scss';
+    import styles from './index.${sExt}';
 
     const App = () => {
       return (

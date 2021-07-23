@@ -1,4 +1,4 @@
-import { InitShellType } from '@tiga-cli/tpl-core';
+import { InitShellType, styleExt } from '@tiga-cli/tpl-core';
 import compileIndex from './index';
 import indexStyle from './index_style';
 import html from './index_html';
@@ -18,9 +18,9 @@ import compileLoading from './components/Loading';
 import loadingStyle from './components/Loading/loading_style';
 
 export default function srcFileMap(options: InitShellType) {
-  const { typescript, less, stylus, sass } = options;
+  const { typescript } = options;
   const rExt = typescript ? 'tsx' : 'jsx';
-  const sExt = less ? 'less' : sass ? 'scss' : stylus ? 'stylus' : 'css';
+  const sExt = styleExt(options);
 
   return {
     [`src/index.${rExt}`]: compileIndex(),
@@ -34,9 +34,8 @@ export default function srcFileMap(options: InitShellType) {
     [`src/pages/home/home.${sExt}`]: homeStyle,
     [`src/pages/detail/index.${rExt}`]: compileDetail(options),
     [`src/pages/detail/detail.${sExt}`]: detailStyle,
-    [`src/pages/modules/detail/info/index.${rExt}`]:
-      compileModulesInfo(options),
-    [`src/pages/modules/detail/info/info.${sExt}`]: modulesInfoStyle,
+    [`src/modules/detail/info/index.${rExt}`]: compileModulesInfo(options),
+    [`src/modules/detail/info/info.${sExt}`]: modulesInfoStyle,
     [`src/components/Hello/index.${rExt}`]: compileHello(options),
     [`src/components/Hello/hello.${sExt}`]: helloStyle,
     [`src/components/Loading/index.${rExt}`]: compileLoading(options),

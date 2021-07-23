@@ -1,11 +1,12 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import { tpl, renderRow as row, styleExt } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
-  const { typescript } = options;
+  const { typescript, name } = options;
+  const sExt = styleExt(options);
   const str = `
     import React, { memo } from 'react';
-    import styles from './hello.less';
+    import styles from './hello.${sExt}';
     ${row(
       `
     export interface HelloProps {}`,
@@ -13,7 +14,7 @@ export default function compile(options: InitShellType): string {
     )}
 
     const Hello${typescript ? ': React.FC<HelloProps>' : ''} = () => {
-      return <h3 className={styles.hello}> DEMO-REACT-SPA 🥬</h3>;
+      return <h3 className={styles.hello}> ${name.toUpperCase()} 🥬</h3>;
     };
 
     export default memo(Hello);

@@ -34,7 +34,7 @@ export default function checkPkgTool(pkgTool: TypePkgTool): Promise<boolean> {
             process.exit(0);
           }
 
-          const { status } = spawnSync(`npm install -g ${pkgTool} --color`, {
+          const { status } = spawnSync(`npm install -g ${pkgTool}`, {
             shell: true,
             stdio: 'inherit'
           });

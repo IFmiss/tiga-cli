@@ -1,12 +1,13 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import { tpl, renderRow as row, styleExt } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { typescript } = options;
+  const sExt = styleExt(options);
   const str = `
     import { RouterView } from '@/router';
     import React, { memo } from 'react';
-    import styles from './detail.less';
+    import styles from './detail.${sExt}';
     ${row(
       `
     export interface DetailProps {}`,

@@ -18,11 +18,5 @@ export function mkdir(dirPath: string) {
 }
 
 export async function writeFileSync(path, value) {
-  fsPath.writeFile(path, value, function (err) {
-    if (err) {
-      return Promise.reject(err);
-    } else {
-      return Promise.resolve(true);
-    }
-  });
+  return await fsPath.writeFileSync(path, value);
 }

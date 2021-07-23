@@ -1,9 +1,11 @@
-import { info as logInfo } from './logger';
+import { info as logInfo, success as logSuccess } from './logger';
 import sh from './sh';
 
-export default function initGit() {
+export default async function initGit() {
   logInfo('start init git');
-  sh('git init', {
-    errorText: '初始化git 失败'
+  sh('git init -b master', {
+    errorText: '初始化git失败',
+    stdio: 'pipe'
   });
+  logSuccess('初始化git成功');
 }

@@ -1,38 +1,30 @@
 import { Signale } from 'signale';
 
-const LOGO = '🌈';
-
 const signale = new Signale({
-  scope: 'TIGA',
-  types: {
-    warn: {
-      color: 'yellow',
-      label: 'warning',
-      badge: LOGO
-    },
-    info: {
-      color: 'cyan',
-      label: 'info',
-      badge: LOGO
-    },
-    success: {
-      color: 'green',
-      label: 'success',
-      badge: LOGO
-    },
-    error: {
-      color: 'red',
-      label: 'error',
-      badge: LOGO
-    }
-  }
+  scope: 'Tiga'
+  // types: {
+  //   warn: {
+  //     color: 'yellow',
+  //     label: 'warning',
+  //     badge: '❕'
+  //   },
+  //   info: {
+  //     color: 'cyan',
+  //     label: 'info',
+  //     badge: '🐤'
+  //   },
+  //   success: {
+  //     color: 'green',
+  //     label: 'success',
+  //     badge: '✨'
+  //   },
+  //   error: {
+  //     color: 'red',
+  //     label: 'error',
+  //     badge: '❌'
+  //   }
+  // }
 });
-
-// ✨
-// 🌈
-// 📦
-// ❌
-// ✅
 
 export function warn(message?: any, ...optionalArgs: any[]) {
   signale.warn(message, ...optionalArgs);

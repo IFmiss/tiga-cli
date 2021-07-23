@@ -1,11 +1,12 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import { tpl, renderRow as row, styleExt } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { typescript } = options;
+  const sExt = styleExt(options);
   const str = `
     import React, { memo } from 'react';
-    import styles from './loading.less';
+    import styles from './loading.${sExt}';
     import PropTypes from 'prop-types';
     ${row(
       `

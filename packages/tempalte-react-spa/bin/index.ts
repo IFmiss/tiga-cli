@@ -27,7 +27,6 @@ program
   .option('--templatePkg <value>', 'templatePkg')
   .option('--overwrite')
   .action((args) => {
-    console.info('args', args);
     render(args as RenderTemplateOptions);
   });
 

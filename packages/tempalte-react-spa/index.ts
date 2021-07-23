@@ -3,17 +3,16 @@ import { InitShellType } from '@tiga-cli/tpl-core';
 import {
   writeFileSync,
   sh,
-  getInstallCmd,
   logInfo,
   logError,
   logSuccess,
   installDependencies,
   initGitHook,
-  initGit
+  initGit,
+  timer,
+  pkgTool as pkgToolUtils
 } from '@tiga-cli/utils';
 import fsExtra from 'fs-extra';
-
-import { dependencies2Str } from './template/dependencies';
 
 import commitlintConfig from './template/commitlint/config';
 import eslintIgnore from './template/eslint/ignore';
@@ -35,9 +34,14 @@ import webpackBase from './template/webpack/base.config';
 import webpackDev from './template/webpack/dev.config';
 import webpackProd from './template/webpack/prod.config';
 import srcFileMap from './template/src/srcFileMap';
+import chalk from 'chalk';
 
 export default async function renderRCC(options: InitShellType) {
-  const { projectPath, typescript, pkgtool, git, commitlint } = options;
+  const t = timer();
+
+  const { projectPath, typescript, pkgtool, git, commitlint, name, template } =
+    options;
+  const run = pkgToolUtils.run(pkgtool);
 
   const TPL_MAP = {
     [`.commitlintrc.js`]: commitlintConfig,
@@ -62,32 +66,44 @@ export default async function renderRCC(options: InitShellType) {
     ...srcFileMap(options)
   };
 
+  const promiseArr: Array<Promise<any>> = [];
+  for (const [k, v] of Object.entries(TPL_MAP)) {
+    promiseArr.push(writeFileSync(`${projectPath}/${k}`, v));
+  }
+
   try {
-    for (const [k, v] of Object.entries(TPL_MAP)) {
-      await writeFileSync(`${projectPath}/${k}`, v);
-    }
+    await Promise.all(promiseArr);
   } catch (e) {
     logError(e);
     fsExtra.rmdir(projectPath as any);
   }
 
-  // install
-  // Since npm pkg only supports version 7.0, use npm install to install some dependencies first
-  // await sh(options.pkgtool)
-  const relyMap = dependencies2Str(options);
-  const errorText = 'install failed';
-  logInfo('start installing general dependencies 📦');
-  // install dependencies
-  sh(`${getInstallCmd(pkgtool)} ${relyMap.dependencies}`, { errorText });
-  // install devDependencies
-  sh(`${getInstallCmd(pkgtool)} ${relyMap.dependencies}`, { errorText });
-  logSuccess('install customize pkg success');
-
-  // to project path
   chdir(projectPath);
+
+  logInfo('start installing dependencies 📦');
   await installDependencies(pkgtool);
 
   // initGit and hooks
-  git && initGit();
-  commitlint && initGitHook();
+  if (commitlint) {
+    initGit();
+    initGitHook();
+  } else {
+    git && initGit();
+  }
+
+  sh(`${run} sort:pkg`, {
+    errorText: 'sort package.json faild',
+    stdio: 'ignore'
+  });
+
+  // end log
+  // console.clear();
+  console.info('');
+  console.info(
+    `✨ create ${template} success!  timer run for ${chalk.yellow(
+      `${t.getTime()}s`
+    )} \n`
+  );
+  console.info(`    cd ${name} \n`);
+  console.info(`    ${run} serve \n`);
 }

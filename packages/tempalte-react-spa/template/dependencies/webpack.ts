@@ -7,7 +7,15 @@ export default {
     'css-minimizer-webpack-plugin': '^3.0.2',
     'terser-webpack-plugin': '^5.1.4',
     'webpack-bundle-analyzer': '^4.4.2',
-    'webpack-prompt-plugin': '^1.1.8'
+    'webpack-prompt-plugin': '^1.1.8',
+    'cache-loader': '^4.1.0',
+    'css-loader': '^5.2.6',
+    'file-loader': '^6.2.0',
+    'html-webpack-plugin': '^5.3.2',
+    'style-loader': '^3.0.0',
+    'url-loader': '^4.1.1',
+    'thread-loader': '^3.0.4',
+    'sort-package-json': '^1.50.0'
   },
   dependencies: {}
 };

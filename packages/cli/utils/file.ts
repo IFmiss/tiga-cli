@@ -11,7 +11,6 @@ export function mkdir(dirPath: string) {
 
 export async function overWriteProject() {
   const pwd = process.cwd();
-  console.info(pwd);
 }
 
 export function isDirSync(fileName: string) {

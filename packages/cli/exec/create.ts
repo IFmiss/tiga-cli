@@ -1,5 +1,3 @@
-type InitOptions = {};
-
 import inquirer, { QuestionCollection } from 'inquirer';
 import glob from 'glob';
 import {
@@ -11,15 +9,8 @@ import {
 import path from 'path';
 import { v4 as uuid } from 'uuid';
 import { LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
-import { isDirSync, mkdir, rmFileOrDir } from '../utils/file';
-import {
-  logWarn,
-  logInfo,
-  logError,
-  logSuccess,
-  installDependencies,
-  installTpl
-} from '@tiga-cli/utils';
+import { isDirSync, rmFileOrDir } from '../utils/file';
+import { logInfo, installTpl } from '@tiga-cli/utils';
 
 export default async function create(
   name: string,
@@ -59,22 +50,14 @@ export default async function create(
   if (overwrite) {
     const res = await checkOverwrite(name, true);
     if (res) {
+      console.info();
       logInfo(`开始清除已存在的${name}项目`);
       rmFileOrDir(renderTplOptions.projectPath);
     }
   }
 
-  // rebuild dir
-  mkdir(renderTplOptions.projectPath);
-
   // create template
-  // const module = await import(renderTplOptions.templatePkg);
-  // module.default(renderTplOptions);
-  console.info('renderTplOptions', renderTplOptions);
   installTpl(renderTplOptions);
-
-  // run install
-  // await installDependencies(renderTplOptions);
 }
 
 // check need overwrite

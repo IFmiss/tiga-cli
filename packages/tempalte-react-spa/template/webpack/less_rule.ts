@@ -39,8 +39,7 @@ export default function compile(styleRuleParmas: {
           loader: 'less-loader'
         }
       ]
-    },
-  `;
+    },`;
   return tpl(str, {
     indent: 6,
     startLineIndent: true,
