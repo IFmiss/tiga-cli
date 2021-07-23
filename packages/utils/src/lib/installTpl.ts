@@ -1,6 +1,4 @@
-import { spawnSync } from 'child_process';
-import { RenderTemplateOptions } from 'tiga-cli';
-import { info as logInfo, error as logError } from './logger';
+import { RenderTemplateOptions } from '@tiga-cli/tpl-core';
 import obj2shell from './obj2shell';
 import sh from './sh';
 

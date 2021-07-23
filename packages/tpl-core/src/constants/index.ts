@@ -1,12 +1,4 @@
-export type TypeTemplate = 'react-spa' | 'react-components';
-
-export type TypeLayout = 'px' | 'viewport';
-
-export type TypeCss = 'less' | 'sass' | 'stylus';
-
-export type TypePkgTool = 'pnpm' | 'yarn' | 'npm';
-
-export type TypeLint = 'eslint' | 'prettier' | 'commitlint' | 'stylelint';
+import { TypeCreateOptions, TypeCss, TypeLayout, TypeTemplate } from '../types';
 
 export const INIT_FILE = 'init.json';
 
@@ -41,17 +33,6 @@ export const CSS_MAP: {
   stylus: 'stylus + css moudles'
 };
 
-export type TypeCreateOptions = {
-  name: string;
-  git: boolean;
-  typescript: boolean;
-  css: TypeCss;
-  layout: TypeLayout;
-  template: TypeTemplate;
-  pkgtool: TypePkgTool;
-  lint: Array<TypeLint>;
-};
-
 export const DEFAULT_CREATE_OPTOPNS: TypeCreateOptions = {
   name: 'tiga-test',
   git: false,
@@ -62,11 +43,3 @@ export const DEFAULT_CREATE_OPTOPNS: TypeCreateOptions = {
   pkgtool: 'pnpm',
   lint: ['eslint', 'prettier', 'stylelint', 'commitlint']
 };
-
-export type RenderTemplateOptions = {
-  uuid: string;
-  templatePkg: string;
-  date: string;
-  runtimePath: string;
-  projectPath: string;
-} & TypeCreateOptions;

@@ -1,4 +1,4 @@
-import { TypePkgTool } from 'tiga-cli';
+import { TypePkgTool } from '@tiga-cli/tpl-core';
 
 type ToolCmdType = 'install' | 'run' | 'add';
 

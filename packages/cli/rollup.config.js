@@ -13,7 +13,7 @@ import path from 'path';
 // console.info('packageName', packageName)
 
 export default {
-  input: `./bin/index.ts`,
+  input: `./src/bin/index.ts`,
   output: [
     {
       file: './build/index.js',

@@ -1,4 +1,4 @@
-import { TypePkgTool } from 'tiga-cli';
+import { TypePkgTool } from '@tiga-cli/tpl-core';
 import checkPkgTool from './checkPkgTool';
 import sh from './sh';
 import { intall } from './pkgTool';

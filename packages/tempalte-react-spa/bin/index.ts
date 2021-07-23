@@ -2,7 +2,7 @@
 
 import { Command } from 'commander';
 const program = new Command();
-import { RenderTemplateOptions } from 'tiga-cli';
+import { RenderTemplateOptions } from '@tiga-cli/tpl-core';
 import render from './../index';
 program
   .command('init')

@@ -1,6 +1,9 @@
 {
   "packages": [
-    "packages/*"
+    "packages/tpl-core",
+    "packages/utils",
+    "packages/template-react-spa",
+    "packages/cli"
   ],
   "version": "0.0.1",
   "npmClient": "yarn",

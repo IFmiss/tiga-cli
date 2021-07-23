@@ -5,12 +5,12 @@ import {
   sh,
   logInfo,
   logError,
-  logSuccess,
   installDependencies,
   initGitHook,
   initGit,
   timer,
-  pkgTool as pkgToolUtils
+  pkgTool as pkgToolUtils,
+  artFont
 } from '@tiga-cli/utils';
 import fsExtra from 'fs-extra';
 
@@ -98,6 +98,8 @@ export default async function renderRCC(options: InitShellType) {
 
   // end log
   // console.clear();
+  artFont('TIGA-CLI');
+
   console.info('');
   console.info(
     `✨ create ${template} success!  timer run for ${chalk.yellow(

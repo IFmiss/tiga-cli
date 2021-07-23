@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import { spawnSync } from 'child_process';
-import type { TypePkgTool } from 'tiga-cli';
+import type { TypePkgTool } from '@tiga-cli/tpl-core';
 import { error, warn } from './logger';
 
 export default function checkPkgTool(pkgTool: TypePkgTool): Promise<boolean> {

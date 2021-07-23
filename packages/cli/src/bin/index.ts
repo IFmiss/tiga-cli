@@ -2,7 +2,7 @@ const pkg = require('./../package.json');
 import { Command } from 'commander';
 import chalk from 'chalk';
 import leven from 'leven';
-import { create } from './../exec';
+import { create } from '../exec';
 
 const program = new Command();
 

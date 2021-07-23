@@ -2,13 +2,15 @@ import inquirer, { QuestionCollection } from 'inquirer';
 import glob from 'glob';
 import {
   CSS_MAP,
+  TEMPLATE_MAP,
+  LAYOUT_MAP,
   DEFAULT_CREATE_OPTOPNS,
   RenderTemplateOptions,
   TypeCreateOptions
-} from './../constants/index';
+} from '@tiga-cli/tpl-core';
 import path from 'path';
 import { v4 as uuid } from 'uuid';
-import { LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
+// import { LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
 import { isDirSync, rmFileOrDir } from '../utils/file';
 import { logInfo, installTpl } from '@tiga-cli/utils';
 
