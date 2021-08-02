@@ -3,7 +3,8 @@
 import { Command } from 'commander';
 const program = new Command();
 import { RenderTemplateOptions } from '@tiga-cli/tpl-core';
-import render from './../index';
+import create from '../create';
+import init from './../init';
 program
   .command('init')
   .description('create a new project powered by tiga-cli')
@@ -26,8 +27,12 @@ program
   .option('--date <value>', 'date')
   .option('--templatePkg <value>', 'templatePkg')
   .option('--overwrite')
-  .action((args) => {
-    render(args as RenderTemplateOptions);
+  .option('--initFile <value>', 'init porject local config')
+  .action((args: RenderTemplateOptions) => {
+    if (args.initFile) {
+      return init(args);
+    }
+    create(args);
   });
 
 program.parse(process.argv);

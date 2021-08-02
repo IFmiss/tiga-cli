@@ -1,29 +1,23 @@
-import detect from 'detect-port';
 import chalk from 'chalk';
+import detect from 'detect-port';
+import { warn } from './logger';
 
-export default function checkPort(
-  port: string | number,
-  compiler: any
-): Promise<any> {
+export default function checkPort(port: number): Promise<any> {
   return new Promise((resolve, reject) => {
     detect(port, (err, _port) => {
       if (err) {
         console.error('err: ', err);
         reject(err);
       }
-
-      // 冲突
       if (port !== _port) {
-        console.info(`\n`);
-        console.info(`\n`);
-        console.info(
+        console.info();
+        warn(
           chalk.yellow(
             `[提示]: ${port} 端口被占用了，为您切换至 ${_port} (${port} port is occupied, switch to ${_port} for you)`
           )
         );
-        console.info(`\n`);
+        console.info();
       }
-      // need 用户确认
       resolve(_port);
     });
   });

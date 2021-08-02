@@ -1,32 +1,31 @@
-import { spawnSync, StdioOptions } from 'child_process';
-import { error as logError } from './logger';
+import utils from 'util';
+import { exec } from 'child_process';
+import { error } from './logger';
+import Spinner from './spinner';
 
-export default function sh(
+const execAsync = utils.promisify(exec);
+
+export default async function shAsync(
   str: string,
   options: {
-    stdio?: StdioOptions;
     errorText?: string;
   }
-): void {
-  const { errorText, stdio = 'inherit' } = options;
-  const { status, stderr, error, signal, stdout } = spawnSync(str, {
-    shell: true,
-    stdio
-  });
+): Promise<unknown> {
+  const { errorText } = options;
 
-  if (status !== 0) {
-    if (status === null) {
-      console.info('\n you canceled');
+  // eslint-disable-next-line no-async-promise-executor
+  return new Promise(async (resolve, reject) => {
+    try {
+      const data = await execAsync(str);
+      resolve(data);
+    } catch (e) {
+      if (errorText) {
+        console.info();
+        error(errorText, e);
+      }
+      Spinner.close();
+      reject(e);
       process.exit(0);
     }
-    errorText &&
-      logError(
-        errorText,
-        stderr?.toString() || '',
-        error?.message,
-        signal,
-        stdout
-      );
-    process.exit(0);
-  }
+  });
 }

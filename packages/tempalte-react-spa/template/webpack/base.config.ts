@@ -1,7 +1,6 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
-import jsRule from './js_rule';
-import fileRule from './file_rule';
+import { jsRule, fileRule } from '@tiga-cli/tempalte-generic';
 
 export default function compile(options: InitShellType): string {
   const str = `
@@ -10,8 +9,8 @@ export default function compile(options: InitShellType): string {
     module.exports = {
       module: {
         rules: [
-          ${row(jsRule, true)}
-          ${row(fileRule, true)}
+          ${row(jsRule(options), true)}
+          ${row(fileRule(options), true)}
         ]
       },
       resolve: {

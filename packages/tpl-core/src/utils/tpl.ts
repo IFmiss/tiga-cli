@@ -1,7 +1,12 @@
 interface TplExpOptions {
-  indent?: number; // 缩进
-  endNewline?: boolean; // 结束换行
-  startLineIndent?: boolean; // 开始不缩进
+  // 缩进
+  indent?: number;
+
+  // 结束换行
+  endNewline?: boolean;
+
+  // 第一行是否缩进
+  startLineIndent?: boolean;
 }
 
 const indentSpace = (

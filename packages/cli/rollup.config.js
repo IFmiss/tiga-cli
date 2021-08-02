@@ -7,10 +7,6 @@ import typescript2 from 'rollup-plugin-typescript2';
 import clear from 'rollup-plugin-clear';
 import { terser } from 'rollup-plugin-terser';
 import path from 'path';
-// import fs from 'fs';
-// const packageName = process.env.npm_package_config_pkgName;
-
-// console.info('packageName', packageName)
 
 export default {
   input: `./src/bin/index.ts`,

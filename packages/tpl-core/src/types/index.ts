@@ -25,6 +25,7 @@ export type RenderTemplateOptions = {
   date: string;
   runtimePath: string;
   projectPath: string;
+  initFile?: string;
 } & TypeCreateOptions;
 
 export type InitShellType = {
@@ -47,4 +48,30 @@ export type InitShellType = {
   projectPath: string;
   date?: string;
   templatePkg?: string;
+  initFile?: string;
+};
+
+export type TigaConfig = {
+  type: TypeTemplate;
+  devServer: {
+    port?: number;
+    host?: string;
+    open?: boolean;
+    https?: boolean;
+  };
+};
+
+export type BaseServeOptions = Partial<{
+  port: string;
+  open: boolean;
+}>;
+
+export type BaseBuildOptions = {};
+
+export type WebpackServeOptions = BaseServeOptions & {
+  path?: string;
+};
+
+export type WebpackBuildOptions = BaseBuildOptions & {
+  path?: string;
 };

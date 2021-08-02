@@ -1,7 +1,29 @@
 import ora from 'ora';
 
 class Spinner {
-  static sp = ora();
+  static sp = ora({
+    spinner: {
+      interval: 80, // Optional
+      frames: [
+        '        ',
+        't       ',
+        'ti      ',
+        'tig     ',
+        'tiga    ',
+        'tiga-   ',
+        'tiga-c  ',
+        'tiga-cl ',
+        'tiga-cli',
+        ' iga-cli',
+        '  ga-cli',
+        '   a-cli',
+        '    -cli',
+        '     cli',
+        '      li',
+        '       i'
+      ]
+    }
+  });
   static succeed = Spinner.sp.succeed;
   static fail = Spinner.sp.fail;
   static warn = Spinner.sp.warn;
@@ -11,7 +33,7 @@ class Spinner {
     Spinner.sp.text = text;
     Spinner.sp.start();
   }
-  static closeSpinner() {
+  static close() {
     Spinner.sp.stop();
   }
 }

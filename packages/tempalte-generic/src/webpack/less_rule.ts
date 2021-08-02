@@ -5,19 +5,16 @@ export default function compile(styleRuleParmas: {
   publicPath: string;
 }): string {
   const { useMiniCssExtractPlugin, publicPath } = styleRuleParmas;
-  const str = `
-    {
-      test: /\\.s[ac]ss$/,
+  const str = `{
+      test: /\\.less$/,
       use: [
         'cache-loader',
         ${
           useMiniCssExtractPlugin
-            ? `
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: { publicPath }
-          },
-        `
+            ? `{
+                loader: MiniCssExtractPlugin.loader,
+                options: { publicPath }
+              },`
             : `'style-loader',`
         }
         'thread-loader',
@@ -36,7 +33,7 @@ export default function compile(styleRuleParmas: {
           }
         },
         {
-          loader: 'sass-loader'
+          loader: 'less-loader'
         }
       ]
     },`;

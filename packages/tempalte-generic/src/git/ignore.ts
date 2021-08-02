@@ -1,5 +1,6 @@
 export default `.DS_Store
 .temp_cache/
+.tiga_cache/
 node_modules/
 /dist/
 /build/

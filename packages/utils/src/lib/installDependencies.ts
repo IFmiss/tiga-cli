@@ -2,14 +2,16 @@ import { TypePkgTool } from '@tiga-cli/tpl-core';
 import checkPkgTool from './checkPkgTool';
 import sh from './sh';
 import { intall } from './pkgTool';
+import Spinner from './spinner';
 
 export default async function installDependencies(
   pkgtool: TypePkgTool = 'pnpm'
 ) {
   await checkPkgTool(pkgtool);
+  Spinner.loading('installing dependencies 📦');
   const str = intall(pkgtool);
-
-  sh(str, {
-    errorText: '初始化失败了'
+  await sh(str, {
+    errorText: 'install dependencies failed'
   });
+  Spinner.close();
 }

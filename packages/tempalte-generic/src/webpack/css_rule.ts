@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 
 export default function compile(styleRuleParmas: {
@@ -5,20 +6,16 @@ export default function compile(styleRuleParmas: {
   publicPath: string;
 }): string {
   const { useMiniCssExtractPlugin, publicPath } = styleRuleParmas;
-  const str = `
-    {
-      test: /\\.less$/,
+  const str = `{
+      test: /\\.css$/,
       use: [
         'cache-loader',
-        ${
-          useMiniCssExtractPlugin
-            ? `
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: { publicPath }
-          },
-        `
-            : `'style-loader',`
+        ${useMiniCssExtractPlugin
+          ? `{
+              loader: MiniCssExtractPlugin.loader,
+              options: { publicPath }
+            },`
+          : `'style-loader',`
         }
         'thread-loader',
         {
@@ -27,6 +24,7 @@ export default function compile(styleRuleParmas: {
             modules: true
           }
         },
+
         {
           loader: 'postcss-loader',
           options: {
@@ -34,9 +32,6 @@ export default function compile(styleRuleParmas: {
               config: path.resolve(__dirname, './../postcss.config.js')
             }
           }
-        },
-        {
-          loader: 'less-loader'
         }
       ]
     },`;

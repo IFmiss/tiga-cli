@@ -60,13 +60,9 @@
   "dependencies": {
     "@tiga-cli/tpl-core": "0.0.1",
     "@tiga-cli/utils": "0.0.1",
+    "@tiga-cli/tempalte-generic": "0.0.1",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
-    "glob": "^7.1.7",
-    "inquirer": "^8.1.1",
-    "leven": "^3.1.0",
-    "rimraf": "^3.0.2",
-    "signale": "^1.4.0",
-    "uuid": "^8.3.2"
+    "rimraf": "^3.0.2"
   }
 }

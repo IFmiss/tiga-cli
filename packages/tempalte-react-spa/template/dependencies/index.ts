@@ -7,6 +7,9 @@ import postcss from './postcss';
 import typescript from './typescript';
 import babel from './babel';
 import webpack from './webpack';
+import lintStaged from './lint-staged';
+import stylelint from './stylelint';
+import prettier from './prettier';
 import { GeneralModuleDependencies } from './types';
 
 export const pkg2Array = (pkg: { [props: string]: string }): Array<string> => {
@@ -34,7 +37,10 @@ export default function pkgDependencies(
     ...pkg2Array(postcss(options).devDependencies),
     ...(options?.typescript ? pkg2Array(typescript.devDependencies) : []),
     ...pkg2Array(babel(options).devDependencies),
-    ...pkg2Array(webpack.devDependencies)
+    ...pkg2Array(webpack.devDependencies),
+    ...pkg2Array(stylelint.devDependencies),
+    ...pkg2Array(lintStaged.devDependencies),
+    ...pkg2Array(prettier.devDependencies)
   ];
   const dependencies = [
     ...pkg2Array(react.dependencies),
@@ -44,7 +50,10 @@ export default function pkgDependencies(
     ...pkg2Array(postcss(options).dependencies),
     ...(options?.typescript ? pkg2Array(sass.dependencies) : []),
     ...pkg2Array(babel(options).dependencies),
-    ...pkg2Array(webpack.dependencies)
+    ...pkg2Array(webpack.dependencies),
+    ...pkg2Array(stylelint.dependencies),
+    ...pkg2Array(lintStaged.dependencies),
+    ...pkg2Array(prettier.dependencies)
   ];
 
   return {

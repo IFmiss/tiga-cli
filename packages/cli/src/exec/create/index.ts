@@ -10,9 +10,8 @@ import {
 } from '@tiga-cli/tpl-core';
 import path from 'path';
 import { v4 as uuid } from 'uuid';
-// import { LAYOUT_MAP, TEMPLATE_MAP } from '../constants';
-import { isDirSync, rmFileOrDir } from '../utils/file';
-import { logInfo, installTpl } from '@tiga-cli/utils';
+import { logInfo, installTpl, isDirSync, rmFile, sleep } from '@tiga-cli/utils';
+import chalk from 'chalk';
 
 export default async function create(
   name: string,
@@ -53,8 +52,13 @@ export default async function create(
     const res = await checkOverwrite(name, true);
     if (res) {
       console.info();
-      logInfo(`开始清除已存在的${name}项目`);
-      rmFileOrDir(renderTplOptions.projectPath);
+      logInfo(
+        `开始清除已存在的 ${chalk.underline(
+          `${chalk.yellow(`${name}`)}`
+        )} 项目 \n`
+      );
+      await sleep(300);
+      rmFile(renderTplOptions.projectPath);
     }
   }
 

@@ -5,6 +5,7 @@
     "declaration": true,
     "declarationDir": "./dist",
     "outDir": "./dist",
+    "resolveJsonModule": true
   },
   "exclude": [
     "node_modules/",

@@ -1,8 +1,6 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
-import cssRule from './css_rule';
-import lessRule from './less_rule';
-import sassRule from './sass_rule';
+import { cssRule, lessRule, sassRule } from '@tiga-cli/tempalte-generic';
 
 export default function compile(options: InitShellType): string {
   const { less, sass, stylus, name } = options;
@@ -37,7 +35,7 @@ export default function compile(options: InitShellType): string {
           filename: 'index.html',
           path: srcPath,
           template: path.join(srcPath, 'index.html'),
-          title: ${name},
+          title: '${name}',
           // favicon: 'src/assets/favicon.ico',
           minify:{
             removeComments: true,
@@ -49,7 +47,7 @@ export default function compile(options: InitShellType): string {
         }),
         // ! 需要分析打包时，请打开注释
         // Remove annotation when need analyze package
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
       ],
       module: {
         rules: [

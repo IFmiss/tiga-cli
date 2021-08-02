@@ -1,10 +1,23 @@
-const pkg = require('./../package.json');
+const pkg: {
+  version: string;
+  name: string;
+  [props: string]: unknown;
+} = require('./../package.json');
+
 import { Command } from 'commander';
 import chalk from 'chalk';
 import leven from 'leven';
-import { create } from '../exec';
+import { create, init, serve, update, build } from '../exec';
+import { updateNotifier, resolveCwd } from '@tiga-cli/utils';
+import type { TigaConfig } from '@tiga-cli/tpl-core';
 
 const program = new Command();
+
+const CONFIG_FILE_PATH = './tiga.config.js';
+
+function getTigaConfig(): TigaConfig {
+  return require(resolveCwd(CONFIG_FILE_PATH));
+}
 
 // outputHelp
 program.on('--help', () => {
@@ -28,6 +41,43 @@ program
     if (name) {
       create(name, options);
     }
+    // updateNotifier(pkg);
+  });
+
+program
+  .command('init')
+  .description('init a project by local config file')
+  .action(() => {
+    console.info('init');
+    init();
+    // updateNotifier(pkg);
+  });
+
+program
+  .command('serve')
+  .description('start webapck dev server')
+  .option('-p --port <port>', 'start serve port')
+  .option('-o --open', 'need to open the browser')
+  .option('--path', 'custom dev config path')
+  .action((options) => {
+    const config = getTigaConfig();
+    serve(config, options);
+  });
+
+program
+  .command('build')
+  .description('build project')
+  .option('--path', 'custom build config path')
+  .action((options) => {
+    const config = getTigaConfig();
+    build(config, options);
+  });
+
+program
+  .command('upgrade')
+  .description('update cli')
+  .action(() => {
+    update();
   });
 
 program.on('command:*', ([cmd]) => {
