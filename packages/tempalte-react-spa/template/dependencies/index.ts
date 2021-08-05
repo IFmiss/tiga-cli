@@ -3,11 +3,13 @@ import react from './react';
 import eslint from './eslint';
 import less from './less';
 import sass from './sass';
+import stylus from './stylus';
 import postcss from './postcss';
 import typescript from './typescript';
 import babel from './babel';
 import webpack from './webpack';
 import lintStaged from './lint-staged';
+import commitlint from './commitlint';
 import stylelint from './stylelint';
 import prettier from './prettier';
 import { GeneralModuleDependencies } from './types';
@@ -28,32 +30,46 @@ export const EMPTY_DEFAULT = {
 export default function pkgDependencies(
   options: InitShellType
 ): GeneralModuleDependencies<Array<string>> {
-  const { less: lessOpt, sass: sassOpt } = options;
+  const {
+    less: lessOpt,
+    sass: sassOpt,
+    stylus: stylusOpt,
+    typescript: typescriptOpt,
+    stylelint: stylelintOpt,
+    commitlint: commitlintOpt,
+    eslint: eslintOpt,
+    prettier: prettierOpt
+  } = options;
+
   const devDependencies = [
     ...pkg2Array(react.devDependencies),
-    ...pkg2Array(eslint(options).devDependencies),
-    ...(lessOpt ? pkg2Array(less.devDependencies) : []),
-    ...(sassOpt ? pkg2Array(sass.devDependencies) : []),
-    ...pkg2Array(postcss(options).devDependencies),
-    ...(options?.typescript ? pkg2Array(typescript.devDependencies) : []),
     ...pkg2Array(babel(options).devDependencies),
     ...pkg2Array(webpack.devDependencies),
-    ...pkg2Array(stylelint.devDependencies),
-    ...pkg2Array(lintStaged.devDependencies),
-    ...pkg2Array(prettier.devDependencies)
+    ...pkg2Array(postcss(options).devDependencies),
+    ...(eslintOpt ? pkg2Array(eslint(options).devDependencies) : []),
+    ...(lessOpt ? pkg2Array(less.devDependencies) : []),
+    ...(sassOpt ? pkg2Array(sass.devDependencies) : []),
+    ...(stylusOpt ? pkg2Array(stylus.devDependencies) : []),
+    ...(typescriptOpt ? pkg2Array(typescript.devDependencies) : []),
+    ...(stylelintOpt ? pkg2Array(stylelint.devDependencies) : []),
+    ...(commitlintOpt ? pkg2Array(commitlint.devDependencies) : []),
+    ...(commitlintOpt ? pkg2Array(lintStaged.devDependencies) : []),
+    ...(prettierOpt ? pkg2Array(prettier.devDependencies) : [])
   ];
   const dependencies = [
     ...pkg2Array(react.dependencies),
-    ...pkg2Array(eslint(options).dependencies),
-    ...(lessOpt ? pkg2Array(less.dependencies) : []),
-    ...(sassOpt ? pkg2Array(sass.dependencies) : []),
-    ...pkg2Array(postcss(options).dependencies),
-    ...(options?.typescript ? pkg2Array(sass.dependencies) : []),
     ...pkg2Array(babel(options).dependencies),
     ...pkg2Array(webpack.dependencies),
-    ...pkg2Array(stylelint.dependencies),
-    ...pkg2Array(lintStaged.dependencies),
-    ...pkg2Array(prettier.dependencies)
+    ...pkg2Array(postcss(options).dependencies),
+    ...(eslintOpt ? pkg2Array(eslint(options).dependencies) : []),
+    ...(lessOpt ? pkg2Array(less.dependencies) : []),
+    ...(sassOpt ? pkg2Array(sass.dependencies) : []),
+    ...(stylusOpt ? pkg2Array(stylus.dependencies) : []),
+    ...(typescriptOpt ? pkg2Array(typescript.dependencies) : []),
+    ...(stylelintOpt ? pkg2Array(stylelint.dependencies) : []),
+    ...(commitlintOpt ? pkg2Array(commitlint.dependencies) : []),
+    ...(commitlintOpt ? pkg2Array(lintStaged.dependencies) : []),
+    ...(prettierOpt ? pkg2Array(prettier.dependencies) : [])
   ];
 
   return {

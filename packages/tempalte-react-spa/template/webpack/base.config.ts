@@ -1,14 +1,30 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
-import { jsRule, fileRule } from '@tiga-cli/tempalte-generic';
+import {
+  jsRule,
+  fileRule,
+  cssRule,
+  lessRule,
+  sassRule,
+  stylusRule
+} from '@tiga-cli/tempalte-generic';
 
 export default function compile(options: InitShellType): string {
+  const { less, sass, stylus, typescript } = options;
+  const publicPath = `''`;
   const str = `
     const path = require('path');
 
     module.exports = {
       module: {
         rules: [
+          ${row(cssRule({ useMiniCssExtractPlugin: false, publicPath }), true)}
+          ${row(lessRule({ useMiniCssExtractPlugin: false, publicPath }), less)}
+          ${row(sassRule({ useMiniCssExtractPlugin: false, publicPath }), sass)}
+          ${row(
+            stylusRule({ useMiniCssExtractPlugin: false, publicPath }),
+            stylus
+          )}
           ${row(jsRule(options), true)}
           ${row(fileRule(options), true)}
         ]

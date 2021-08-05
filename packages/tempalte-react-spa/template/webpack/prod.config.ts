@@ -1,10 +1,10 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
-import { cssRule, lessRule, sassRule } from '@tiga-cli/tempalte-generic';
 
 export default function compile(options: InitShellType): string {
-  const { less, sass, stylus, name } = options;
+  const { name, typescript } = options;
   const publicPath = `''`;
+  const reactExt = typescript ? 'tsx' : 'jsx';
 
   const str = `
     const path = require('path');
@@ -23,7 +23,7 @@ export default function compile(options: InitShellType): string {
 
     module.exports = merge(baseConfig, {
       mode: 'production',
-      entry: './src/index.tsx',
+      entry: './src/index.${reactExt}',
       output: {
         publicPath,
         filename: 'js/[name].[contenthash:8].js',
@@ -49,13 +49,6 @@ export default function compile(options: InitShellType): string {
         // Remove annotation when need analyze package
         // new BundleAnalyzerPlugin()
       ],
-      module: {
-        rules: [
-          ${row(cssRule({ useMiniCssExtractPlugin: true, publicPath }), true)}
-          ${row(lessRule({ useMiniCssExtractPlugin: true, publicPath }), less)}
-          ${row(sassRule({ useMiniCssExtractPlugin: true, publicPath }), sass)}
-        ]
-      },
       optimization: {
         // deterministic option is useful for long term caching, but still results in smaller bundles compared to hashed
         moduleIds: 'deterministic',

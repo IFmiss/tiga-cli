@@ -5,6 +5,7 @@ import postcss_viewport from './postcss_viewport';
 const POSTCSS_DEFAULT = {
   devDependencies: {
     autoprefixer: '^10.2.6',
+    postcss: '^8.3.6',
     'postcss-loader': '^6.1.1',
     'postcss-preset-env': '^6.7.0'
   },

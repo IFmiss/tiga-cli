@@ -19,7 +19,7 @@ export default function shSync(
     Spinner.close();
 
     if (status === null) {
-      console.info('\n you canceled');
+      console.info('\n 🌟 good luck! ');
       process.exit(0);
     }
 

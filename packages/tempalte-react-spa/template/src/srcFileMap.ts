@@ -23,8 +23,8 @@ export default function srcFileMap(options: InitShellType) {
   const sExt = styleExt(options);
 
   return {
-    [`src/index.${rExt}`]: compileIndex(),
-    [`src/index.${sExt}`]: indexStyle,
+    [`src/index.${rExt}`]: compileIndex(options),
+    [`src/index.${sExt}`]: indexStyle(options),
     ['src/index.html']: html,
     [`src/app.${rExt}`]: compileApp(options),
     [`src/router/config.${rExt}`]: routerConfig(options),

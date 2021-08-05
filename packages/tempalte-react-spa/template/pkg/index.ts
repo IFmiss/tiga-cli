@@ -4,7 +4,8 @@ import {
   eslintScript,
   lintAllScript,
   stylelintScript,
-  prettierScript
+  prettierScript,
+  lintStagedScript
 } from '@tiga-cli/tempalte-generic';
 
 import tiga from './tiga';
@@ -26,7 +27,7 @@ export default function compile(options: InitShellType): string {
         ${row(eslintScript, eslint)}
         ${row(prettierScript, prettier)}
         ${lintAllScript(options)}
-        ${row('"pre-commit": "lint-staged"', commitlint)},
+        ${row(lintStagedScript, commitlint)}
         "sort:pkg": "sort-package-json"
       },
       "author": "",

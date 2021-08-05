@@ -16,6 +16,7 @@ export { default as stylelintScript } from './lint/stylelint/script';
 export { default as lintAllScript } from './lint/lintAllScript';
 
 export { default as lintstagedConfig } from './lint/lintstaged/config';
+export { default as lintStagedScript } from './lint/lintstaged/script';
 
 export { default as postcssConfig } from './postcss/config';
 
@@ -26,4 +27,5 @@ export { default as fileRule } from './webpack/file_rule';
 export { default as jsRule } from './webpack/js_rule';
 export { default as lessRule } from './webpack/less_rule';
 export { default as sassRule } from './webpack/sass_rule';
+export { default as stylusRule } from './webpack/stylus_rule';
 export { default as vscodeTplMap } from './vscode/configMap';

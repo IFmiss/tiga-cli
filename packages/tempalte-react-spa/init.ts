@@ -13,30 +13,7 @@ import {
   artFont
 } from '@tiga-cli/utils';
 
-import {
-  commitlintConfig,
-  gitIgnore,
-  eslintIgnore,
-  eslintConfig,
-  prettierConfig,
-  prettierIgnore,
-  stylelintConfig,
-  postcssConfig,
-  tigaConfig,
-  lintstagedConfig,
-  vscodeTplMap
-} from '@tiga-cli/tempalte-generic';
-
-import babelConfig from './template/babel/config';
-import readme from './template/readme/readme';
-import readmeZH from './template/readme/readme-zh';
-import tsConfig from './template/typescript/config';
-import packageJson from './template/pkg/index';
-import declaration from './template/declaration/index';
-import webpackBase from './template/webpack/base.config';
-import webpackDev from './template/webpack/dev.config';
-import webpackProd from './template/webpack/prod.config';
-import srcFileMap from './template/src/srcFileMap';
+import templateMap from './template/index';
 
 export default async function renderRCC(options: InitShellType) {
   const t = timer();
@@ -46,29 +23,7 @@ export default async function renderRCC(options: InitShellType) {
 
   const run = pkgToolUtils.run(pkgtool);
 
-  const TPL_MAP = {
-    [`.commitlintrc.js`]: commitlintConfig,
-    ['.eslintignore']: eslintIgnore,
-    ['.babelrc.js']: babelConfig(options),
-    ['.eslintrc.js']: eslintConfig(options),
-    ['.gitignore']: gitIgnore,
-    ['.lintstagedrc.js']: lintstagedConfig(options),
-    ['.prettierrc.js']: prettierConfig,
-    ['.prettierignore']: prettierIgnore(options),
-    ['.stylelintrc.js']: stylelintConfig,
-    ['postcss.config.js']: postcssConfig(options),
-    ['README.md']: readme(options),
-    ['README-zh.md']: readmeZH(options),
-    ['tiga.config.js']: tigaConfig(options),
-    ['tsconfig.json']: tsConfig,
-    ['package.json']: packageJson(options),
-    ...(typescript ? { ['src/global.d.ts']: declaration } : null),
-    ['config/webpack.base.config.js']: webpackBase(options),
-    ['config/webpack.dev.config.js']: webpackDev(options),
-    ['config/webpack.prod.config.js']: webpackProd(options),
-    ...srcFileMap(options),
-    ...vscodeTplMap()
-  };
+  const TPL_MAP = templateMap(options);
 
   const promiseArr: Array<Promise<unknown>> = [];
   for (const [k, v] of Object.entries(TPL_MAP)) {
@@ -109,5 +64,5 @@ export default async function renderRCC(options: InitShellType) {
     )} \n`
   );
   console.info(` ${chalk.green('-')} cd ${name} \n`);
-  console.info(` ${chalk.green('-')}  ${run} serve \n`);
+  console.info(` ${chalk.green('-')} ${run} serve \n`);
 }

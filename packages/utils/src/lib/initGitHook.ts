@@ -4,7 +4,9 @@ import shSync from './shSync';
 export default async function initGitHook() {
   info('start create git hook...');
   shSync(
-    `npx husky install && npx husky add .husky/pre-commit "npm pre-commit" && npx husky add .husky/commit-msg 'npx commitlint --edit $1'`,
+    `npx husky install &&
+    npx husky add .husky/pre-commit "npm run pre-commit" &&
+    npx husky add .husky/commit-msg 'npx commitlint --edit $1'`,
     {
       errorText: 'create git hook failed.',
       stdio: 'ignore'

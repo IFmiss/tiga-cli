@@ -1,11 +1,10 @@
 import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
-import { cssRule, lessRule, sassRule } from '@tiga-cli/tempalte-generic';
 
 export default function compile(options: InitShellType): string {
-  const { less, sass, stylus, name } = options;
+  const { name, typescript } = options;
   const publicPath = `''`;
-
+  const reactExt = typescript ? 'tsx' : 'jsx';
   const str = `
     const path = require('path');
     const baseConfig = require('./webpack.base.config');
@@ -19,7 +18,7 @@ export default function compile(options: InitShellType): string {
 
     module.exports = merge(baseConfig, {
       mode: 'development',
-      entry: path.join(srcPath, 'index.tsx'),
+      entry: path.join(srcPath, 'index.${reactExt}'),
       output: {
         publicPath: '/',
         filename: 'js/[name].[contenthash:8].js',
@@ -37,13 +36,6 @@ export default function compile(options: InitShellType): string {
         new webpack.HotModuleReplacementPlugin(),
         new WebpackPromptPlugin()
       ],
-      module: {
-        rules: [
-          ${row(cssRule({ useMiniCssExtractPlugin: false, publicPath }), true)}
-          ${row(lessRule({ useMiniCssExtractPlugin: false, publicPath }), less)}
-          ${row(sassRule({ useMiniCssExtractPlugin: false, publicPath }), sass)}
-        ]
-      },
       cache: {
         // 将缓存类型设置为文件系统,默认是memory
         type: 'filesystem',
