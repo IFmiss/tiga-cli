@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/tempalte-generic",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "> TODO: description",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tempalte-generic#readme",
@@ -25,8 +25,8 @@
     "url": "https://github.com/IFmiss/tiga-cli/issues"
   },
   "dependencies": {
-    "@tiga-cli/tpl-core": "^0.0.3",
-    "@tiga-cli/utils": "^0.0.3"
+    "@tiga-cli/tpl-core": "^0.0.4",
+    "@tiga-cli/utils": "^0.0.4"
   },
   "gitHead": "53919ac0fcf8d27c4afeb397aac76b1ce86a8bf1"
 }
