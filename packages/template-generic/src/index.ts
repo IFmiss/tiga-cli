@@ -4,7 +4,7 @@ export { default as commitlintConfig } from './lint/commitlint/config';
 
 export { default as eslintConfig } from './lint/eslint/config';
 export { default as eslintIgnore } from './lint/eslint/ignore';
-export { default as eslintScript } from './lint/eslint//script';
+export { default as eslintScript } from './lint/eslint/script';
 
 export { default as prettierConfig } from './lint/prettier/config';
 export { default as prettierIgnore } from './lint/prettier/ignore';

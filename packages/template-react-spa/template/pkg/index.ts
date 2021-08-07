@@ -9,7 +9,7 @@ import {
 } from '@tiga-cli/template-generic';
 
 import tiga from './tiga';
-import pkgDependencies from './../dependencies';
+import pkgDependencies from '../dependencies';
 
 export default function compile(options: InitShellType): string {
   const { name, stylelint, eslint, prettier, commitlint } = options;

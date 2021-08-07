@@ -4,7 +4,7 @@ import { Command } from 'commander';
 const program = new Command();
 import { RenderTemplateOptions } from '@tiga-cli/tpl-core';
 import create from '../create';
-import init from './../init';
+import init from '../init';
 program
   .command('init')
   .description('create a new project powered by tiga-cli')
