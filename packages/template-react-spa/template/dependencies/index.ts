@@ -12,6 +12,7 @@ import lintStaged from './lint-staged';
 import commitlint from './commitlint';
 import stylelint from './stylelint';
 import prettier from './prettier';
+import tiga from './tiga';
 import { GeneralModuleDependencies } from './types';
 
 export const pkg2Array = (pkg: { [props: string]: string }): Array<string> => {
@@ -46,6 +47,7 @@ export default function pkgDependencies(
     ...pkg2Array(babel(options).devDependencies),
     ...pkg2Array(webpack.devDependencies),
     ...pkg2Array(postcss(options).devDependencies),
+    ...pkg2Array(tiga.devDependencies),
     ...(eslintOpt ? pkg2Array(eslint(options).devDependencies) : []),
     ...(lessOpt ? pkg2Array(less.devDependencies) : []),
     ...(sassOpt ? pkg2Array(sass.devDependencies) : []),
@@ -61,6 +63,7 @@ export default function pkgDependencies(
     ...pkg2Array(babel(options).dependencies),
     ...pkg2Array(webpack.dependencies),
     ...pkg2Array(postcss(options).dependencies),
+    ...pkg2Array(tiga.dependencies),
     ...(eslintOpt ? pkg2Array(eslint(options).dependencies) : []),
     ...(lessOpt ? pkg2Array(less.dependencies) : []),
     ...(sassOpt ? pkg2Array(sass.dependencies) : []),
