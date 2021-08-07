@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/utils",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "> TODO: description",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/utils#readme",
@@ -56,7 +56,7 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@tiga-cli/tpl-core": "^0.0.8",
+    "@tiga-cli/tpl-core": "^0.0.9",
     "cfonts": "^2.9.3",
     "chalk": "^4.1.1",
     "detect-port": "^1.3.0",
