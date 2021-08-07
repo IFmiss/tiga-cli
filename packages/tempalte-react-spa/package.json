@@ -1,12 +1,12 @@
 {
   "name": "@tiga-cli/template-react-spa",
   "version": "0.0.8",
-  "description": "> TODO: description",
+  "description": "react spa project",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tempalte-react-spa#readme",
   "license": "ISC",
   "bin": {
-    "tiga-react-spa": "./dist/bin/index.js"
+    "template-react-spa": "./dist/bin/index.js"
   },
   "files": [
     "dist"

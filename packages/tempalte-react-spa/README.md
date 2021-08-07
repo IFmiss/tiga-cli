@@ -1,4 +1,4 @@
-### `@tiga-cli/react-spa`
+### `@tiga-cli/template-react-spa`
 
 react spa project
 

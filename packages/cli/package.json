@@ -2,7 +2,8 @@
   "name": "@tiga-cli/cli",
   "version": "0.0.8",
   "description": "Quickly build web projects",
-  "main": "./dist/index.js",
+  "author": "ifmiss  <185098535@qq.com>",
+  "license": "ISC",
   "bin": {
     "tiga": "./build/index.js"
   },
@@ -24,8 +25,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "author": "ifmiss",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/IFmiss/tiga-cli/issues"
   },
