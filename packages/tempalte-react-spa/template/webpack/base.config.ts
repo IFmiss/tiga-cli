@@ -7,7 +7,7 @@ import {
   lessRule,
   sassRule,
   stylusRule
-} from '@tiga-cli/tempalte-generic';
+} from '@tiga-cli/template-generic';
 
 export default function compile(options: InitShellType): string {
   const { less, sass, stylus, typescript } = options;

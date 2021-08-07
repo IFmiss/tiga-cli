@@ -12,7 +12,7 @@ import {
   tigaConfig,
   lintstagedConfig,
   vscodeTplMap
-} from '@tiga-cli/tempalte-generic';
+} from '@tiga-cli/template-generic';
 
 // import commitlintConfig from './template/commitlint/config';
 import babelConfig from './babel/config';

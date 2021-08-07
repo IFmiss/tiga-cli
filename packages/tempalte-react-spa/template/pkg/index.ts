@@ -6,7 +6,7 @@ import {
   stylelintScript,
   prettierScript,
   lintStagedScript
-} from '@tiga-cli/tempalte-generic';
+} from '@tiga-cli/template-generic';
 
 import tiga from './tiga';
 import pkgDependencies from './../dependencies';

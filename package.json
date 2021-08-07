@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "b": "lerna bootstrap & lerna link",
     "dev": "lerna run dev --stream",
-    "build": "lerna run build --stream"
+    "build": "lerna run build --stream",
+    "publish": "yarn build && lerna publish"
   },
   "workspaces": [
     "packages/*"

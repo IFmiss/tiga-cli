@@ -2,6 +2,6 @@
 
 const genericTpl = require('..');
 
-describe('@tiga-cli/tempalte-generic', () => {
+describe('@tiga-cli/template-generic', () => {
   it('needs tests');
 });

@@ -3,7 +3,7 @@
   "version": "0.0.12",
   "description": "react spa project",
   "author": "ifmiss <185098535@qq.com>",
-  "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tempalte-react-spa#readme",
+  "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/template-react-spa#readme",
   "license": "ISC",
   "bin": {
     "tiga-react-spa": "./dist/bin/index.js"
@@ -47,7 +47,7 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@tiga-cli/tempalte-generic": "^0.0.12",
+    "@tiga-cli/template-generic": "^0.0.12",
     "@tiga-cli/tpl-core": "^0.0.12",
     "@tiga-cli/utils": "^0.0.12",
     "chalk": "^4.1.1",

@@ -2,7 +2,7 @@
   "packages": [
     "packages/utils",
     "packages/tpl-core",
-    "packages/tempalte-generic",
+    "packages/template-generic",
     "packages/template-react-spa",
     "packages/cli"
   ],

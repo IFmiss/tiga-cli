@@ -1,1 +1,1 @@
-# `@tiga-cli/tempalte-generic`
+# `@tiga-cli/template-generic`

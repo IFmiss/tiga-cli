@@ -1,9 +1,9 @@
 {
-  "name": "@tiga-cli/tempalte-generic",
+  "name": "@tiga-cli/template-generic",
   "version": "0.0.12",
-  "description": "> TODO: description",
+  "description": "generic template",
   "author": "ifmiss <185098535@qq.com>",
-  "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tempalte-generic#readme",
+  "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/template-generic#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "files": [
