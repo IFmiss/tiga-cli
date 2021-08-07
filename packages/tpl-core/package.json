@@ -6,12 +6,8 @@
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tpl-core#readme",
   "license": "ISC",
   "main": "dist/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -30,5 +26,6 @@
   },
   "dependencies": {
     "mkcert": "^1.4.0"
-  }
+  },
+  "gitHead": "53919ac0fcf8d27c4afeb397aac76b1ce86a8bf1"
 }

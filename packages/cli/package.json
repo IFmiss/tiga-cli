@@ -17,6 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/IFmiss/tiga-cli.git"
   },
+  "files": [
+    "dist",
+    "build"
+  ],
   "author": "ifmiss",
   "license": "ISC",
   "bugs": {
@@ -63,5 +67,6 @@
     "inquirer": "^8.1.1",
     "leven": "^3.1.0",
     "uuid": "^8.3.2"
-  }
+  },
+  "gitHead": "53919ac0fcf8d27c4afeb397aac76b1ce86a8bf1"
 }

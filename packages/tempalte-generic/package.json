@@ -6,12 +6,8 @@
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tempalte-generic#readme",
   "license": "ISC",
   "main": "dist/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -31,5 +27,6 @@
   "dependencies": {
     "@tiga-cli/tpl-core": "^0.0.3",
     "@tiga-cli/utils": "^0.0.3"
-  }
+  },
+  "gitHead": "53919ac0fcf8d27c4afeb397aac76b1ce86a8bf1"
 }
