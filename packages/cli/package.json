@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/cli",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Quickly build web projects",
   "main": "./dist/index.js",
   "bin": {
@@ -61,8 +61,8 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@tiga-cli/tpl-core": "^0.0.7",
-    "@tiga-cli/utils": "^0.0.7",
+    "@tiga-cli/tpl-core": "^0.0.8",
+    "@tiga-cli/utils": "^0.0.8",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
     "glob": "^7.1.7",
