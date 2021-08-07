@@ -54,6 +54,7 @@ export type InitShellType = {
 export type TigaConfig = {
   type: TypeTemplate;
   devServer: {
+    cert?: boolean;
     port?: number;
     host?: string;
     open?: boolean;

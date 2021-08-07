@@ -26,11 +26,6 @@ export const existCert = async (
   host
 ): Promise<Record<'key' | 'cert', Buffer> | undefined> => {
   const isExit = isExitCert(host);
-  console.info(
-    'path.resolve(cacheDirPath, `.tiga_cache/${host}cert.pem`)',
-    isExit,
-    path.resolve(cacheDirPath, `./${host}cert.pem`)
-  );
   if (isExit) {
     return {
       key: readFileSync(path.resolve(cacheDirPath, `./${host}cert.pem`)),
