@@ -19,7 +19,7 @@ export default async function serveWebpack(
     webpackMerge: { merge },
     webpackDevServer: WebpackDevServer
   } = workSpaceNodeModules();
-  const { devServer, cert, ...rest } = config;
+  const { devServer, ...rest } = config;
   let webpackDevConfig;
 
   try {
@@ -34,7 +34,7 @@ export default async function serveWebpack(
   const port = await checkPort(Number(p));
 
   // https
-  const certInfo = cert
+  const certInfo = devServer.cert
     ? await createCert({
         host: 'localhost'
       })
