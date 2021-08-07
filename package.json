@@ -8,24 +8,10 @@
     "dev": "lerna run dev --stream",
     "build": "lerna run build --stream"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IFmiss/tiga-cli.git"
-  },
   "workspaces": [
     "packages/*"
   ],
   "author": "ifmiss",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/IFmiss/tiga-cli/issues"
-  },
-  "homepage": "https://github.com/IFmiss/tiga-cli#readme",
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
-  }
+  "dependencies": {}
 }
