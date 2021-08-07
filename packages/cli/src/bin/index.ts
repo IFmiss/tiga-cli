@@ -48,7 +48,6 @@ program
   .command('init')
   .description('init a project by local config file')
   .action(() => {
-    console.info('init');
     init();
     // updateNotifier(pkg);
   });

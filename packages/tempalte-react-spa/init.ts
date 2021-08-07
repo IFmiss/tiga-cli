@@ -18,8 +18,6 @@ import templateMap from './template/index';
 export default async function renderRCC(options: InitShellType) {
   const t = timer();
 
-  console.info('init start');
-
   const { pkgtool, git, commitlint, name, template, initFile } = options;
 
   const run = pkgToolUtils.run(pkgtool);
