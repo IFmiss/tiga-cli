@@ -1,11 +1,11 @@
-# `@tiga-cli/react-spa`
+### `@tiga-cli/react-spa`
 
-> TODO: description
+react spa project
 
-## Usage
+Support
 
-```
-const reactSpa = require('@tiga-cli/react-spa');
-
-// TODO: DEMONSTRATE API
-```
+- git init, commitlint, lint-staged
+- eslint, prettier, stylelint
+- typescript
+- less/sass/stylus + css modules
+- react router config

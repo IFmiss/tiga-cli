@@ -21,8 +21,8 @@ export default function compile(options: InitShellType): string {
       "description": "spa project by tiga-cli",
       "scripts": {
         "test": "echo \\"Error: no test specified\\" && exit 1",
-        "serve": "webpack serve --config ./config/webpack.dev.config.js",
-        "build": "webpack --config ./config/webpack.prod.config.js",
+        "serve": "tiga serve",
+        "build": "tiga build",
         ${row(stylelintScript, stylelint)}
         ${row(eslintScript, eslint)}
         ${row(prettierScript, prettier)}

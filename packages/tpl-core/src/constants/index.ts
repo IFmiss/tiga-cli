@@ -8,13 +8,13 @@ export const TEMPLATE_MAP: {
     pkg: string;
   };
 } = {
-  'react-components': {
-    description: 'react-components (React组件开发)',
-    pkg: 'tiga-cli-template/react-spa'
-  },
   'react-spa': {
     description: 'react-spa (React单页面应用)',
-    pkg: 'tiga-cli-template/react-spa'
+    pkg: '@tiga-cli/template-react-spa'
+  },
+  'react-components': {
+    description: 'react-components (React组件开发) [暂不支持]',
+    pkg: '@tiga-cli/template-react-components'
   }
 };
 

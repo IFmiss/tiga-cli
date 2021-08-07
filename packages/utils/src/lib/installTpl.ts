@@ -4,14 +4,14 @@ import shSync from './shSync';
 import { info, success } from './logger';
 
 export default function installTpl(options: RenderTemplateOptions) {
-  const { template } = options;
+  const { templatePkg, template } = options;
   const shellParams = obj2shell(options);
   info('start create template file \n');
   shSync(
-    // npx @tiga-cli/template-${template}/dist/bin/index.js init ${shellParams}
-    `node ./tiga-cli/packages/tempalte-react-spa/dist/bin/index.js init ${shellParams}`,
+    `npx ${templatePkg} init ${shellParams}`,
+    // `node ./tiga-cli/packages/tempalte-react-spa/dist/bin/index.js init ${shellParams}`,
     {
-      errorText: '初始化template失败',
+      errorText: `初始化 ${template} 项目失败`,
       stdio: 'inherit'
     }
   );
