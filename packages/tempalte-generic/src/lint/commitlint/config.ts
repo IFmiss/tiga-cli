@@ -8,7 +8,7 @@ module.exports = {
       2,
       'always',
       [
-        'feat', // 新功能 feature
+        'feat', // 新功能 feature.
         'update', // 常规更新
         'fix', // 修复bug
         'docs', // 仅仅修改了文档，比如README, CHANGELOG, CONTRIBUTE等

@@ -142,7 +142,7 @@ const layoutQuestions: Array<QuestionCollection> = [
 const typescriptQuestions: Array<QuestionCollection> = [
   {
     name: 'typescript',
-    message: '使用typescript？',
+    message: '是否使用typescript',
     type: 'confirm'
   }
 ];

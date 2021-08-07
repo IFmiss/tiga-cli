@@ -18,8 +18,7 @@ import templateMap from './template/index';
 export default async function renderRCC(options: InitShellType) {
   const t = timer();
 
-  const { typescript, pkgtool, git, commitlint, name, template, initFile } =
-    options;
+  const { pkgtool, git, commitlint, name, template, initFile } = options;
 
   const run = pkgToolUtils.run(pkgtool);
 
@@ -57,7 +56,7 @@ export default async function renderRCC(options: InitShellType) {
   // console.clear();
   artFont('TIGA-CLI');
 
-  console.info('');
+  console.info();
   console.info(
     `🎉 init ${template} success!  it takes ${chalk.yellow(
       `${t.getTime()}s`

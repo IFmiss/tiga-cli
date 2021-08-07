@@ -1,4 +1,5 @@
 import cfonts from 'cfonts';
+
 export default function artFont(text: string = 'TIGA-CLI') {
   console.info();
   console.info();
