@@ -5,7 +5,9 @@
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tempalte-react-spa#readme",
   "license": "ISC",
-  "bin": "./dist/bin/index.js",
+  "bin": {
+    "tiga-react-spa": "./dist/bin/index.js"
+  },
   "files": [
     "dist"
   ],
@@ -26,10 +28,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
     "@types/commander": "^2.12.2",
     "@types/inquirer": "^7.3.2",
     "@types/node": "^15.12.4",
@@ -44,11 +42,6 @@
     "lerna": "^4.0.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.3.1",
-    "rollup": "^2.52.2",
-    "rollup-plugin-clear": "^2.0.7",
-    "rollup-plugin-resolve": "^0.0.1-predev.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0",
     "ts-node": "^10.0.0",
     "tslib": "^2.3.0",
     "typescript": "^4.3.4"

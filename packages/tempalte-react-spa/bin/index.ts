@@ -29,6 +29,7 @@ program
   .option('--overwrite')
   .option('--initFile <value>', 'init porject local config')
   .action((args: RenderTemplateOptions) => {
+    console.info('args', args);
     if (args.initFile) {
       return init(args);
     }
