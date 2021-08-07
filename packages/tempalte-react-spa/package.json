@@ -6,7 +6,7 @@
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tempalte-react-spa#readme",
   "license": "ISC",
   "bin": {
-    "template-react-spa": "./dist/bin/index.js"
+    "tiga-react-spa": "./dist/bin/index.js"
   },
   "files": [
     "dist"
@@ -54,5 +54,5 @@
     "commander": "^8.0.0",
     "rimraf": "^3.0.2"
   },
-  "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113"
+  "gitHead": "80c419078d7ac50d3ed2d43e059ba661bc31ba12"
 }
