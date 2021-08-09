@@ -36,13 +36,18 @@ export default function compile(options: InitShellType): string {
         'react',
         'react-hooks',
         ${row(`'@typescript-eslint',`, typescript)}
-        ${row(`'prettier'`, prettier)}
+        ${row(`'prettier',`, prettier)}
+        'simple-import-sort'
       ],
       rules: {
         ${row(`'@typescript-eslint/no-empty-interface': ['off'],`, typescript)}
         ${row(`'@typescript-eslint/camelcase': ['off'],`, typescript)}
         'react-hooks/rules-of-hooks': 'error',
         'react/prop-types': 0,
+
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
+
         'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
         'default-case': 'error',
         eqeqeq: ['error', 'always', { null: 'ignore' }],

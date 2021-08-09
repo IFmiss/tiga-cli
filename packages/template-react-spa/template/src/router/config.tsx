@@ -5,6 +5,7 @@ export default function compile(options: InitShellType): string {
   const { typescript } = options;
   const str = `
     import React, { lazy } from 'react';
+
     import Home from '@/pages/home';
     import Loading from '@/components/Loading';
 

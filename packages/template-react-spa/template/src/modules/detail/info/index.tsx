@@ -6,7 +6,8 @@ export default function compile(options: InitShellType): string {
   const sExt = styleExt(options);
   const str = `
     import React, { memo } from 'react';
-    import { useParams, useLocation } from 'react-router';
+    import { useLocation, useParams } from 'react-router';
+
     import styles from './info.${sExt}';
     ${row(
       `

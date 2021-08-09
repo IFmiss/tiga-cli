@@ -6,6 +6,7 @@ export default function compile(options: InitShellType): string {
   const sExt = styleExt(options);
   const str = `
     import React, { memo } from 'react';
+
     import styles from './hello.${sExt}';
     ${row(
       `

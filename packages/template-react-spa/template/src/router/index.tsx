@@ -4,8 +4,9 @@ import type { InitShellType } from '@tiga-cli/tpl-core';
 export default function compile(options: InitShellType): string {
   const { typescript } = options;
   const str = `
-    import React, { lazy, Suspense } from 'react';
+    import React, { Suspense } from 'react';
     import { Route, Redirect, Switch } from 'react-router-dom';
+
     import routes from './config';
 
     export const RouteWithSubRoutes = (route${

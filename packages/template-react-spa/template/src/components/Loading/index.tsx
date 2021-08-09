@@ -5,9 +5,10 @@ export default function compile(options: InitShellType): string {
   const { typescript } = options;
   const sExt = styleExt(options);
   const str = `
-    import React, { memo } from 'react';
-    import styles from './loading.${sExt}';
     import PropTypes from 'prop-types';
+    import React, { memo } from 'react';
+
+    import styles from './loading.${sExt}';
     ${row(
       `
     export interface LoadingProps {

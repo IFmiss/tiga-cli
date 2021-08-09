@@ -6,8 +6,10 @@ export default function compile(options: InitShellType): string {
   const str = `
     import React from 'react';
     import { HashRouter as Router, Link } from 'react-router-dom';
-    import routes, { RouterView } from '@/router';
+
     import Hello from '@/components/Hello';
+    import routes, { RouterView } from '@/router';
+
     import styles from './index.${sExt}';
 
     const App = () => {

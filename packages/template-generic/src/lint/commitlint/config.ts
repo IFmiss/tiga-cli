@@ -1,5 +1,4 @@
-export default `
-module.exports = {
+export default `module.exports = {
   extends: ['@commitlint/config-conventional'],
   helpUrl:
     '=> https://github.com/conventional-changelog/commitlint/#what-is-commitlint',
