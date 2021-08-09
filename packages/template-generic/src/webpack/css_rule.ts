@@ -1,11 +1,11 @@
-/* eslint-disable prettier/prettier */
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import { tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(styleRuleParmas: {
   useMiniCssExtractPlugin: boolean;
   publicPath: string;
 }): string {
   const { useMiniCssExtractPlugin, publicPath } = styleRuleParmas;
+  /* eslint-disable prettier/prettier */
   const str = `{
     test: /\\.css$/,
     use: [

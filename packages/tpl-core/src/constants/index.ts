@@ -33,6 +33,8 @@ export const CSS_MAP: {
   stylus: 'stylus + css moudles'
 };
 
+export const LINT_ENUM = ['eslint', 'prettier', 'commitlint', 'stylelint'];
+
 export const DEFAULT_CREATE_OPTOPNS: TypeCreateOptions = {
   name: 'tiga-test',
   git: false,

@@ -1,4 +1,4 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import { tpl } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
 export const BASE_CUSTOM_CONFIG_PATH = './';

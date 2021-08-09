@@ -1,16 +1,20 @@
 import chalk from 'chalk';
-import { InitShellType } from '@tiga-cli/tpl-core';
+
+import {
+  InitShellType,
+  installDependenciesStdout,
+  initGitHook,
+  initGit,
+  pkgTool as pkgToolUtils,
+  artFont
+} from '@tiga-cli/tpl-core';
+
 import {
   writeFileSync,
   shSync,
   logError,
-  installDependenciesStdout,
   rmFile,
-  initGitHook,
-  initGit,
-  timer,
-  pkgTool as pkgToolUtils,
-  artFont
+  timer
 } from '@tiga-cli/utils';
 
 import templateMap from './template/index';

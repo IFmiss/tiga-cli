@@ -63,7 +63,6 @@
     "@tiga-cli/utils": "^0.0.15",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
-    "glob": "^7.1.7",
     "import-from": "^4.0.0",
     "inquirer": "^8.1.1",
     "leven": "^3.1.0",

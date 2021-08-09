@@ -8,8 +8,9 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import leven from 'leven';
 import { create, init, serve, update, build } from '../exec';
-import { updateNotifier, resolveCwd } from '@tiga-cli/utils';
+import { resolveCwd } from '@tiga-cli/utils';
 import type { TigaConfig } from '@tiga-cli/tpl-core';
+import { updateNotifier } from '@tiga-cli/tpl-core';
 
 const program = new Command();
 

@@ -1,5 +1,5 @@
-import { INIT_FILE } from '@tiga-cli/tpl-core';
-import { jsonFileParse, installTpl } from '@tiga-cli/utils';
+import { INIT_FILE, installTpl } from '@tiga-cli/tpl-core';
+import { jsonFileParse } from '@tiga-cli/utils';
 
 import path from 'path';
 

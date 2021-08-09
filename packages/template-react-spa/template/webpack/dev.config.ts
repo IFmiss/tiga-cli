@@ -1,4 +1,4 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
+import { tpl } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
@@ -46,8 +46,6 @@ export default function compile(options: InitShellType): string {
         }
       },
       devServer: {
-        port: '9001',
-        host: '0.0.0.0',
         overlay: true,
         historyApiFallback: true
       }

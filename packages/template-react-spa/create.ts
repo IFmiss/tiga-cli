@@ -1,19 +1,16 @@
-import { chdir } from 'process';
-import { InitShellType } from '@tiga-cli/tpl-core';
 import chalk from 'chalk';
 import fsExtra from 'fs-extra';
-
+import { chdir } from 'process';
 import {
-  writeFileSync,
-  shSync,
-  logError,
+  InitShellType,
   installDependencies,
   initGitHook,
   initGit,
-  timer,
   pkgTool as pkgToolUtils,
   artFont
-} from '@tiga-cli/utils';
+} from '@tiga-cli/tpl-core';
+
+import { writeFileSync, shSync, logError, timer } from '@tiga-cli/utils';
 
 import templateMap from './template/index';
 
