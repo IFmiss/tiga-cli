@@ -5,7 +5,7 @@ import {
   lintAllScript,
   stylelintScript,
   prettierScript,
-  lintStagedScript
+  commitLintScript
 } from '@tiga-cli/template-generic';
 
 import tiga from './tiga';
@@ -27,7 +27,7 @@ export default function compile(options: InitShellType): string {
         ${row(eslintScript, eslint)}
         ${row(prettierScript, prettier)}
         ${lintAllScript(options)}
-        ${row(lintStagedScript, commitlint)}
+        ${row(commitLintScript(options), commitlint)}
         "sort:pkg": "sort-package-json"
       },
       "author": "",

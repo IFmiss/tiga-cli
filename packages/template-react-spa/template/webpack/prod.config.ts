@@ -37,7 +37,7 @@ export default function compile(options: InitShellType): string {
           template: path.join(srcPath, 'index.html'),
           title: '${name}',
           // favicon: 'src/assets/favicon.ico',
-          minify:{
+          minify: {
             removeComments: true,
             collapseWhitespace: true
           },

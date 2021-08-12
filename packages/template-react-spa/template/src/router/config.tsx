@@ -6,8 +6,8 @@ export default function compile(options: InitShellType): string {
   const str = `
     import React, { lazy } from 'react';
 
-    import Home from '@/pages/home';
     import Loading from '@/components/Loading';
+    import Home from '@/pages/home';
 
     const Detail = lazy(() => import('@/pages/detail'));
     const DetailInfo = lazy(() => import('@/modules/detail/info'));

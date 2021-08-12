@@ -11,7 +11,8 @@ import {
   postcssConfig,
   tigaConfig,
   lintstagedConfig,
-  vscodeTplMap
+  vscodeTplMap,
+  editorConfig
 } from '@tiga-cli/template-generic';
 
 // import commitlintConfig from './template/commitlint/config';
@@ -40,6 +41,7 @@ export default function templateMap(options: InitShellType) {
     ['config/webpack.base.config.js']: webpackBase(options),
     ['config/webpack.dev.config.js']: webpackDev(options),
     ['config/webpack.prod.config.js']: webpackProd(options),
+    ['.editorconfig']: editorConfig,
     ...srcFileMap(options),
     ...vscodeTplMap()
   };

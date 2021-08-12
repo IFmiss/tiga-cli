@@ -16,11 +16,14 @@ export { default as stylelintScript } from './lint/stylelint/script';
 export { default as lintAllScript } from './lint/lintAllScript';
 
 export { default as lintstagedConfig } from './lint/lintstaged/config';
-export { default as lintStagedScript } from './lint/lintstaged/script';
+
+export { default as commitLintScript } from './lint/commitlint/script';
 
 export { default as postcssConfig } from './postcss/config';
 
 export { default as tigaConfig } from './tiga/config';
+
+export { default as editorConfig } from './ide/config';
 
 export { default as cssRule } from './webpack/css_rule';
 export { default as fileRule } from './webpack/file_rule';

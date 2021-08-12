@@ -5,9 +5,9 @@ export default function compile(options: InitShellType): string {
   const { typescript } = options;
   const sExt = styleExt(options);
   const str = `
-    import { RouterView } from '@/router';
-
     import React, { memo } from 'react';
+
+    import { RouterView } from '@/router';
 
     import styles from './detail.${sExt}';
     ${row(

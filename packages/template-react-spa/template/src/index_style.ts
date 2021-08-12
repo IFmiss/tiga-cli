@@ -42,5 +42,7 @@ export default function compile(options: InitShellType): string {
         color: rgb(84, 117, 207);
       }`;
   }
-  return tpl(str);
+  return tpl(str, {
+    indent: -6
+  });
 }
