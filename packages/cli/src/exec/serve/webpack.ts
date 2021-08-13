@@ -1,13 +1,12 @@
 import type { TigaConfig, WebpackServeOptions } from '@tiga-cli/tpl-core';
-import { checkPort, createCert } from '@tiga-cli/tpl-core';
+import {
+  checkPort,
+  createCert,
+  workSpaceNodeModules
+} from '@tiga-cli/tpl-core';
 import { logError } from '@tiga-cli/utils';
 
-import {
-  DEFAULT_HOST,
-  DEFAULT_PROT,
-  SERVE_CONFIG_PATH,
-  workSpaceNodeModules
-} from '../../connstants';
+import { DEFAULT_HOST, DEFAULT_PROT, SERVE_CONFIG_PATH } from '../../constants';
 const importFrom = require('import-from');
 
 export default async function serveWebpack(

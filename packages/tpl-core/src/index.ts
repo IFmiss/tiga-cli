@@ -28,3 +28,4 @@ export { default as tpl } from './utils/tpl';
 export { renderRow as renderRow } from './utils/tpl';
 export { fileStringify as fileStringify } from './utils/tpl';
 export { default as updateNotifier } from './utils/updateNotifier';
+export { default as workSpaceNodeModules } from './utils/workSpaceNodeModules';
