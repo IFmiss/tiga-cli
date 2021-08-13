@@ -53,6 +53,13 @@ export type InitShellType = {
 
 export type TigaConfig = {
   type: TypeTemplate;
+  devtool?: string;
+  favicon?: string;
+  outputPath?: string;
+  publicPath?: string;
+  proxy?: any;
+  chainWebpack?: any;
+  alias?: any;
   devServer: {
     cert?: boolean;
     port?: number;

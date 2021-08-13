@@ -1,4 +1,5 @@
 import fsExtra from 'fs-extra';
+
 import { error } from './logger';
 
 export default async function jsonFileParse(path: string) {

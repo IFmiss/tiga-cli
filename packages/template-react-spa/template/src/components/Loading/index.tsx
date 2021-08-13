@@ -1,5 +1,5 @@
-import { tpl, renderRow as row, styleExt } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
+import { renderRow as row, styleExt, tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { typescript } = options;

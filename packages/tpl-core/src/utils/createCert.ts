@@ -1,6 +1,6 @@
-import mkcert from 'mkcert';
-import { existsSync, readFileSync } from 'fs-extra';
 import { writeFileSync } from '@tiga-cli/utils';
+import { existsSync, readFileSync } from 'fs-extra';
+import mkcert from 'mkcert';
 import path from 'path';
 
 type CACert = Partial<{

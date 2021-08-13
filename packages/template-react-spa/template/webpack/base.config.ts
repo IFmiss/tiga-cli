@@ -1,13 +1,13 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
-import type { InitShellType } from '@tiga-cli/tpl-core';
 import {
-  jsRule,
-  fileRule,
   cssRule,
+  fileRule,
+  jsRule,
   lessRule,
   sassRule,
   stylusRule
 } from '@tiga-cli/template-generic';
+import type { InitShellType } from '@tiga-cli/tpl-core';
+import { renderRow as row, tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { less, sass, stylus, typescript } = options;
@@ -32,8 +32,6 @@ export default function compile(options: InitShellType): string {
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '../src'),
-          '@pages': path.resolve(__dirname, '../src/pages'),
-          '@components': path.resolve(__dirname, '../src/components')
         },
         extensions: ['.ts', '.tsx', '.js', '.jsx']
       }

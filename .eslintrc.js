@@ -25,12 +25,22 @@ module.exports = {
       version: 'detect'
     }
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
+  plugins: [
+    'react',
+    'react-hooks',
+    '@typescript-eslint',
+    'prettier',
+    'simple-import-sort'
+  ],
   rules: {
     '@typescript-eslint/indent': 0,
     '@typescript-eslint/no-empty-interface': ['off'],
     '@typescript-eslint/camelcase': ['off'],
     'react-hooks/rules-of-hooks': 'error',
+
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+
     'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
     'default-case': 'error',
     eqeqeq: ['error', 'always', { null: 'ignore' }],

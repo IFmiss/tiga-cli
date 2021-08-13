@@ -1,21 +1,22 @@
 import { InitShellType, styleExt } from '@tiga-cli/tpl-core';
-import compileIndex from './index';
-import indexStyle from './index_style';
-import html from './index_html';
+
 import compileApp from './app';
-import routerConfig from './router/config';
-import routerComponent from './router/index';
-import routerDeclaration from './router/router_declaration';
-import compileHome from './pages/home';
-import homeStyle from './pages/home/home_style';
-import compileDetail from './pages/detail';
-import detailStyle from './pages/detail/detail_style';
-import compileModulesInfo from './modules/detail/info';
-import modulesInfoStyle from './modules/detail/info/info_style';
 import compileHello from './components/Hello';
 import helloStyle from './components/Hello/hello_style';
 import compileLoading from './components/Loading';
 import loadingStyle from './components/Loading/loading_style';
+import compileIndex from './index';
+import html from './index_html';
+import indexStyle from './index_style';
+import compileModulesInfo from './modules/detail/info';
+import modulesInfoStyle from './modules/detail/info/info_style';
+import compileDetail from './pages/detail';
+import detailStyle from './pages/detail/detail_style';
+import compileHome from './pages/home';
+import homeStyle from './pages/home/home_style';
+import routerConfig from './router/config';
+import routerComponent from './router/index';
+import routerDeclaration from './router/router_declaration';
 
 export default function srcFileMap(options: InitShellType) {
   const { typescript } = options;

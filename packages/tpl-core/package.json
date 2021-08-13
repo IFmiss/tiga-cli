@@ -32,5 +32,8 @@
     "mkcert": "^1.4.0",
     "update-notifier": "^5.1.0"
   },
-  "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113"
+  "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113",
+  "devDependencies": {
+    "eslint-plugin-simple-import-sort": "^7.0.0"
+  }
 }

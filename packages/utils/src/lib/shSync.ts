@@ -1,4 +1,5 @@
 import { spawnSync, StdioOptions } from 'child_process';
+
 import { error as logError } from './logger';
 import Spinner from './spinner';
 

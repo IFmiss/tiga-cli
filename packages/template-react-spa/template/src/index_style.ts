@@ -1,5 +1,5 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
+import { renderRow as row, tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { less, sass, stylus } = options;

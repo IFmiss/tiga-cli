@@ -1,4 +1,5 @@
-import { shSync, logInfo } from '@tiga-cli/utils';
+import { logInfo, shSync } from '@tiga-cli/utils';
+
 import type { TypePkgTool } from './../types/index';
 import checkPkgTool from './checkPkgTool';
 import { install } from './pkgTool';

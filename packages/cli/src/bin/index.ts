@@ -4,17 +4,18 @@ const pkg: {
   [props: string]: unknown;
 } = require('./../package.json');
 
-import { Command } from 'commander';
-import chalk from 'chalk';
-import leven from 'leven';
-import { create, init, serve, update, build } from '../exec';
-import { resolveCwd } from '@tiga-cli/utils';
 import type { TigaConfig } from '@tiga-cli/tpl-core';
-import { updateNotifier } from '@tiga-cli/tpl-core';
+import { FILE_NAME_MAP, updateNotifier } from '@tiga-cli/tpl-core';
+import { resolveCwd } from '@tiga-cli/utils';
+import chalk from 'chalk';
+import { Command } from 'commander';
+import leven from 'leven';
+
+import { build, create, init, serve, update } from '../exec';
 
 const program = new Command();
 
-const CONFIG_FILE_PATH = './tiga.config.js';
+const CONFIG_FILE_PATH = `./${FILE_NAME_MAP.tiga.config}`;
 
 function getTigaConfig(): TigaConfig {
   return require(resolveCwd(CONFIG_FILE_PATH));

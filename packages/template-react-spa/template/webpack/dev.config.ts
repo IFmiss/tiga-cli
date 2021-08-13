@@ -1,5 +1,5 @@
-import { tpl } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
+import { tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { name, typescript } = options;
@@ -24,7 +24,7 @@ export default function compile(options: InitShellType): string {
         filename: 'js/[name].[contenthash:8].js',
         path: path.resolve(__dirname, '../dist')
       },
-      devtool: 'inline-source-map',
+      devtool: 'cheap-module-source-map',
       plugins: [
         new HtmlWebpackPlugin({
           filename: 'index.html',

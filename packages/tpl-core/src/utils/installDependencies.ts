@@ -1,4 +1,5 @@
 import { sh, Spinner } from '@tiga-cli/utils';
+
 import type { TypePkgTool } from './../types/index';
 import checkPkgTool from './checkPkgTool';
 import { install } from './pkgTool';

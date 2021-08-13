@@ -1,7 +1,8 @@
-import inquirer from 'inquirer';
-import { spawnSync } from 'child_process';
-import type { TypePkgTool } from './../types/index';
 import { logError, logWarn } from '@tiga-cli/utils';
+import { spawnSync } from 'child_process';
+import inquirer from 'inquirer';
+
+import type { TypePkgTool } from './../types/index';
 
 export default function checkPkgTool(pkgTool: TypePkgTool): Promise<boolean> {
   let hasPkgTool = false;

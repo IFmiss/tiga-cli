@@ -1,15 +1,15 @@
-import inquirer from 'inquirer';
 import {
-  TEMPLATE_MAP,
   DEFAULT_CREATE_OPTOPNS,
-  RenderTemplateOptions,
-  TypeCreateOptions,
+  inquirerQuestions,
   installTpl,
-  inquirerQuestions
+  RenderTemplateOptions,
+  TEMPLATE_MAP,
+  TypeCreateOptions
 } from '@tiga-cli/tpl-core';
-import { v4 as uuid } from 'uuid';
 import { logInfo, rmFile, sleep } from '@tiga-cli/utils';
 import chalk from 'chalk';
+import inquirer from 'inquirer';
+import { v4 as uuid } from 'uuid';
 
 const {
   questionTemplate,

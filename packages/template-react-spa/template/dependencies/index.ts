@@ -1,19 +1,20 @@
 import type { InitShellType } from '@tiga-cli/tpl-core';
-import react from './react';
+
+import babel from './babel';
+import commitlint from './commitlint';
 import eslint from './eslint';
 import less from './less';
-import sass from './sass';
-import stylus from './stylus';
-import postcss from './postcss';
-import typescript from './typescript';
-import babel from './babel';
-import webpack from './webpack';
 import lintStaged from './lint-staged';
-import commitlint from './commitlint';
-import stylelint from './stylelint';
+import postcss from './postcss';
 import prettier from './prettier';
+import react from './react';
+import sass from './sass';
+import stylelint from './stylelint';
+import stylus from './stylus';
 import tiga from './tiga';
 import { GeneralModuleDependencies } from './types';
+import typescript from './typescript';
+import webpack from './webpack';
 
 export const pkg2Array = (pkg: { [props: string]: string }): Array<string> => {
   const arr: Array<string> = [];

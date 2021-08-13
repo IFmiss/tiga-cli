@@ -1,12 +1,13 @@
-import inquirer, { QuestionCollection } from 'inquirer';
-import glob from 'glob';
-import path from 'path';
 import { isDirSync } from '@tiga-cli/utils';
+import glob from 'glob';
+import inquirer, { QuestionCollection } from 'inquirer';
+import path from 'path';
+
 import {
-  TEMPLATE_MAP,
   CSS_MAP,
   LAYOUT_MAP,
-  LINT_ENUM
+  LINT_ENUM,
+  TEMPLATE_MAP
 } from './../constants/index';
 
 // 是否覆盖

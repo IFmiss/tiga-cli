@@ -27,9 +27,7 @@ export default `{
       "esnext"
     ],
     "paths": {
-      "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
-      "@components/*": ["src/components/*"]
+      "@/*": ["src/*"]
     },
     "sourceMap": false,
     "noImplicitAny": false

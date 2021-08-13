@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
-import { Command } from 'commander';
-const program = new Command();
 import { RenderTemplateOptions } from '@tiga-cli/tpl-core';
+import { Command } from 'commander';
+
 import create from '../create';
 import init from '../init';
+
+const program = new Command();
+
 program
   .command('init')
   .description('create a new project powered by tiga-cli')

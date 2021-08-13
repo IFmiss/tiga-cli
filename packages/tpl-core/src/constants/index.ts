@@ -45,3 +45,40 @@ export const DEFAULT_CREATE_OPTOPNS: TypeCreateOptions = {
   pkgtool: 'pnpm',
   lint: ['eslint', 'prettier', 'stylelint', 'commitlint']
 };
+
+export const FILE_NAME_MAP: {
+  [props: string]: Partial<Record<'config' | 'ignore', string>>;
+} = {
+  babel: {
+    config: '.babelrc.js'
+  },
+  git: {
+    ignore: '.gitignore'
+  },
+  postcss: {
+    config: 'postcss.config.js'
+  },
+  commitlint: {
+    config: '.commitlintrc.js'
+  },
+  lintstaged: {
+    config: '.lintstagedrc.js'
+  },
+  prettier: {
+    config: '.prettierrc.js',
+    ignore: '.prettierignore'
+  },
+  stylelint: {
+    config: '.stylelintrc.js'
+  },
+  eslint: {
+    config: '.eslintrc.js',
+    ignore: '.eslintignore'
+  },
+  tiga: {
+    config: 'tiga.config.js'
+  },
+  editconfig: {
+    config: '.editorconfig'
+  }
+};

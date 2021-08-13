@@ -1,6 +1,5 @@
 import { INIT_FILE, installTpl } from '@tiga-cli/tpl-core';
 import { jsonFileParse } from '@tiga-cli/utils';
-
 import path from 'path';
 
 export default async function init() {
