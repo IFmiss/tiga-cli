@@ -1,5 +1,5 @@
-import { tpl } from '@tiga-cli/tpl-core';
 import type { InitShellType } from '@tiga-cli/tpl-core';
+import { tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { name, template, uuid } = options;
@@ -13,7 +13,7 @@ export default function compile(options: InitShellType): string {
         port: 1994, // dev 环境端口号
         host: '0.0.0.0' // dev host 地址
       }
-    }
+    };
   `;
   return tpl(str);
 }

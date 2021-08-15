@@ -62,7 +62,7 @@ export type TigaConfig = {
   alias?: any;
   devServer: {
     cert?: boolean;
-    port?: number;
+    port?: number | string;
     host?: string;
     open?: boolean;
     https?: boolean;

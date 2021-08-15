@@ -2,23 +2,25 @@ import type { TigaConfig, WebpackServeOptions } from '@tiga-cli/tpl-core';
 import {
   checkPort,
   createCert,
+  DEFAULT_HOST,
+  DEFAULT_PROT,
+  mergedWebpackConfig,
+  webpackAutoMerge,
   workSpaceNodeModules
 } from '@tiga-cli/tpl-core';
 import { logError } from '@tiga-cli/utils';
 
-import { DEFAULT_HOST, DEFAULT_PROT, SERVE_CONFIG_PATH } from '../../constants';
+import { SERVE_CONFIG_PATH } from '../../constants';
+
 const importFrom = require('import-from');
 
 export default async function serveWebpack(
-  config: TigaConfig,
+  tiga: TigaConfig,
   options: WebpackServeOptions
 ) {
-  const {
-    webpack,
-    webpackMerge: { merge },
-    webpackDevServer: WebpackDevServer
-  } = workSpaceNodeModules();
-  const { devServer, ...rest } = config;
+  const { webpack, webpackDevServer: WebpackDevServer } =
+    workSpaceNodeModules();
+
   let webpackDevConfig;
 
   try {
@@ -27,40 +29,44 @@ export default async function serveWebpack(
     webpackDevConfig = {};
   }
 
-  const h = devServer?.host || DEFAULT_HOST;
-  const p = options.port || devServer?.port || DEFAULT_PROT;
+  // merge webpack devConfig fist time
+  const config = mergedWebpackConfig(webpackDevConfig, {
+    ...tiga,
+    devServer: {
+      ...tiga.devServer,
+      host: tiga?.devServer?.host || DEFAULT_HOST,
+      port: options?.port || tiga?.devServer?.port || DEFAULT_PROT,
+      open: options?.open
+    }
+  });
+
   // check port
-  const port = await checkPort(Number(p));
+  const port = await checkPort(Number(config.devServer.port));
 
   // https
-  const certInfo = devServer.cert
+  const certInfo = config.devServer.cert
     ? await createCert({
         host: 'localhost'
       })
     : null;
 
-  const mergeConfig = merge(webpackDevConfig, {
-    // ...rest,
+  // update dev config in runtime
+  const resultConfig = webpackAutoMerge(config, {
     mode: 'development',
     devServer: {
-      ...devServer,
       port,
-      host: h,
-      https: certInfo ?? void 0
+      https: certInfo ?? false
     }
   });
 
-  const host = mergeConfig?.devServer?.host;
-  const open = mergeConfig?.devServer?.open;
-
   try {
-    const compiler = webpack(mergeConfig);
+    const compiler = webpack(resultConfig);
 
     const server = new WebpackDevServer(compiler, {
-      open
+      open: resultConfig?.devServer?.open
     });
 
-    server.listen(port, host);
+    server.listen(port, resultConfig.devServer.host);
   } catch (e) {
     logError(e);
   }

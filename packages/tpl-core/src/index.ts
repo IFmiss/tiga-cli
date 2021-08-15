@@ -20,6 +20,8 @@ export { default as initGitHook } from './utils/initGitHook';
 export { default as installDependencies } from './utils/installDependencies';
 export { default as installDependenciesStdout } from './utils/installDependenciesStdout';
 export { default as installTpl } from './utils/installTpl';
+export { default as mergedWebpackConfig } from './utils/mergedWebpackConfig';
+export { webpackAutoMerge as webpackAutoMerge } from './utils/mergedWebpackConfig';
 export * as pkgTool from './utils/pkgTool';
 export { default as renderContextFile } from './utils/renderContextFile';
 export { strUpStart as strUpStart } from './utils/str';

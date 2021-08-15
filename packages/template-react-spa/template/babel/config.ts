@@ -10,11 +10,10 @@ export default function compile(options: InitShellType) {
       const presets = [
         ["@babel/preset-env",
         {
-          useBuiltIns: "usage",
-          corejs: { version: 3, proposals: true },
+          useBuiltIns: false,
           targets: {
-            chrome: "58",
-            ie: "11"
+            chrome: '58',
+            ie: '11'
           }
         }],
         "@babel/preset-react",

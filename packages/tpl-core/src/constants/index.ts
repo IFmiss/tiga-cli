@@ -1,6 +1,9 @@
 import { TypeCreateOptions, TypeCss, TypeLayout, TypeTemplate } from '../types';
 
 export const INIT_FILE = 'init.json';
+export const DEFAULT_PROT = 1994;
+export const DEFAULT_HOST = '0.0.0.0';
+export const NODE_MODULES_PATH = 'node_modules';
 
 export const TEMPLATE_MAP: {
   [props in TypeTemplate]: {
