@@ -35,6 +35,7 @@
   },
   "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113",
   "devDependencies": {
-    "eslint-plugin-simple-import-sort": "^7.0.0"
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "webpack-chain": "^6.5.1"
   }
 }
