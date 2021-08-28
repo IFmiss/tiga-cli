@@ -6,5 +6,5 @@ export default async function update() {
   await sh('npm install @tiga-cli/cli -g', {
     errorText: chalk.red('update failed ! \n\n')
   });
-  logInfo('🎉 update completed !');
+  logInfo('🎉 update completed !!!');
 }
