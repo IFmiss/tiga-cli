@@ -17,16 +17,16 @@ const indentSpace = (
 
   if (indent > 0) {
     expArgs = [
-      new RegExp(`^`, justFirstLine ? undefined : 'gm'),
-      ' '.repeat(indent)
+      new RegExp(`^`, justFirstLine ? undefined : "gm"),
+      " ".repeat(indent)
     ];
   } else {
     expArgs = [
       new RegExp(
-        `^${' '.repeat(Math.abs(indent))}`,
-        justFirstLine ? undefined : 'gm'
+        `^${" ".repeat(Math.abs(indent))}`,
+        justFirstLine ? undefined : "gm"
       ),
-      ''
+      ""
     ];
   }
   return expArgs;
@@ -44,19 +44,19 @@ export default function tpl(str: string, options?: TplExpOptions) {
 
   const result = str
     // remove start 换行
-    .replace(/^\n/, '')
+    .replace(/^\n/, "")
     // 第一行
-    .replace(/^(\x20)*/g, '')
+    .replace(/^(\x20)*/g, "")
     // 清除带换行符的行,且清除前面的空格
-    .replace(/(\x20*)(--rm-row--)\n/g, '')
+    .replace(/(\x20*)(--rm-row--)\n/g, "")
     // 清除需要删掉的space
-    .replace(/--rm-space--/gm, '')
+    .replace(/--rm-space--/gm, "")
     // 清除结尾空格
-    .replace(/(\x20*)$/gm, '')
+    .replace(/(\x20*)$/gm, "")
     // 整体缩进 (第一行则不受影响)
     .replace(...allSpace)
     // 结尾添加换行符号
-    .concat(endNewline ? '\n' : '');
+    .concat(endNewline ? "\n" : "");
 
   return startLineIndent
     ? result.replace(...indentSpace(0 - indent, true))
@@ -68,7 +68,7 @@ export function renderRow(code: string, conditional?: boolean) {
   if (conditional) {
     return code;
   }
-  return '--rm-row--';
+  return "--rm-row--";
 }
 
 // 文件渲染

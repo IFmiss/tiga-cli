@@ -1,7 +1,7 @@
-import { Signale } from 'signale';
+import { Signale } from "signale";
 
 const signale = new Signale({
-  scope: 'Tiga'
+  scope: "Tiga"
   // types: {
   //   warn: {
   //     color: 'yellow',

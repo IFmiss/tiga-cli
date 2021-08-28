@@ -1,5 +1,5 @@
-import { tpl, renderRow as row } from '@tiga-cli/tpl-core';
-import type { InitShellType } from '@tiga-cli/tpl-core';
+import type { InitShellType } from "@tiga-cli/tpl-core";
+import { renderRow as row, tpl } from "@tiga-cli/tpl-core";
 
 export default function compile(options: InitShellType): string {
   const { layout } = options;
@@ -22,7 +22,7 @@ export default function compile(options: InitShellType): string {
             mediaQuery: false // 允许在媒体查询中转换px（Boolean）
             // more info to https://github.com/evrone/postcss-px-to-viewport#usage
           })`,
-          layout === 'viewport'
+          layout === "viewport"
         )}
       ]
     };

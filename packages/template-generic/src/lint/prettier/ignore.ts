@@ -1,4 +1,4 @@
-import type { InitShellType } from '@tiga-cli/tpl-core';
+import type { InitShellType } from "@tiga-cli/tpl-core";
 
 const ignoreWithoutStylelint = `*.less
 *.scss

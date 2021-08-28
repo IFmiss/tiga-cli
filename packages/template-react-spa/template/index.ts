@@ -11,20 +11,20 @@ import {
   stylelintConfig,
   tigaConfig,
   vscodeTplMap
-} from '@tiga-cli/template-generic';
-import { FILE_NAME_MAP as f, InitShellType } from '@tiga-cli/tpl-core';
+} from "@tiga-cli/template-generic";
+import { FILE_NAME_MAP as f, InitShellType } from "@tiga-cli/tpl-core";
 
 // import commitlintConfig from './template/commitlint/config';
-import babelConfig from './babel/config';
-import declaration from './declaration/index';
-import packageJson from './pkg/index';
-import readme from './readme/readme';
-import readmeZH from './readme/readme-zh';
-import srcFileMap from './src/srcFileMap';
-import tsConfig from './typescript/config';
-import webpackBase from './webpack/base.config';
-import webpackDev from './webpack/dev.config';
-import webpackProd from './webpack/prod.config';
+import babelConfig from "./babel/config";
+import declaration from "./declaration/index";
+import packageJson from "./pkg/index";
+import readme from "./readme/readme";
+import readmeZH from "./readme/readme-zh";
+import srcFileMap from "./src/srcFileMap";
+import tsConfig from "./typescript/config";
+import webpackBase from "./webpack/base.config";
+import webpackDev from "./webpack/dev.config";
+import webpackProd from "./webpack/prod.config";
 
 export default function templateMap(options: InitShellType) {
   const { typescript, eslint, commitlint, prettier, stylelint } = options;
@@ -33,13 +33,13 @@ export default function templateMap(options: InitShellType) {
     [`${f.babel.config}`]: babelConfig(options),
     [`${f.git.ignore}`]: gitIgnore,
     [`${f.postcss.config}`]: postcssConfig(options),
-    ['README.md']: readme(options),
-    ['README-zh.md']: readmeZH(options),
+    ["README.md"]: readme(options),
+    ["README-zh.md"]: readmeZH(options),
     [`${f.tiga.config}`]: tigaConfig(options),
-    ['package.json']: packageJson(options),
-    ['config/webpack.base.config.js']: webpackBase(options),
-    ['config/webpack.dev.config.js']: webpackDev(options),
-    ['config/webpack.prod.config.js']: webpackProd(options),
+    ["package.json"]: packageJson(options),
+    ["config/webpack.base.config.js"]: webpackBase(options),
+    ["config/webpack.dev.config.js"]: webpackDev(options),
+    ["config/webpack.prod.config.js"]: webpackProd(options),
     [`${f.editconfig.config}`]: editorConfig,
     ...srcFileMap(options),
     ...vscodeTplMap()
@@ -74,8 +74,8 @@ export default function templateMap(options: InitShellType) {
 
   if (typescript) {
     Object.assign(TPL_MAP, {
-      ['src/global.d.ts']: declaration,
-      ['tsconfig.json']: tsConfig
+      ["src/global.d.ts"]: declaration,
+      ["tsconfig.json"]: tsConfig
     });
   }
 

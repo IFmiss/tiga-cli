@@ -2,16 +2,16 @@ const pkg: {
   version: string;
   name: string;
   [props: string]: unknown;
-} = require('./../package.json');
+} = require("./../package.json");
 
-import type { TigaConfig } from '@tiga-cli/tpl-core';
-import { FILE_NAME_MAP, updateNotifier } from '@tiga-cli/tpl-core';
-import { resolveCwd } from '@tiga-cli/utils';
-import chalk from 'chalk';
-import { Command } from 'commander';
-import leven from 'leven';
+import type { TigaConfig } from "@tiga-cli/tpl-core";
+import { FILE_NAME_MAP, updateNotifier } from "@tiga-cli/tpl-core";
+import { resolveCwd } from "@tiga-cli/utils";
+import chalk from "chalk";
+import { Command } from "commander";
+import leven from "leven";
 
-import { build, create, init, publish, serve, update } from '../exec';
+import { build, create, init, publish, serve, update } from "../exec";
 
 const program = new Command();
 
@@ -22,7 +22,7 @@ function getTigaConfig(): TigaConfig {
 }
 
 // outputHelp
-program.on('--help', () => {
+program.on("--help", () => {
   console.info();
   console.info(
     `  Run ${chalk.cyan(
@@ -32,14 +32,14 @@ program.on('--help', () => {
   console.info();
 });
 
-program.version(`tiga version: ${pkg.version}`).usage('<command> [options]');
+program.version(`tiga version: ${pkg.version}`).usage("<command> [options]");
 
 // create a new project
 program
-  .command('create <name>')
-  .description('create a new project powered by tiga-cli')
-  .option('-t --typescript', 'use typescript')
-  .option('-g --git', 'use git')
+  .command("create <name>")
+  .description("create a new project powered by tiga-cli")
+  .option("-t --typescript", "use typescript")
+  .option("-g --git", "use git")
   .action((name, options) => {
     if (name) {
       create(name, options);
@@ -49,8 +49,8 @@ program
 
 // init a new project
 program
-  .command('init')
-  .description('init a project by local config file')
+  .command("init")
+  .description("init a project by local config file")
   .action(() => {
     init();
     // updateNotifier(pkg);
@@ -58,11 +58,11 @@ program
 
 // start dev serve
 program
-  .command('serve')
-  .description('start webapck dev server')
-  .option('-p --port <port>', 'start serve port')
-  .option('-o --open', 'need to open the browser')
-  .option('--path', 'custom dev config path')
+  .command("serve")
+  .description("start webapck dev server")
+  .option("-p --port <port>", "start serve port")
+  .option("-o --open", "need to open the browser")
+  .option("--path", "custom dev config path")
   .action((options) => {
     const config = getTigaConfig();
     serve(config, options);
@@ -70,9 +70,9 @@ program
 
 // build file
 program
-  .command('build')
-  .description('build project')
-  .option('--path', 'custom build config path')
+  .command("build")
+  .description("build project")
+  .option("--path", "custom build config path")
   .action((options) => {
     const config = getTigaConfig();
     build(config, options);
@@ -80,21 +80,21 @@ program
 
 // update version
 program
-  .command('upgrade')
-  .description('update cli')
+  .command("upgrade")
+  .description("update cli")
   .action(() => {
     update();
   });
 
 // publish to npm
 program
-  .command('publish')
-  .description('npm publish')
+  .command("publish")
+  .description("npm publish")
   .action(() => {
     publish();
   });
 
-program.on('command:*', ([cmd]) => {
+program.on("command:*", ([cmd]) => {
   program.outputHelp();
   console.info(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}`));
   console.info();
@@ -116,7 +116,7 @@ function suggestCommands(unknownCommand) {
 
   availableCommands.forEach((cmd) => {
     const isBestMatch =
-      leven(cmd, unknownCommand) < leven(suggestion || '', unknownCommand);
+      leven(cmd, unknownCommand) < leven(suggestion || "", unknownCommand);
     if (leven(cmd, unknownCommand) < 3 && isBestMatch) {
       suggestion = cmd;
     }

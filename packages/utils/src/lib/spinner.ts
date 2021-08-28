@@ -1,26 +1,26 @@
-import ora from 'ora';
+import ora from "ora";
 
 class Spinner {
   static sp = ora({
     spinner: {
       interval: 80, // Optional
       frames: [
-        '        ',
-        't       ',
-        'ti      ',
-        'tig     ',
-        'tiga    ',
-        'tiga-   ',
-        'tiga-c  ',
-        'tiga-cl ',
-        'tiga-cli',
-        ' iga-cli',
-        '  ga-cli',
-        '   a-cli',
-        '    -cli',
-        '     cli',
-        '      li',
-        '       i'
+        "        ",
+        "t       ",
+        "ti      ",
+        "tig     ",
+        "tiga    ",
+        "tiga-   ",
+        "tiga-c  ",
+        "tiga-cl ",
+        "tiga-cli",
+        " iga-cli",
+        "  ga-cli",
+        "   a-cli",
+        "    -cli",
+        "     cli",
+        "      li",
+        "       i"
       ]
     }
   });

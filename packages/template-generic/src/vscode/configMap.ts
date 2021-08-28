@@ -1,7 +1,7 @@
-import vscodeConfig from './settings.json';
+import vscodeConfig from "./settings.json";
 
 export default function vscode() {
   return {
-    ['.vscode/settings.json']: JSON.stringify(vscodeConfig, null, 2)
+    [".vscode/settings.json"]: JSON.stringify(vscodeConfig, null, 2)
   };
 }

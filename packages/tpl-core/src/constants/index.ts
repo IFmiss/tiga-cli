@@ -1,9 +1,9 @@
-import { TypeCreateOptions, TypeCss, TypeLayout, TypeTemplate } from '../types';
+import { TypeCreateOptions, TypeCss, TypeLayout, TypeTemplate } from "../types";
 
-export const INIT_FILE = 'init.json';
+export const INIT_FILE = "init.json";
 export const DEFAULT_PROT = 1994;
-export const DEFAULT_HOST = '0.0.0.0';
-export const NODE_MODULES_PATH = 'node_modules';
+export const DEFAULT_HOST = "0.0.0.0";
+export const NODE_MODULES_PATH = "node_modules";
 
 export const TEMPLATE_MAP: {
   [props in TypeTemplate]: {
@@ -11,77 +11,77 @@ export const TEMPLATE_MAP: {
     pkg: string;
   };
 } = {
-  'react-spa': {
-    description: 'react-spa (React单页面应用)',
-    pkg: '@tiga-cli/template-react-spa'
+  "react-spa": {
+    description: "react-spa (React单页面应用)",
+    pkg: "@tiga-cli/template-react-spa"
   },
-  'react-components': {
-    description: 'react-components (React组件开发) [暂不支持]',
-    pkg: '@tiga-cli/template-react-components'
+  "react-components": {
+    description: "react-components (React组件开发) [暂不支持]",
+    pkg: "@tiga-cli/template-react-components"
   }
 };
 
 export const LAYOUT_MAP: {
   [props in TypeLayout]: string;
 } = {
-  px: 'px 通用场景',
-  viewport: 'viewport 适配方案'
+  px: "px 通用场景",
+  viewport: "viewport 适配方案"
 };
 
 export const CSS_MAP: {
   [props in TypeCss]: string;
 } = {
-  less: 'less + css moudles',
-  sass: 'scss + css moudles',
-  stylus: 'stylus + css moudles'
+  less: "less + css moudles",
+  sass: "scss + css moudles",
+  stylus: "stylus + css moudles"
 };
 
-export const LINT_ENUM = ['eslint', 'prettier', 'commitlint', 'stylelint'];
+export const LINT_ENUM = ["eslint", "prettier", "commitlint", "stylelint"];
 
 export const DEFAULT_CREATE_OPTOPNS: TypeCreateOptions = {
-  name: 'tiga-test',
+  name: "tiga-test",
   git: false,
   typescript: true,
-  css: 'less',
-  layout: 'px',
-  template: 'react-spa',
-  pkgtool: 'pnpm',
-  lint: ['eslint', 'prettier', 'stylelint', 'commitlint']
+  css: "less",
+  layout: "px",
+  template: "react-spa",
+  pkgtool: "pnpm",
+  lint: ["eslint", "prettier", "stylelint", "commitlint"]
 };
 
 export const FILE_NAME_MAP: {
-  [props: string]: Partial<Record<'config' | 'ignore', string>>;
+  [props: string]: Partial<Record<"config" | "ignore", string>>;
 } = {
   babel: {
-    config: '.babelrc.js'
+    config: ".babelrc.js"
   },
   git: {
-    ignore: '.gitignore'
+    ignore: ".gitignore"
   },
   postcss: {
-    config: 'postcss.config.js'
+    config: "postcss.config.js"
   },
   commitlint: {
-    config: '.commitlintrc.js'
+    config: ".commitlintrc.js"
   },
   lintstaged: {
-    config: '.lintstagedrc.js'
+    config: ".lintstagedrc.js"
   },
   prettier: {
-    config: '.prettierrc.js',
-    ignore: '.prettierignore'
+    config: ".prettierrc.js",
+    ignore: ".prettierignore"
   },
   stylelint: {
-    config: '.stylelintrc.js'
+    config: ".stylelintrc.js"
   },
   eslint: {
-    config: '.eslintrc.js',
-    ignore: '.eslintignore'
+    config: ".eslintrc.js",
+    ignore: ".eslintignore"
   },
   tiga: {
-    config: 'tiga.config.js'
+    config: "tiga.config.js"
   },
   editconfig: {
-    config: '.editorconfig'
+    config: ".editorconfig"
   }
 };

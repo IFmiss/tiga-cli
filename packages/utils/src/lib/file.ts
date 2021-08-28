@@ -1,6 +1,6 @@
-import fs from 'fs-extra';
-import fsPath from 'fs-path';
-import rimraf from 'rimraf';
+import fs from "fs-extra";
+import fsPath from "fs-path";
+import rimraf from "rimraf";
 const rm = rimraf.sync;
 
 export function rmFile(str) {

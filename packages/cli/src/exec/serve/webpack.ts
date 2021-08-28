@@ -1,4 +1,4 @@
-import type { TigaConfig, WebpackServeOptions } from '@tiga-cli/tpl-core';
+import type { TigaConfig, WebpackServeOptions } from "@tiga-cli/tpl-core";
 import {
   checkPort,
   createCert,
@@ -7,12 +7,12 @@ import {
   mergedWebpackConfig,
   webpackAutoMerge,
   workSpaceNodeModules
-} from '@tiga-cli/tpl-core';
-import { logError } from '@tiga-cli/utils';
+} from "@tiga-cli/tpl-core";
+import { logError } from "@tiga-cli/utils";
 
-import { SERVE_CONFIG_PATH } from '../../constants';
+import { SERVE_CONFIG_PATH } from "../../constants";
 
-const importFrom = require('import-from');
+const importFrom = require("import-from");
 
 export default async function serveWebpack(
   tiga: TigaConfig,
@@ -46,13 +46,13 @@ export default async function serveWebpack(
   // https
   const certInfo = config.devServer.cert
     ? await createCert({
-        host: 'localhost'
+        host: "localhost"
       })
     : null;
 
   // update dev config in runtime
   const resultConfig = webpackAutoMerge(config, {
-    mode: 'development',
+    mode: "development",
     devServer: {
       port,
       https: certInfo ?? false

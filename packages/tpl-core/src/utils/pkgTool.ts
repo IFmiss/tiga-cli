@@ -1,6 +1,6 @@
-import type { TypePkgTool } from '../types/index';
+import type { TypePkgTool } from "../types/index";
 
-type ToolCmdType = 'install' | 'run' | 'add';
+type ToolCmdType = "install" | "run" | "add";
 
 const INSTALL_MAP: {
   [k in TypePkgTool]: {
@@ -8,19 +8,19 @@ const INSTALL_MAP: {
   };
 } = {
   yarn: {
-    run: 'yarn',
-    install: 'yarn',
-    add: 'yarn add'
+    run: "yarn",
+    install: "yarn",
+    add: "yarn add"
   },
   npm: {
-    run: 'npm run',
-    install: 'npm install',
-    add: 'npm install'
+    run: "npm run",
+    install: "npm install",
+    add: "npm install"
   },
   pnpm: {
-    run: 'pnpm',
-    install: 'pnpm install',
-    add: 'pnpm install'
+    run: "pnpm",
+    install: "pnpm install",
+    add: "pnpm install"
   }
 };
 

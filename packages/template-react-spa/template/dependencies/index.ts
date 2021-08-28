@@ -1,20 +1,20 @@
-import type { InitShellType } from '@tiga-cli/tpl-core';
+import type { InitShellType } from "@tiga-cli/tpl-core";
 
-import babel from './babel';
-import commitlint from './commitlint';
-import eslint from './eslint';
-import less from './less';
-import lintStaged from './lint-staged';
-import postcss from './postcss';
-import prettier from './prettier';
-import react from './react';
-import sass from './sass';
-import stylelint from './stylelint';
-import stylus from './stylus';
-import tiga from './tiga';
-import { GeneralModuleDependencies } from './types';
-import typescript from './typescript';
-import webpack from './webpack';
+import babel from "./babel";
+import commitlint from "./commitlint";
+import eslint from "./eslint";
+import less from "./less";
+import lintStaged from "./lint-staged";
+import postcss from "./postcss";
+import prettier from "./prettier";
+import react from "./react";
+import sass from "./sass";
+import stylelint from "./stylelint";
+import stylus from "./stylus";
+import tiga from "./tiga";
+import { GeneralModuleDependencies } from "./types";
+import typescript from "./typescript";
+import webpack from "./webpack";
 
 export const pkg2Array = (pkg: { [props: string]: string }): Array<string> => {
   const arr: Array<string> = [];
@@ -87,7 +87,7 @@ export function dependencies2Str(
 ): GeneralModuleDependencies<string> {
   const pkg = pkgDependencies(options);
   return {
-    devDependencies: pkg.devDependencies.join(' '),
-    dependencies: pkg.dependencies.join(' ')
+    devDependencies: pkg.devDependencies.join(" "),
+    dependencies: pkg.dependencies.join(" ")
   };
 }

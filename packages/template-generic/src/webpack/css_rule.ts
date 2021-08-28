@@ -1,4 +1,4 @@
-import { tpl } from '@tiga-cli/tpl-core';
+import { tpl } from "@tiga-cli/tpl-core";
 
 export default function compile(styleRuleParmas: {
   useMiniCssExtractPlugin: boolean;

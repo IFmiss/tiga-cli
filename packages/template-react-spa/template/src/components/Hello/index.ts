@@ -1,5 +1,5 @@
-import type { InitShellType } from '@tiga-cli/tpl-core';
-import { renderRow as row, styleExt, tpl } from '@tiga-cli/tpl-core';
+import type { InitShellType } from "@tiga-cli/tpl-core";
+import { renderRow as row, styleExt, tpl } from "@tiga-cli/tpl-core";
 
 export default function compile(options: InitShellType): string {
   const { typescript, name } = options;
@@ -14,7 +14,7 @@ export default function compile(options: InitShellType): string {
       typescript
     )}
 
-    const Hello${typescript ? ': React.FC<HelloProps>' : ''} = () => {
+    const Hello${typescript ? ": React.FC<HelloProps>" : ""} = () => {
       return <h3 className={styles.hello}> ${name.toUpperCase()} 🥬</h3>;
     };
 

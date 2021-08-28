@@ -5,17 +5,17 @@ import {
   InitShellType,
   installDependenciesStdout,
   pkgTool as pkgToolUtils
-} from '@tiga-cli/tpl-core';
+} from "@tiga-cli/tpl-core";
 import {
   logError,
   rmFile,
   shSync,
   timer,
   writeFileSync
-} from '@tiga-cli/utils';
-import chalk from 'chalk';
+} from "@tiga-cli/utils";
+import chalk from "chalk";
 
-import templateMap from './template/index';
+import templateMap from "./template/index";
 
 export default async function renderRCC(options: InitShellType) {
   const t = timer();
@@ -48,15 +48,15 @@ export default async function renderRCC(options: InitShellType) {
   }
 
   shSync(`${run} sort:pkg`, {
-    errorText: 'sort package.json faild',
-    stdio: 'ignore'
+    errorText: "sort package.json faild",
+    stdio: "ignore"
   });
 
   rmFile(initFile);
 
   // end log
   // console.clear();
-  artFont('TIGA-CLI');
+  artFont("TIGA-CLI");
 
   console.info();
   console.info(
@@ -64,6 +64,6 @@ export default async function renderRCC(options: InitShellType) {
       `${t.getTime()}s`
     )} \n`
   );
-  console.info(` ${chalk.green('-')} cd ${name} \n`);
-  console.info(` ${chalk.green('-')} ${run} serve \n`);
+  console.info(` ${chalk.green("-")} cd ${name} \n`);
+  console.info(` ${chalk.green("-")} ${run} serve \n`);
 }

@@ -1,7 +1,7 @@
-import Config from 'webpack-chain';
+import Config from "webpack-chain";
 
-import { workSpaceNodeModules } from '../index';
-import { TigaConfig } from '../types';
+import { workSpaceNodeModules } from "../index";
+import { TigaConfig } from "../types";
 
 const config = new Config();
 

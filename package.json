@@ -6,7 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "b": "lerna bootstrap & lerna link",
     "dev": "lerna run dev --stream",
-    "build": "lerna run build --stream"
+    "build": "lerna run build --stream",
+    "lint": "eslint packages/",
+    "lint:fix": "eslint packages/ --fix"
   },
   "workspaces": [
     "packages/*"

@@ -1,15 +1,15 @@
-import semver from 'semver';
+import semver from "semver";
 
-import { RepoPublishType } from '../types';
+import { RepoPublishType } from "../types";
 
 const versionType: Array<RepoPublishType> = [
-  'patch',
-  'major',
-  'minor',
-  'prepatch',
-  'premajor',
-  'preminor',
-  'prerelease'
+  "patch",
+  "major",
+  "minor",
+  "prepatch",
+  "premajor",
+  "preminor",
+  "prerelease"
 ];
 
 export function next(version: string, type?: RepoPublishType, preid?: string) {

@@ -1,5 +1,5 @@
-import chalk from 'chalk';
-import updateTip from 'update-notifier';
+import chalk from "chalk";
+import updateTip from "update-notifier";
 
 export default function updateNotifier(pkg: {
   version: string;
@@ -17,7 +17,7 @@ export default function updateNotifier(pkg: {
   const message = `update available! ${chalk.gray(
     info.current
   )} → ${chalk.green(info.latest)} \n
-  run ${chalk.cyan('tiga upgrade')} or ${chalk.cyan(
+  run ${chalk.cyan("tiga upgrade")} or ${chalk.cyan(
     `npm install @tiga-cli/cli -g`
   )} to update !`;
 

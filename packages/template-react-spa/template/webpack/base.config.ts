@@ -5,9 +5,9 @@ import {
   lessRule,
   sassRule,
   stylusRule
-} from '@tiga-cli/template-generic';
-import type { InitShellType } from '@tiga-cli/tpl-core';
-import { renderRow as row, tpl } from '@tiga-cli/tpl-core';
+} from "@tiga-cli/template-generic";
+import type { InitShellType } from "@tiga-cli/tpl-core";
+import { renderRow as row, tpl } from "@tiga-cli/tpl-core";
 
 export default function compile(options: InitShellType): string {
   const { less, sass, stylus, typescript } = options;
