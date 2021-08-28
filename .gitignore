@@ -2,7 +2,7 @@
 /dist/
 /__test__/
 /build/
-/packages/**/build/
+/packages/cli/build/
 /packages/**/**/dist/
 /packages/**/node_modules/
 /packages/**/__test__/
