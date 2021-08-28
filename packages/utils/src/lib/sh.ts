@@ -8,11 +8,11 @@ const execAsync = utils.promisify(exec);
 
 export default async function shAsync(
   str: string,
-  options: {
+  options?: {
     errorText?: string;
   }
 ): Promise<unknown> {
-  const { errorText } = options;
+  const { errorText } = options || {};
 
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {

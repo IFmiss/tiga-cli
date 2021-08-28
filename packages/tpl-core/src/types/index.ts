@@ -83,3 +83,12 @@ export type WebpackServeOptions = BaseServeOptions & {
 export type WebpackBuildOptions = BaseBuildOptions & {
   path?: string;
 };
+
+export type RepoPublishType =
+  | 'premajor'
+  | 'preminor'
+  | 'prepatch'
+  | 'prerelease'
+  | 'major'
+  | 'minor'
+  | 'patch';

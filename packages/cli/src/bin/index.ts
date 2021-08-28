@@ -11,7 +11,7 @@ import chalk from 'chalk';
 import { Command } from 'commander';
 import leven from 'leven';
 
-import { build, create, init, serve, update } from '../exec';
+import { build, create, init, publish, serve, update } from '../exec';
 
 const program = new Command();
 
@@ -34,6 +34,7 @@ program.on('--help', () => {
 
 program.version(`tiga version: ${pkg.version}`).usage('<command> [options]');
 
+// create a new project
 program
   .command('create <name>')
   .description('create a new project powered by tiga-cli')
@@ -46,6 +47,7 @@ program
     // updateNotifier(pkg);
   });
 
+// init a new project
 program
   .command('init')
   .description('init a project by local config file')
@@ -54,6 +56,7 @@ program
     // updateNotifier(pkg);
   });
 
+// start dev serve
 program
   .command('serve')
   .description('start webapck dev server')
@@ -65,6 +68,7 @@ program
     serve(config, options);
   });
 
+// build file
 program
   .command('build')
   .description('build project')
@@ -74,11 +78,20 @@ program
     build(config, options);
   });
 
+// update version
 program
   .command('upgrade')
   .description('update cli')
   .action(() => {
     update();
+  });
+
+// publish to npm
+program
+  .command('publish')
+  .description('npm publish')
+  .action(() => {
+    publish();
   });
 
 program.on('command:*', ([cmd]) => {

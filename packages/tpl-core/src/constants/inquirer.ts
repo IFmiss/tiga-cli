@@ -26,14 +26,14 @@ export const checkOverwrite = async (name, comfirmAgain: boolean = false) => {
           name: 'overwrite',
           type: 'confirm',
           message: comfirmAgain
-            ? '初始化环境前，请再次确认是否覆盖当前目录'
-            : '是否覆盖当前目录'
+            ? '初始化环境前，请再次确认是否覆盖当前目录 (Before initializing the environment, please reconfirm whether to overwrite the current directory)'
+            : '是否覆盖当前目录 (Whether to overwrite the current directory)'
         })
         .then(({ overwrite }) => {
           if (overwrite) {
             resolve(overwrite);
           } else {
-            reject('cancel');
+            reject();
             process.exit(0);
           }
         });
@@ -46,7 +46,7 @@ export const checkOverwrite = async (name, comfirmAgain: boolean = false) => {
 // 模版类型
 export const questionTemplate: QuestionCollection = {
   name: 'template',
-  message: '请选择项目类型',
+  message: '请选择项目类型 (Please select the project type)',
   type: 'list',
   choices: () => {
     return Object.entries(TEMPLATE_MAP).map((item) => ({
@@ -59,7 +59,8 @@ export const questionTemplate: QuestionCollection = {
 // css 样式类型
 export const questionCss: QuestionCollection = {
   name: 'css',
-  message: 'css 预处理模式 (都支持 css modules)',
+  message:
+    'css 预处理模式 [都支持 css modules] (Css preprocessing mode [都支持 css modules])',
   type: 'checkbox',
   default: ['less'],
   choices: () => {
@@ -70,10 +71,10 @@ export const questionCss: QuestionCollection = {
   }
 };
 
-// layout 布局 px rem
+// layout 布局 px viewport
 export const questionLayout: QuestionCollection = {
   name: 'layout',
-  message: 'layout 格式',
+  message: '布局样式 (Layout style)',
   type: 'list',
   choices: () => {
     return Object.entries(LAYOUT_MAP).map((item) => ({
@@ -86,14 +87,14 @@ export const questionLayout: QuestionCollection = {
 // use ts ?
 export const questionTypescript: QuestionCollection = {
   name: 'typescript',
-  message: '是否使用typescript',
+  message: '是否使用typescript (Whether to use typescript)',
   type: 'confirm'
 };
 
 // lint 校验
 export const questionLint: QuestionCollection = {
   name: 'lint',
-  message: 'lint 格式',
+  message: '选择校验的工具 (Choosing tools for inspection)',
   type: 'checkbox',
   choices: LINT_ENUM,
   default: LINT_ENUM,
@@ -105,7 +106,7 @@ export const questionLint: QuestionCollection = {
 // 选择包管理工具
 export const questionpPkgTool: QuestionCollection = {
   name: 'pkgtool',
-  message: 'pkgtool 格式',
+  message: '选择包管理工具 (Choose a package management tool)',
   type: 'list',
   choices: ['pnpm', 'yarn', 'npm'],
   when: () => {

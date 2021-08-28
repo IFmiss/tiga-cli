@@ -45,9 +45,11 @@ export default function compile(options: InitShellType): string {
         new MiniCssExtractPlugin({
           filename: 'css/[name].[contenthash:8].css'
         }),
-        // ! 需要分析打包时，请打开注释
-        // Remove annotation when need analyze package
-        // new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
+          reportFilename: '../report.html',
+        })
       ],
       optimization: {
         // deterministic option is useful for long term caching, but still results in smaller bundles compared to hashed
