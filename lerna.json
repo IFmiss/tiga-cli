@@ -4,6 +4,7 @@
     "packages/tpl-core",
     "packages/template-generic",
     "packages/template-react-spa",
+    "packages/template-react-components",
     "packages/cli"
   ],
   "version": "0.0.16",
