@@ -27,8 +27,6 @@
     "url": "https://github.com/IFmiss/tiga-cli/issues"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-react": "^7.14.5",
     "@types/commander": "^2.12.2",
     "@types/inquirer": "^7.3.2",
     "@types/node": "^15.12.4",
