@@ -53,7 +53,7 @@ export const FILE_NAME_MAP: {
   [props: string]: Partial<Record<'config' | 'ignore', string>>;
 } = {
   babel: {
-    config: '.babelrc.js'
+    config: 'babel.config.js'
   },
   git: {
     ignore: '.gitignore'
@@ -62,17 +62,17 @@ export const FILE_NAME_MAP: {
     config: 'postcss.config.js'
   },
   commitlint: {
-    config: '.commitlintrc.js'
+    config: 'commitlint.config.js'
   },
   lintstaged: {
-    config: '.lintstagedrc.js'
+    config: 'lint-staged.config.js'
   },
   prettier: {
-    config: '.prettierrc.js',
+    config: 'prettier.config.js',
     ignore: '.prettierignore'
   },
   stylelint: {
-    config: '.stylelintrc.js'
+    config: 'stylelint.config.js'
   },
   eslint: {
     config: '.eslintrc.js',

@@ -30,7 +30,7 @@ export default function compile(options: InitShellType): string {
           filename: 'index.html',
           path: srcPath,
           template: path.join(srcPath, 'index.html'),
-          title: '${name}',
+          title: '${name}'
           // favicon: 'src/...'
         }),
         new webpack.HotModuleReplacementPlugin(),

@@ -48,7 +48,7 @@ export default function compile(options: InitShellType): string {
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
           openAnalyzer: false,
-          reportFilename: '../report.html',
+          reportFilename: '../report.html'
         })
       ],
       optimization: {
@@ -110,7 +110,7 @@ export default function compile(options: InitShellType): string {
           config: [__filename]
         },
         compression: 'gzip'
-      },
+      }
     });
   `;
   return tpl(str);
