@@ -5,47 +5,33 @@ module.exports = {
     es6: true
   },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'prettier',
-    'plugin:prettier/recommended'
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "prettier",
+    "plugin:prettier/recommended"
   ],
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: "module",
     ecmaFeatures: {
       jsx: true
     }
   },
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  },
-  plugins: [
-    'react',
-    'react-hooks',
-    '@typescript-eslint',
-    'prettier',
-    'simple-import-sort'
-  ],
+  plugins: ["@typescript-eslint", "prettier", "simple-import-sort"],
   rules: {
-    '@typescript-eslint/indent': 0,
-    '@typescript-eslint/no-empty-interface': ['off'],
-    '@typescript-eslint/camelcase': ['off'],
-    'react-hooks/rules-of-hooks': 'error',
+    "@typescript-eslint/indent": 0,
+    "@typescript-eslint/no-empty-interface": ["off"],
+    "@typescript-eslint/camelcase": ["off"],
 
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
 
-    'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
-    'default-case': 'error',
-    eqeqeq: ['error', 'always', { null: 'ignore' }],
-    'no-empty-function': ['error', { allow: ['constructors'] }],
-    'no-unused-vars': ['off'],
-    semi: ['error', 'always']
+    "no-console": ["error", { allow: ["info", "warn", "error"] }],
+    "default-case": "error",
+    eqeqeq: ["error", "always", { null: "ignore" }],
+    "no-empty-function": ["error", { allow: ["constructors"] }],
+    "no-unused-vars": ["off"],
+    semi: ["error", "always"]
   }
 };

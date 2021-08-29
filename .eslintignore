@@ -3,7 +3,6 @@
 /node_modules/
 /**/node_modules/
 /**/dist
-/**/build
 /**/__tests__
-/**/build
+/packages/cli/build
 *.md
