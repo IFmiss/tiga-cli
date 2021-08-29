@@ -5,11 +5,11 @@ import {
   RenderTemplateOptions,
   TEMPLATE_MAP,
   TypeCreateOptions
-} from "@tiga-cli/tpl-core";
-import { logInfo, rmFile, sleep } from "@tiga-cli/utils";
-import chalk from "chalk";
-import inquirer from "inquirer";
-import { v4 as uuid } from "uuid";
+} from '@tiga-cli/tpl-core';
+import { logInfo, rmFile, sleep } from '@tiga-cli/utils';
+import chalk from 'chalk';
+import inquirer from 'inquirer';
+import { v4 as uuid } from 'uuid';
 
 const {
   questionTemplate,
@@ -23,7 +23,7 @@ const {
 
 export default async function create(
   name: string,
-  options: Omit<TypeCreateOptions, "name">
+  options: Omit<TypeCreateOptions, 'name'>
 ) {
   // check overwrite before create
   const overwrite = await checkOverwrite(name);
@@ -49,7 +49,7 @@ export default async function create(
     runtimePath: process.cwd(),
     projectPath: `${process.cwd()}/${name}`,
     date: new Date().getTime().toString(),
-    templatePkg: TEMPLATE_MAP[config?.template || "react-spa"].pkg
+    templatePkg: TEMPLATE_MAP[config?.template || 'react-spa'].pkg
   });
 
   // double confirm before create

@@ -1,16 +1,16 @@
-import type { InitShellType } from "@tiga-cli/tpl-core";
+import type { InitShellType } from '@tiga-cli/tpl-core';
 
-import { EMPTY_DEFAULT } from ".";
-import eslint_prettier from "./eslint_prettier";
-import eslint_react from "./eslint_react";
-import eslint_typescript from "./eslint_typescript";
-import { ModuleDependencies } from "./types";
+import { EMPTY_DEFAULT } from '.';
+import eslint_prettier from './eslint_prettier';
+import eslint_react from './eslint_react';
+import eslint_typescript from './eslint_typescript';
+import { ModuleDependencies } from './types';
 
 const ESLINT_DEFAULT = {
   devDependencies: {
-    eslint: "^7.30.0",
-    "eslint-plugin-html": "^6.1.2",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
+    eslint: '^7.30.0',
+    'eslint-plugin-html': '^6.1.2',
+    'eslint-plugin-simple-import-sort': '^7.0.0',
     ...eslint_react.devDependencies
   },
   dependencies: {

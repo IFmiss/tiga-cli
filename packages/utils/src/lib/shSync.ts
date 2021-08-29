@@ -1,7 +1,7 @@
-import { spawnSync, SpawnSyncReturns, StdioOptions } from "child_process";
+import { spawnSync, SpawnSyncReturns, StdioOptions } from 'child_process';
 
-import { error as logError } from "./logger";
-import Spinner from "./spinner";
+import { error as logError } from './logger';
+import Spinner from './spinner';
 
 export default function shSync(
   str: string,
@@ -10,7 +10,7 @@ export default function shSync(
     errorText?: string;
   }
 ): SpawnSyncReturns<Buffer> {
-  const { errorText, stdio = "inherit" } = options || {};
+  const { errorText, stdio = 'inherit' } = options || {};
   const cmd = spawnSync(str, {
     shell: true,
     stdio
@@ -21,7 +21,7 @@ export default function shSync(
     Spinner.close();
 
     if (status === null) {
-      console.info("\n 🌟 good luck! ");
+      console.info('\n 🌟 good luck! ');
       process.exit(0);
     }
 
@@ -29,7 +29,7 @@ export default function shSync(
       console.info();
       logError(
         errorText,
-        stderr?.toString() || "",
+        stderr?.toString() || '',
         error?.message,
         signal,
         stdout

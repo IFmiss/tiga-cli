@@ -1,10 +1,10 @@
-import fsExtra from "fs-extra";
+import fsExtra from 'fs-extra';
 
-import { error } from "./logger";
+import { error } from './logger';
 
 export default async function jsonFileParse(path: string) {
   try {
-    const data = fsExtra.readFileSync(path, "utf-8");
+    const data = fsExtra.readFileSync(path, 'utf-8');
     return Promise.resolve(JSON.parse(data));
   } catch (e) {
     if (e.errno === -2) {

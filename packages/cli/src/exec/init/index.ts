@@ -1,6 +1,6 @@
-import { INIT_FILE, installTpl } from "@tiga-cli/tpl-core";
-import { jsonFileParse } from "@tiga-cli/utils";
-import path from "path";
+import { INIT_FILE, installTpl } from '@tiga-cli/tpl-core';
+import { jsonFileParse } from '@tiga-cli/utils';
+import path from 'path';
 
 export default async function init() {
   // 查找当前目录的 init 文件， 解析出内容

@@ -1,10 +1,10 @@
-import type { InitShellType } from "@tiga-cli/tpl-core";
-import { tpl } from "@tiga-cli/tpl-core";
+import type { InitShellType } from '@tiga-cli/tpl-core';
+import { tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { name, typescript } = options;
   const publicPath = `''`;
-  const reactExt = typescript ? "tsx" : "jsx";
+  const reactExt = typescript ? 'tsx' : 'jsx';
   const str = `
     const path = require('path');
     const baseConfig = require('./webpack.base.config');

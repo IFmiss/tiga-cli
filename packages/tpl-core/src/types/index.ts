@@ -1,12 +1,12 @@
-export type TypeTemplate = "react-spa" | "react-components";
+export type TypeTemplate = 'react-spa' | 'react-components';
 
-export type TypeLayout = "px" | "viewport";
+export type TypeLayout = 'px' | 'viewport';
 
-export type TypeCss = "less" | "sass" | "stylus";
+export type TypeCss = 'less' | 'sass' | 'stylus';
 
-export type TypePkgTool = "pnpm" | "yarn" | "npm";
+export type TypePkgTool = 'pnpm' | 'yarn' | 'npm';
 
-export type TypeLint = "eslint" | "prettier" | "commitlint" | "stylelint";
+export type TypeLint = 'eslint' | 'prettier' | 'commitlint' | 'stylelint';
 
 export type TypeCreateOptions = {
   name: string;
@@ -85,10 +85,10 @@ export type WebpackBuildOptions = BaseBuildOptions & {
 };
 
 export type RepoPublishType =
-  | "premajor"
-  | "preminor"
-  | "prepatch"
-  | "prerelease"
-  | "major"
-  | "minor"
-  | "patch";
+  | 'premajor'
+  | 'preminor'
+  | 'prepatch'
+  | 'prerelease'
+  | 'major'
+  | 'minor'
+  | 'patch';

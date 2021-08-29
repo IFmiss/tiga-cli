@@ -1,5 +1,5 @@
-import type { InitShellType } from "@tiga-cli/tpl-core";
-import { tpl } from "@tiga-cli/tpl-core";
+import type { InitShellType } from '@tiga-cli/tpl-core';
+import { tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { typescript } = options;
@@ -10,7 +10,7 @@ export default function compile(options: InitShellType): string {
     import routes from './config';
 
     export const RouteWithSubRoutes = (route${
-      typescript ? ": IRoute" : ""
+      typescript ? ': IRoute' : ''
     }) => {
       const _Route = () => (
         <Route
@@ -35,7 +35,7 @@ export default function compile(options: InitShellType): string {
     };
 
     export const RouterView${
-      typescript ? ": React.FC<RouterProviderProps>" : ""
+      typescript ? ': React.FC<RouterProviderProps>' : ''
     } = ({
       routes = [],
       ...rest

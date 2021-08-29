@@ -1,5 +1,5 @@
-import type { InitShellType } from "@tiga-cli/tpl-core";
-import { renderRow as row, styleExt, tpl } from "@tiga-cli/tpl-core";
+import type { InitShellType } from '@tiga-cli/tpl-core';
+import { renderRow as row, styleExt, tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { typescript } = options;
@@ -15,8 +15,8 @@ export default function compile(options: InitShellType): string {
       typescript
     )}
 
-    const Info${typescript ? ": React.FC<InfoProps>" : ""} = () => {
-      const p = useParams${typescript ? "<{ id: string }>" : ""}();
+    const Info${typescript ? ': React.FC<InfoProps>' : ''} = () => {
+      const p = useParams${typescript ? '<{ id: string }>' : ''}();
       const l = useLocation();
       return (
         <div className={styles.info}>

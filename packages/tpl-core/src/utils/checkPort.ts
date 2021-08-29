@@ -1,12 +1,12 @@
-import { logWarn } from "@tiga-cli/utils";
-import chalk from "chalk";
-import detect from "detect-port";
+import { logWarn } from '@tiga-cli/utils';
+import chalk from 'chalk';
+import detect from 'detect-port';
 
 export default function checkPort(port: number): Promise<any> {
   return new Promise((resolve, reject) => {
     detect(port, (err, _port) => {
       if (err) {
-        console.error("err: ", err);
+        console.error('err: ', err);
         reject(err);
       }
       if (port !== _port) {

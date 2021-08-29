@@ -1,5 +1,5 @@
-import type { InitShellType } from "@tiga-cli/tpl-core";
-import { renderRow as row, tpl } from "@tiga-cli/tpl-core";
+import type { InitShellType } from '@tiga-cli/tpl-core';
+import { renderRow as row, tpl } from '@tiga-cli/tpl-core';
 
 export default function compile(options: InitShellType): string {
   const { typescript } = options;
@@ -12,7 +12,7 @@ export default function compile(options: InitShellType): string {
     const Detail = lazy(() => import('@/pages/detail'));
     const DetailInfo = lazy(() => import('@/modules/detail/info'));
 
-    const routes${typescript ? ": IRoute[]" : ""} = [
+    const routes${typescript ? ': IRoute[]' : ''} = [
       {
         path: '/',
         exact: true,

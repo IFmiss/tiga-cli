@@ -1,8 +1,8 @@
-import { exec } from "child_process";
-import utils from "util";
+import { exec } from 'child_process';
+import utils from 'util';
 
-import { error } from "./logger";
-import Spinner from "./spinner";
+import { error } from './logger';
+import Spinner from './spinner';
 
 const execAsync = utils.promisify(exec);
 

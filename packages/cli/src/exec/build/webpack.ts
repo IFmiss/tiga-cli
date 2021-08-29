@@ -1,11 +1,11 @@
-import type { TigaConfig, WebpackBuildOptions } from "@tiga-cli/tpl-core";
-import { workSpaceNodeModules } from "@tiga-cli/tpl-core";
-import { logError, logSuccess } from "@tiga-cli/utils";
-import { Compiler } from "webpack";
+import type { TigaConfig, WebpackBuildOptions } from '@tiga-cli/tpl-core';
+import { workSpaceNodeModules } from '@tiga-cli/tpl-core';
+import { logError, logSuccess } from '@tiga-cli/utils';
+import { Compiler } from 'webpack';
 
-import { BUILD_CONFIG_PATH } from "../../constants";
+import { BUILD_CONFIG_PATH } from '../../constants';
 
-const importFrom = require("import-from");
+const importFrom = require('import-from');
 
 export default function buildWebpack(
   config: TigaConfig,
@@ -38,10 +38,10 @@ export default function buildWebpack(
           outputPath: true,
           performance: true,
           timings: true,
-          colors: "cyan"
+          colors: 'cyan'
         })
       );
-      logSuccess("build success!");
+      logSuccess('build success!');
       resolve(stats);
     });
   });
