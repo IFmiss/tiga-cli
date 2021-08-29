@@ -1,11 +1,22 @@
 0 silly argv {
-0 silly argv   _: [ 'add' ],
-0 silly argv   globs: [],
+0 silly argv   _: [ 'run' ],
+0 silly argv   stream: true,
 0 silly argv   lernaVersion: '4.0.0',
-0 silly argv   '$0': 'lerna',
-0 silly argv   pkg: '@tiga-cli/template-generic'
+0 silly argv   '$0': '/Users/daiwei/pr/tiga-cli/node_modules/.bin/lerna',
+0 silly argv   script: 'build'
 0 silly argv }
 1 notice cli v4.0.0
-2 verbose rootPath /Users/user/sf/tiga-cli
-3 error HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/@tiga-cli%2ftemplate-generic - Not found
-3 error     at /Users/user/sf/tiga-cli/node_modules/npm-registry-fetch/check-response.js:95:15
+2 verbose rootPath /Users/daiwei/pr/tiga-cli
+3 error JSONError: Unexpected token "}" (0x7D) in JSON at position 1767 while parsing near "...oot\\\" && exit 1\",\n  },\n  \"bugs\": {\n    \"..." in packages/template-react-components/package.json
+3 error
+3 error [0m [90m 58 |[39m   [32m"scripts"[39m[33m:[39m {[0m
+3 error [0m [90m 59 |[39m     [32m"test"[39m[33m:[39m [32m"echo \"Error: run tests from root\" && exit 1"[39m[33m,[39m[0m
+3 error [0m[31m[1m>[22m[39m[90m 60 |[39m   }[33m,[39m[0m
+3 error [0m [90m    |[39m   [31m[1m^[22m[39m[0m
+3 error [0m [90m 61 |[39m   [32m"bugs"[39m[33m:[39m {[0m
+3 error [0m [90m 62 |[39m     [32m"url"[39m[33m:[39m [32m"https://github.com/IFmiss/tiga-cli/issues"[39m[0m
+3 error [0m [90m 63 |[39m   }[0m
+3 error
+3 error     at parseJson (/Users/daiwei/pr/tiga-cli/node_modules/parse-json/index.js:29:21)
+3 error     at parse (/Users/daiwei/pr/tiga-cli/node_modules/load-json-file/index.js:15:9)
+3 error     at module.exports (/Users/daiwei/pr/tiga-cli/node_modules/load-json-file/index.js:18:47)

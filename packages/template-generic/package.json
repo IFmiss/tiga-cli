@@ -28,8 +28,5 @@
     "@tiga-cli/tpl-core": "^0.0.16",
     "@tiga-cli/utils": "^0.0.16"
   },
-  "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113",
-  "devDependencies": {
-    "eslint-plugin-simple-import-sort": "^7.0.0"
-  }
+  "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113"
 }

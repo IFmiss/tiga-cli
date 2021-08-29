@@ -8,14 +8,12 @@ module.exports = function (api) {
         modules: false
       }
     ],
-    '@babel/preset-react',
     '@babel/preset-typescript'
   ];
   const plugins = [
     '@babel/plugin-external-helpers',
     '@babel/plugin-transform-runtime',
-    '@babel/plugin-syntax-dynamic-import',
-    ['@babel/plugin-proposal-class-properties', { loose: true }]
+    '@babel/plugin-syntax-dynamic-import'
   ];
 
   return {

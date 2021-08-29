@@ -1,4 +1,4 @@
-import { InitShellType, styleExt } from '@tiga-cli/tpl-core';
+import { InitShellType, styleExt, templateExt } from '@tiga-cli/tpl-core';
 
 import compileApp from './app';
 import compileHello from './components/Hello';
@@ -20,7 +20,7 @@ import routerDeclaration from './router/router_declaration';
 
 export default function srcFileMap(options: InitShellType) {
   const { typescript } = options;
-  const rExt = typescript ? 'tsx' : 'jsx';
+  const rExt = templateExt(options, { jsx: true });
   const sExt = styleExt(options);
 
   return {

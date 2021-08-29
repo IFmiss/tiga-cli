@@ -10,6 +10,15 @@ import typescript2 from 'rollup-plugin-typescript2';
 
 export default {
   input: `./src/bin/index.ts`,
+  onwarn: function (warning) {
+    // Skip certain warnings
+    // should intercept ... but doesn't in some rollup versions
+    if (warning.code === 'THIS_IS_UNDEFINED') {
+      return;
+    }
+    // console.warn everything else
+    console.warn(warning.message);
+  },
   output: [
     {
       file: './build/index.js',
@@ -36,12 +45,12 @@ export default {
       configFile: path.resolve(__dirname, './../../babel.config.js')
     }),
     resolve({
-      mainFields: 'main',
-      modulesOnly: true
+      preferBuiltins: true,
+      mainFields: ['browser']
+      // modulesOnly: true
     }),
     commonjs({
-      include: /node_modules/,
-      sourceMap: true
+      include: /node_modules/
     }),
     terser({
       output: {

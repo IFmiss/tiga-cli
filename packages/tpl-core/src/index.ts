@@ -29,6 +29,7 @@ export { default as renderContextFile } from './utils/renderContextFile';
 export * as repoVersion from './utils/repoVersion';
 export { strUpStart as strUpStart } from './utils/str';
 export { default as styleExt } from './utils/styleExt';
+export { default as templateExt } from './utils/templateExt';
 export { default as tpl } from './utils/tpl';
 export { renderRow as renderRow } from './utils/tpl';
 export { fileStringify as fileStringify } from './utils/tpl';
