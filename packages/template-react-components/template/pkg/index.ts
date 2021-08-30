@@ -22,7 +22,10 @@ export default function compile(options: InitShellType): string {
       "scripts": {
         "test": "echo \\"Error: no test specified\\" && exit 1",
         "serve": "tiga serve",
-        "build": "tiga build",
+        "publish": "tiga publish",
+        "clean": "rimraf types lib esm dist",
+        "build:types": "tsc --emitDeclarationOnly && cpr types/components dist/esm && cpr types/components dist/cjs",
+        "build": "npm run clean && yarn build:types && gulp",
         ${row(stylelintScript, stylelint)}
         ${row(eslintScript, eslint)}
         ${row(prettierScript, prettier)}

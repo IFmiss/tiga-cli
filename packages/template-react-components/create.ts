@@ -3,7 +3,7 @@ import {
   initGit,
   initGitHook,
   InitShellType,
-  installDependencies,
+  installDependenciesStdout,
   pkgTool as pkgToolUtils
 } from '@tiga-cli/tpl-core';
 import { logError, shSync, timer, writeFileSync } from '@tiga-cli/utils';
@@ -36,7 +36,7 @@ export default async function create(options: InitShellType) {
 
   chdir(projectPath);
 
-  await installDependencies(pkgtool);
+  await installDependenciesStdout(pkgtool);
 
   // initGit and hooks
   if (commitlint) {

@@ -9,14 +9,14 @@ export default function compile(options: InitShellType) {
       api.cache(false);
       const presets = [
         [
-          '@babel/preset-env',
-          {
-            useBuiltIns: false,
-            targets: {
-              chrome: '58',
-              ie: '11'
-            }
-          }
+          '@babel/preset-env'
+          // {
+          //   useBuiltIns: false,
+          //   targets: {
+          //     chrome: '58',
+          //     ie: '11'
+          //   }
+          // }
         ],
         '@babel/preset-react',
         ${row(`'@babel/preset-typescript'`, typescript)}
@@ -33,7 +33,30 @@ export default function compile(options: InitShellType) {
         ]
       ];
 
+      const env = {
+        esm: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                modules: false,
+                useBuiltIns: false
+              }
+            ]
+          ],
+          plugins: [
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                useESModules: true
+              }
+            ]
+          ]
+        }
+      };
+
       return {
+        env,
         presets,
         plugins
       };

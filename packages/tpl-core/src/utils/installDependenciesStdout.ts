@@ -4,7 +4,7 @@ import type { TypePkgTool } from './../types/index';
 import checkPkgTool from './checkPkgTool';
 import { install } from './pkgTool';
 
-export default async function installDependencies(
+export default async function installDependenciesStdout(
   pkgtool: TypePkgTool = 'pnpm'
 ) {
   await checkPkgTool(pkgtool);

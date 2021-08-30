@@ -17,6 +17,7 @@ import { FILE_NAME_MAP as f, InitShellType } from '@tiga-cli/tpl-core';
 // import commitlintConfig from './template/commitlint/config';
 import babelConfig from './babel/config';
 import declaration from './declaration/index';
+import gulp from './gulp/config';
 import packageJson from './pkg/index';
 import readme from './readme/readme';
 import readmeZH from './readme/readme-zh';
@@ -37,6 +38,7 @@ export default function templateMap(options: InitShellType) {
     ['README-zh.md']: readmeZH(options),
     [`${f.tiga.config}`]: tigaConfig(options),
     ['package.json']: packageJson(options),
+    ['gulpfile.js']: gulp,
     ['config/webpack.base.config.js']: webpackBase(options),
     ['config/webpack.dev.config.js']: webpackDev(options),
     ['config/webpack.prod.config.js']: webpackProd(options),

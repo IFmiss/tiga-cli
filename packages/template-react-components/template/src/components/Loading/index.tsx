@@ -8,7 +8,6 @@ export default function compile(options: InitShellType): string {
     import PropTypes from 'prop-types';
     import React, { memo } from 'react';
 
-    import styles from './loading.${sExt}';
     ${row(
       `
     export interface LoadingProps {
@@ -20,7 +19,7 @@ export default function compile(options: InitShellType): string {
     const Loading${
       typescript ? ': React.FC<LoadingProps>' : ''
     } = ({ text = 'loading ...' }) => {
-      return <div className={styles.loading}>{text}</div>;
+      return <div className={'loading'}>{text}</div>;
     };
 
     Loading.propTypes = {

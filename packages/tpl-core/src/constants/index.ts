@@ -53,7 +53,7 @@ export const FILE_NAME_MAP: {
   [props: string]: Partial<Record<'config' | 'ignore', string>>;
 } = {
   babel: {
-    config: 'babel.config.js'
+    config: '.babelrc.js'
   },
   git: {
     ignore: '.gitignore'

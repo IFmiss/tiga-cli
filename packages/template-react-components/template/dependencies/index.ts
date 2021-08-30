@@ -3,6 +3,7 @@ import type { InitShellType } from '@tiga-cli/tpl-core';
 import babel from './babel';
 import commitlint from './commitlint';
 import eslint from './eslint';
+import gulp from './gulp';
 import less from './less';
 import lintStaged from './lint-staged';
 import postcss from './postcss';
@@ -43,42 +44,45 @@ export default function pkgDependencies(
     prettier: prettierOpt
   } = options;
 
-  const devDependencies = [
-    ...pkg2Array(react.devDependencies),
-    ...pkg2Array(babel(options).devDependencies),
-    ...pkg2Array(webpack.devDependencies),
-    ...pkg2Array(postcss(options).devDependencies),
-    ...pkg2Array(tiga.devDependencies),
-    ...(eslintOpt ? pkg2Array(eslint(options).devDependencies) : []),
-    ...(lessOpt ? pkg2Array(less.devDependencies) : []),
-    ...(sassOpt ? pkg2Array(sass.devDependencies) : []),
-    ...(stylusOpt ? pkg2Array(stylus.devDependencies) : []),
-    ...(typescriptOpt ? pkg2Array(typescript.devDependencies) : []),
-    ...(stylelintOpt ? pkg2Array(stylelint.devDependencies) : []),
-    ...(commitlintOpt ? pkg2Array(commitlint.devDependencies) : []),
-    ...(commitlintOpt ? pkg2Array(lintStaged.devDependencies) : []),
-    ...(prettierOpt ? pkg2Array(prettier.devDependencies) : [])
-  ];
-  const dependencies = [
-    ...pkg2Array(react.dependencies),
-    ...pkg2Array(babel(options).dependencies),
-    ...pkg2Array(webpack.dependencies),
-    ...pkg2Array(postcss(options).dependencies),
-    ...pkg2Array(tiga.dependencies),
-    ...(eslintOpt ? pkg2Array(eslint(options).dependencies) : []),
-    ...(lessOpt ? pkg2Array(less.dependencies) : []),
-    ...(sassOpt ? pkg2Array(sass.dependencies) : []),
-    ...(stylusOpt ? pkg2Array(stylus.dependencies) : []),
-    ...(typescriptOpt ? pkg2Array(typescript.dependencies) : []),
-    ...(stylelintOpt ? pkg2Array(stylelint.dependencies) : []),
-    ...(commitlintOpt ? pkg2Array(commitlint.dependencies) : []),
-    ...(commitlintOpt ? pkg2Array(lintStaged.dependencies) : []),
-    ...(prettierOpt ? pkg2Array(prettier.dependencies) : [])
-  ];
+  const devDependencies = {
+    ...react.devDependencies,
+    ...babel(options).devDependencies,
+    ...webpack.devDependencies,
+    ...postcss(options).devDependencies,
+    ...tiga.devDependencies,
+    ...gulp.devDependencies,
+    ...(eslintOpt ? eslint(options).devDependencies : {}),
+    ...(lessOpt ? less.devDependencies : {}),
+    ...(sassOpt ? sass.devDependencies : {}),
+    ...(stylusOpt ? stylus.devDependencies : {}),
+    ...(typescriptOpt ? typescript.devDependencies : {}),
+    ...(stylelintOpt ? stylelint.devDependencies : {}),
+    ...(commitlintOpt ? commitlint.devDependencies : {}),
+    ...(commitlintOpt ? lintStaged.devDependencies : {}),
+    ...(prettierOpt ? prettier.devDependencies : {})
+  };
+
+  const dependencies = {
+    ...react.dependencies,
+    ...babel(options).dependencies,
+    ...webpack.dependencies,
+    ...postcss(options).dependencies,
+    ...tiga.dependencies,
+    ...gulp.dependencies,
+    ...(eslintOpt ? eslint(options).dependencies : {}),
+    ...(lessOpt ? less.dependencies : {}),
+    ...(sassOpt ? sass.dependencies : {}),
+    ...(stylusOpt ? stylus.dependencies : {}),
+    ...(typescriptOpt ? typescript.dependencies : {}),
+    ...(stylelintOpt ? stylelint.dependencies : {}),
+    ...(commitlintOpt ? commitlint.dependencies : {}),
+    ...(commitlintOpt ? lintStaged.dependencies : {}),
+    ...(prettierOpt ? prettier.dependencies : {})
+  };
 
   return {
-    devDependencies: devDependencies,
-    dependencies
+    devDependencies: pkg2Array(devDependencies),
+    dependencies: pkg2Array(dependencies)
   };
 }
 
