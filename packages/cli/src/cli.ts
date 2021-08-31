@@ -62,9 +62,9 @@ program
 program
   .command('serve')
   .description('start webapck dev server')
-  .option('-p --port <port>', 'start serve port')
+  .option('-p --port <value>', 'start serve port')
   .option('-o --open', 'need to open the browser')
-  .option('--path', 'custom dev config path')
+  .option('-c --config <value>', 'custom dev config path')
   .action((options) => {
     const config = getTigaConfig();
     serve(config, options);
@@ -74,7 +74,8 @@ program
 program
   .command('build')
   .description('build project')
-  .option('--path', 'custom build config path')
+  .option('-c --config <value>', 'custom build config path')
+  .option('--component', 'custom build config path')
   .action((options) => {
     const config = getTigaConfig();
     build(config, options);

@@ -1,4 +1,5 @@
 import { spawnSync, SpawnSyncReturns, StdioOptions } from 'child_process';
+import { chdir, cwd } from 'process';
 
 import { error as logError } from './logger';
 import Spinner from './spinner';
@@ -8,9 +9,17 @@ export default function shSync(
   options?: {
     stdio?: StdioOptions;
     errorText?: string;
+    currentWorkingDir?: boolean;
   }
 ): SpawnSyncReturns<Buffer> {
-  const { errorText, stdio = 'inherit' } = options || {};
+  const {
+    errorText,
+    stdio = 'inherit',
+    currentWorkingDir = false
+  } = options || {};
+
+  currentWorkingDir && chdir(cwd());
+
   const cmd = spawnSync(str, {
     shell: true,
     stdio

@@ -26,6 +26,7 @@ export default function compile(options: InitShellType): string {
         "clean": "rimraf types lib esm dist",
         "build:types": "tsc --emitDeclarationOnly && cpr types/components dist/esm && cpr types/components dist/cjs",
         "build": "npm run clean && yarn build:types && gulp",
+        "build:site": "tiga build",
         ${row(stylelintScript, stylelint)}
         ${row(eslintScript, eslint)}
         ${row(prettierScript, prettier)}

@@ -74,15 +74,20 @@ export type BaseServeOptions = Partial<{
   open: boolean;
 }>;
 
-export type BaseBuildOptions = {};
-
 export type WebpackServeOptions = BaseServeOptions & {
-  path?: string;
+  config?: string;
 };
 
-export type WebpackBuildOptions = BaseBuildOptions & {
-  path?: string;
+export type BaseBuildOptions = {
+  config?: string;
+  component?: boolean;
 };
+
+export type WebpackBuildOptions = BaseBuildOptions & {};
+
+export type GulpBuildOptions = BaseBuildOptions & {};
+
+export type BuildOptions = WebpackBuildOptions | GulpBuildOptions;
 
 export type RepoPublishType =
   | 'premajor'

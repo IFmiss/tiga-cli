@@ -1,13 +1,19 @@
-import type { TigaConfig, WebpackBuildOptions } from '@tiga-cli/tpl-core';
+import type { BuildOptions, TigaConfig } from '@tiga-cli/tpl-core';
 
+import buildComponent from './component';
 import buildWebpack from './webpack';
 
 export default async function build(
   config: TigaConfig,
-  options: WebpackBuildOptions
+  options: BuildOptions
 ): Promise<void> {
   const { type } = config;
-  if (type === 'react-spa' || type === 'react-components') {
+  const { component } = options;
+  console.info(type, component);
+  if (type === 'react-spa' || (type === 'react-components' && !component)) {
     buildWebpack(config, options);
+  }
+  if (type === 'react-components' && component) {
+    buildComponent(config, options);
   }
 }

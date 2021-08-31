@@ -1,16 +1,6 @@
 export * from './constants/index';
 export * as inquirerQuestions from './constants/inquirer';
-export type { TypeCreateOptions as TypeCreateOptions } from './types';
-export type { RenderTemplateOptions as RenderTemplateOptions } from './types';
-export type { TypeTemplate as TypeTemplate } from './types';
-export type { TypeLayout as TypeLayout } from './types';
-export type { TypeCss as TypeCss } from './types';
-export type { TypeLint as TypeLint } from './types';
-export type { TypePkgTool as TypePkgTool } from './types';
-export type { InitShellType as InitShellType } from './types';
-export type { TigaConfig as TigaConfig } from './types';
-export type { WebpackServeOptions as WebpackServeOptions } from './types';
-export type { WebpackBuildOptions as WebpackBuildOptions } from './types';
+export * from './types';
 export { default as artFont } from './utils/artFont';
 export { default as checkGitPushed } from './utils/checkGitPushed';
 export { default as checkPkgTool } from './utils/checkPkgTool';

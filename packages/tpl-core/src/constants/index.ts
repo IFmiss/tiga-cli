@@ -16,7 +16,7 @@ export const TEMPLATE_MAP: {
     pkg: '@tiga-cli/template-react-spa'
   },
   'react-components': {
-    description: 'react-components (React组件开发) [暂不支持]',
+    description: 'react-components (React组件开发)',
     pkg: '@tiga-cli/template-react-components'
   }
 };

@@ -1,4 +1,5 @@
 import { exec } from 'child_process';
+import { chdir, cwd } from 'process';
 import utils from 'util';
 
 import { error } from './logger';
@@ -10,9 +11,12 @@ export default async function shAsync(
   str: string,
   options?: {
     errorText?: string;
+    currentWorkingDir?: boolean;
   }
 ): Promise<unknown> {
-  const { errorText } = options || {};
+  const { errorText, currentWorkingDir = false } = options || {};
+
+  currentWorkingDir && chdir(cwd());
 
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
