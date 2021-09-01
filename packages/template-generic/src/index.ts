@@ -14,6 +14,7 @@ export { default as stylelintConfig } from './lint/stylelint/config';
 export { default as stylelintScript } from './lint/stylelint/script';
 export { default as postcssConfig } from './postcss/config';
 export { default as tigaConfig } from './tiga/config';
+export { default as tigaPkgConfig } from './tiga/pkgConfig';
 export { default as vscodeTplMap } from './vscode/configMap';
 export { default as cssRule } from './webpack/css_rule';
 export { default as fileRule } from './webpack/file_rule';

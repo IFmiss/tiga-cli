@@ -11,6 +11,7 @@ export default async function installDependenciesStdout(
   logInfo('installing dependencies 📦');
   const str = install(pkgtool);
   shSync(str, {
-    errorText: 'install dependencies failed'
+    errorText: 'install dependencies failed',
+    stdio: 'inherit'
   });
 }

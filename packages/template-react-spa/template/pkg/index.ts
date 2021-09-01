@@ -3,13 +3,13 @@ import {
   eslintScript,
   lintAllScript,
   prettierScript,
-  stylelintScript
+  stylelintScript,
+  tigaPkgConfig
 } from '@tiga-cli/template-generic';
 import type { InitShellType } from '@tiga-cli/tpl-core';
 import { renderRow as row, tpl } from '@tiga-cli/tpl-core';
 
 import pkgDependencies from '../dependencies';
-import tiga from './tiga';
 
 export default function compile(options: InitShellType): string {
   const { name, stylelint, eslint, prettier, commitlint } = options;
@@ -32,7 +32,7 @@ export default function compile(options: InitShellType): string {
       },
       "author": "",
       "license": "ISC",
-      ${row(tiga(options), true)}
+      ${row(tigaPkgConfig(options), true)}
       "dependencies": {
         ${dependencies.toString()}
       },

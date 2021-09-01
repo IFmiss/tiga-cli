@@ -14,6 +14,10 @@ export default function updateNotifier(pkg: {
 
   const info = notifier.update;
 
+  if (!info) {
+    return;
+  }
+
   const message = `update available! ${chalk.gray(
     info.current
   )} → ${chalk.green(info.latest)} \n

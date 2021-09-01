@@ -2,22 +2,20 @@ import { logInfo, obj2shell, shSync } from '@tiga-cli/utils';
 
 import type { RenderTemplateOptions } from '../types/index';
 
+const DEV = true;
+
 export default function installTpl(options: RenderTemplateOptions) {
   const { templatePkg, template } = options;
   const shellParams = obj2shell(options);
   logInfo('start create template file \n');
-  const str = `node ./tiga-cli/packages/${
-    templatePkg.split('/')?.[1]
-  }/dist/bin/index.js init ${shellParams}`;
-  console.info('templatePkg', str);
-  shSync(
-    // `npx ${templatePkg} init ${shellParams}`,
-    `node ./tiga-cli/packages/${
-      templatePkg.split('/')?.[1]
-    }/dist/bin/index.js init ${shellParams}`,
-    {
-      errorText: `初始化 ${template} 项目失败`,
-      stdio: 'inherit'
-    }
-  );
+  const str = DEV
+    ? `node ./tiga-cli/packages/${
+        templatePkg.split('/')?.[1]
+      }/dist/bin/index.js init ${shellParams}`
+    : `npx ${templatePkg} init ${shellParams}`;
+
+  shSync(str, {
+    errorText: `初始化 ${template} 项目失败`,
+    stdio: 'inherit'
+  });
 }

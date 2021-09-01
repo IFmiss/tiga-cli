@@ -24,7 +24,7 @@ export default function shSync(
     shell: true,
     stdio
   });
-  const { status, stderr, error, signal, stdout } = cmd;
+  const { status, stderr, error, stdout } = cmd;
 
   if (status !== 0) {
     Spinner.close();
@@ -36,14 +36,11 @@ export default function shSync(
 
     if (errorText) {
       console.info();
-      logError(
-        errorText,
-        stderr?.toString() || '',
-        error?.message,
-        signal,
-        stdout
-      );
+      logError(errorText);
     }
+    error?.message && logError(error?.message);
+    stderr?.toString() && logError(stderr?.toString());
+    stdout && logError(stdout);
     process.exit(0);
   }
   return cmd;

@@ -43,10 +43,10 @@ program
   .option('-t --typescript', 'use typescript')
   .option('-g --git', 'use git')
   .action((name, options) => {
+    updateNotifier(pkg);
     if (name) {
       create(name, options);
     }
-    // updateNotifier(pkg);
   });
 
 // init a new project
@@ -54,8 +54,8 @@ program
   .command('init')
   .description('init a project by local config file')
   .action(() => {
+    updateNotifier(pkg);
     init();
-    // updateNotifier(pkg);
   });
 
 // start dev serve

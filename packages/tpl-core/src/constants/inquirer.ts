@@ -26,8 +26,8 @@ export const checkOverwrite = async (name, comfirmAgain: boolean = false) => {
           name: 'overwrite',
           type: 'confirm',
           message: comfirmAgain
-            ? '初始化环境前，请再次确认是否覆盖当前目录 (Before initializing the environment, please reconfirm whether to overwrite the current directory)'
-            : '是否覆盖当前目录 (Whether to overwrite the current directory)'
+            ? '初始化环境前，请再次确认是否覆盖当前目录'
+            : '是否覆盖当前目录'
         })
         .then(({ overwrite }) => {
           if (overwrite) {
@@ -59,8 +59,7 @@ export const questionTemplate: QuestionCollection = {
 // css 样式类型
 export const questionCss: QuestionCollection = {
   name: 'css',
-  message:
-    'css 预处理模式 [都支持 css modules] (Css preprocessing mode [都支持 css modules])',
+  message: 'css 预处理模式 (Css preprocessing mode)',
   type: 'checkbox',
   default: ['less'],
   choices: () => {
