@@ -8,7 +8,8 @@
     "dev": "lerna run dev --stream",
     "build": "lerna run build --stream",
     "lint": "eslint packages/",
-    "lint:fix": "eslint packages/ --fix"
+    "lint:fix": "eslint packages/ --fix",
+    "release": "yarn build && lerna publish"
   },
   "workspaces": [
     "packages/*"
