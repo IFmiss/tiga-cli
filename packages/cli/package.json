@@ -2,7 +2,7 @@
   "name": "@tiga-cli/cli",
   "version": "0.0.29",
   "description": "Quickly build web projects",
-  "author": "ifmiss  <185098535@qq.com>",
+  "author": "ifmiss <185098535@qq.com>",
   "license": "ISC",
   "bin": {
     "tiga": "./dist/bin/index.js"
@@ -56,5 +56,5 @@
     "onetime": "^5.1.2",
     "uuid": "^8.3.2"
   },
-  "gitHead": "e4f075b726ebb6890062fbdc820865cff41b3cb9"
+  "gitHead": "2277f7c8d7a8d09b88d806cd58c624617acb97ba"
 }
