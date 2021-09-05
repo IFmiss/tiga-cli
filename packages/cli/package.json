@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/cli",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Quickly build web projects",
   "author": "ifmiss  <185098535@qq.com>",
   "license": "ISC",
