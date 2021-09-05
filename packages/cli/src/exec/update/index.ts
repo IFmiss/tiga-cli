@@ -7,4 +7,5 @@ export default async function update() {
     errorText: chalk.red('update failed ! \n\n')
   });
   logInfo('🎉 update completed !!!');
+  process.exit(0);
 }

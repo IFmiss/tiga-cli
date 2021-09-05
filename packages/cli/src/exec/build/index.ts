@@ -9,7 +9,6 @@ export default async function build(
 ): Promise<void> {
   const { type } = config;
   const { component } = options;
-  console.info(type, component);
   if (type === 'react-spa' || (type === 'react-components' && !component)) {
     buildWebpack(config, options);
   }

@@ -34,7 +34,6 @@ export default function shSync(
       if (status === null) {
         console.info('\n 🌟 good luck! ');
         reject(cmd);
-        // process.exit(0);
       }
 
       if (errorText) {
@@ -44,9 +43,7 @@ export default function shSync(
       error?.message && logError(error?.message);
       stderr?.toString() && logError(stderr?.toString());
       stdout && logError(stdout);
-      console.info('start reject');
       reject(cmd);
-      // process.exit(0);
     }
     resolve(cmd);
   });

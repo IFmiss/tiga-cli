@@ -30,7 +30,6 @@ export default async function shAsync(
       }
       Spinner.close();
       reject(e);
-      process.exit(0);
     }
   });
 }
