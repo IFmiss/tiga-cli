@@ -26,3 +26,12 @@ npx @tiga-cli/cli create hello
 ```
 
 Then follow the prompts to create step by step
+
+### command
+
+- create
+- init
+- build
+- serve
+- publish
+- upgrade
