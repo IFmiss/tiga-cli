@@ -17,14 +17,14 @@ export default function compile(options: InitShellType): string {
   const str = `
     {
       "name": "${name}",
-      "version": "0.0.1",
-      "description": "spa project by tiga-cli",
+      "version": "0.0.0",
+      "description": "react components",
       "scripts": {
         "test": "echo \\"Error: no test specified\\" && exit 1",
         "serve": "tiga serve",
-        "publish": "tiga publish",
-        "clean": "rimraf types lib esm dist",
-        "build:types": "tsc --emitDeclarationOnly && cpr types/components dist/esm && cpr types/components dist/cjs",
+        "release": "tiga publish",
+        "clean": "rimraf dist",
+        "build:types": "tsc --emitDeclarationOnly && cpr types/components dist/esm && cpr types/components dist/cjs && rimraf types",
         "build": "npm run clean && yarn build:types && gulp",
         "build:site": "tiga build",
         ${row(stylelintScript, stylelint)}
@@ -34,6 +34,9 @@ export default function compile(options: InitShellType): string {
         ${row(commitLintScript(options), commitlint)}
         "sort:pkg": "sort-package-json"
       },
+      "files": [
+        "dist"
+      ],
       "author": "",
       "license": "ISC",
       ${row(tigaPkgConfig(options), true)}

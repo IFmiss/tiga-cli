@@ -23,7 +23,7 @@ function getTigaConfig(): TigaConfig {
   return require(resolveCwd(CONFIG_FILE_PATH));
 }
 
-// outputHelp
+/** outputHelp */
 program.on('--help', () => {
   console.info();
   console.info(
@@ -36,7 +36,7 @@ program.on('--help', () => {
 
 program.version(`tiga version: ${pkg.version}`).usage('<command> [options]');
 
-// create a new project
+/** create a new project */
 program
   .command('create <name>')
   .description('create a new project powered by tiga-cli')
@@ -49,7 +49,7 @@ program
     }
   });
 
-// init a new project
+/** init a new project */
 program
   .command('init')
   .description('init a project by local config file')
@@ -58,7 +58,7 @@ program
     init();
   });
 
-// start dev serve
+/** start dev serve */
 program
   .command('serve')
   .description('start webapck dev server')
@@ -70,7 +70,7 @@ program
     serve(config, options);
   });
 
-// build file
+/** build file */
 program
   .command('build')
   .description('build project')
@@ -81,7 +81,7 @@ program
     build(config, options);
   });
 
-// update version
+/** update version */
 program
   .command('upgrade')
   .description('update cli')
@@ -89,7 +89,7 @@ program
     update();
   });
 
-// publish to npm
+/** publish to npm */
 program
   .command('publish')
   .description('npm publish')
@@ -107,10 +107,6 @@ program.on('command:*', ([cmd]) => {
 });
 
 program.parse(process.argv);
-
-// if (!process.argv.slice(2).length) {
-//   program.outputHelp()
-// }
 
 function suggestCommands(unknownCommand) {
   const availableCommands = program.commands.map((cmd) => cmd.name());

@@ -1,9 +1,17 @@
-import { checkGitPushed, repoVersion } from '@tiga-cli/tpl-core';
+import {
+  deleteTag,
+  getVersionTagPrefix,
+  isWorkingTreeClean,
+  lastGitTag,
+  removeLastCommit,
+  repoVersion
+} from '@tiga-cli/tpl-core';
 import { logError, logInfo, resolveCwd } from '@tiga-cli/utils';
-import { shSync } from '@tiga-cli/utils';
+import { sh, shSync } from '@tiga-cli/utils';
 import chalk from 'chalk';
 import { QuestionCollection } from 'inquirer';
 import inquirer from 'inquirer';
+import onetime from 'onetime';
 
 const questionPublishType = (nextVersionMap: object): QuestionCollection => ({
   name: 'type',
@@ -48,14 +56,34 @@ const questionComfirm = (
   type: 'confirm'
 });
 
+/** 回滚 npm version 生成的tag */
+const rollback = onetime(async () => {
+  const verisonPrefix = (await getVersionTagPrefix())?.trim();
+  const latestTag = await lastGitTag();
+  const tagVersion = latestTag.slice(verisonPrefix.length);
+
+  try {
+    const pkg = await import(resolveCwd('./package.json'));
+    const { version } = pkg;
+
+    if (tagVersion !== version?.trim()) {
+      await deleteTag(latestTag);
+      await removeLastCommit();
+    }
+  } catch (error) {
+    logError(`回滚失败! error:\n${error}`);
+  }
+});
+
 // publish
 export default async function publish() {
   const pkg = require(resolveCwd('./package.json'));
   const { version, name } = pkg;
   const nextVersionMap = repoVersion.nextMap(version);
 
-  const isPushed = checkGitPushed();
-  if (!isPushed) {
+  const isClearn = await isWorkingTreeClean();
+
+  if (!isClearn) {
     return logError('Unclean working tree. Commit or stash changes first.');
   }
 
@@ -68,6 +96,11 @@ export default async function publish() {
   const preidStr = config.preid ? `--preid ${config.preid}` : '';
   const npmVersionStr = `npm version ${config.type} ${preidStr}`;
 
-  shSync(npmVersionStr);
-  shSync(`npm publish`);
+  try {
+    await shSync(npmVersionStr);
+    await shSync(`npm publish`);
+  } catch (e) {
+    // revert
+    rollback();
+  }
 }

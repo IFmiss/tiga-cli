@@ -13,7 +13,7 @@ export default async function shAsync(
     errorText?: string;
     currentWorkingDir?: boolean;
   }
-): Promise<unknown> {
+): Promise<{ stdout: string; stderr: string }> {
   const { errorText, currentWorkingDir = false } = options || {};
 
   currentWorkingDir && chdir(cwd());

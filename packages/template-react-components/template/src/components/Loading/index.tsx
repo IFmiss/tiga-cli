@@ -7,7 +7,6 @@ export default function compile(options: InitShellType): string {
   const str = `
     import PropTypes from 'prop-types';
     import React, { memo } from 'react';
-
     ${row(
       `
     export interface LoadingProps {

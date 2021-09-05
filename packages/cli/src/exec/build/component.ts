@@ -8,7 +8,7 @@ import { shSync } from '@tiga-cli/utils';
 
 const { run: runFn } = pkgTool;
 
-export default function buildComponent(
+export default async function buildComponent(
   config: TigaConfig,
   options: BuildOptions
 ) {

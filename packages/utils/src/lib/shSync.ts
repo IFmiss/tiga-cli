@@ -11,37 +11,43 @@ export default function shSync(
     errorText?: string;
     currentWorkingDir?: boolean;
   }
-): SpawnSyncReturns<Buffer> {
-  const {
-    errorText,
-    stdio = 'inherit',
-    currentWorkingDir = false
-  } = options || {};
+): Promise<SpawnSyncReturns<Buffer>> {
+  return new Promise((resolve, reject) => {
+    const {
+      errorText,
+      stdio = 'inherit',
+      currentWorkingDir = false
+    } = options || {};
 
-  currentWorkingDir && chdir(cwd());
+    currentWorkingDir && chdir(cwd());
 
-  const cmd = spawnSync(str, {
-    shell: true,
-    stdio
+    const cmd = spawnSync(str, {
+      shell: true,
+      stdio
+    });
+    const { status, stderr, error, stdout } = cmd;
+
+    if (status !== 0) {
+      console.info('status', status);
+      Spinner.close();
+
+      if (status === null) {
+        console.info('\n 🌟 good luck! ');
+        reject(cmd);
+        // process.exit(0);
+      }
+
+      if (errorText) {
+        console.info();
+        logError(errorText);
+      }
+      error?.message && logError(error?.message);
+      stderr?.toString() && logError(stderr?.toString());
+      stdout && logError(stdout);
+      console.info('start reject');
+      reject(cmd);
+      // process.exit(0);
+    }
+    resolve(cmd);
   });
-  const { status, stderr, error, stdout } = cmd;
-
-  if (status !== 0) {
-    Spinner.close();
-
-    if (status === null) {
-      console.info('\n 🌟 good luck! ');
-      process.exit(0);
-    }
-
-    if (errorText) {
-      console.info();
-      logError(errorText);
-    }
-    error?.message && logError(error?.message);
-    stderr?.toString() && logError(stderr?.toString());
-    stdout && logError(stdout);
-    process.exit(0);
-  }
-  return cmd;
 }

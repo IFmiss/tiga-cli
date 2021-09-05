@@ -1,10 +1,11 @@
 ## Quickly build scaffolding for react projects
 
 - Support
-  - react-spa
-  - react-components(Future support)
 
-## Usage
+  - react-spa
+  - react-components
+
+## How to use
 
 ### global download
 

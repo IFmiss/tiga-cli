@@ -5,7 +5,7 @@ type TemplateExtParams = {
   jsx?: boolean;
 };
 
-export default function templateExt(
+export function templateExt(
   options: InitShellType,
   params?: TemplateExtParams
 ) {
@@ -21,4 +21,9 @@ export default function templateExt(
         ? 'jsx'
         : 'js';
   }
+}
+
+export function styleExt(options: InitShellType) {
+  const { less, stylus, sass } = options;
+  return less ? 'less' : sass ? 'scss' : stylus ? 'stylus' : 'css';
 }

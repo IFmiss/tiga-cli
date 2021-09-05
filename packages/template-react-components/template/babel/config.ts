@@ -50,6 +50,12 @@ export default function compile(options: InitShellType) {
               {
                 useESModules: true
               }
+            ],
+            [
+              '@umijs/babel-plugin-auto-css-modules',
+              {
+                flag: 'modules'
+              }
             ]
           ]
         }

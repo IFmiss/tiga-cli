@@ -30,6 +30,12 @@ export default function compile(options: InitShellType) {
             helpers: true,
             regenerator: true
           }
+        ],
+        [
+          '@umijs/babel-plugin-auto-css-modules',
+          {
+            flag: 'modules'
+          }
         ]
       ];
 

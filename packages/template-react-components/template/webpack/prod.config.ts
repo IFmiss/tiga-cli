@@ -40,7 +40,7 @@ export default function compile(options: InitShellType): string {
           minify: {
             removeComments: true,
             collapseWhitespace: true
-          },
+          }
         }),
         new MiniCssExtractPlugin({
           filename: 'css/[name].[contenthash:8].css'

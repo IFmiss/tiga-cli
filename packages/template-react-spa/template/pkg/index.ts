@@ -18,7 +18,7 @@ export default function compile(options: InitShellType): string {
     {
       "name": "${name}",
       "version": "0.0.1",
-      "description": "spa project by tiga-cli",
+      "description": "react spa project",
       "scripts": {
         "test": "echo \\"Error: no test specified\\" && exit 1",
         "serve": "tiga serve",

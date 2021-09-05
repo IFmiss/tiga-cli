@@ -1,11 +1,11 @@
-# `template-react-components`
+### `@tiga-cli/template-react-components`
 
-> TODO: description
+react components
 
-## Usage
+Support
 
-```
-const templateReactComponents = require('template-react-components');
-
-// TODO: DEMONSTRATE API
-```
+- git init, commitlint, lint-staged
+- eslint, prettier, stylelint
+- typescript
+- less/sass/stylus + css modules
+- react router config
