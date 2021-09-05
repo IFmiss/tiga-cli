@@ -5,7 +5,7 @@
   "author": "ifmiss  <185098535@qq.com>",
   "license": "ISC",
   "bin": {
-    "tiga": "./build/index.js"
+    "tiga": "./dist/bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
