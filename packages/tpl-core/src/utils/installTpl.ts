@@ -7,7 +7,9 @@ const DEV = false;
 export default function installTpl(options: RenderTemplateOptions) {
   const { templatePkg, template } = options;
   const shellParams = obj2shell(options);
+
   logInfo('start create template file \n');
+
   const str = DEV
     ? `node ./tiga-cli/packages/${
         templatePkg.split('/')?.[1]
