@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/template-react-spa",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "react spa project",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/template-react-spa#readme",
@@ -44,9 +44,9 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@tiga-cli/template-generic": "^0.0.32",
-    "@tiga-cli/tpl-core": "^0.0.32",
-    "@tiga-cli/utils": "^0.0.32",
+    "@tiga-cli/template-generic": "^0.0.33",
+    "@tiga-cli/tpl-core": "^0.0.33",
+    "@tiga-cli/utils": "^0.0.33",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
     "rimraf": "^3.0.2"
