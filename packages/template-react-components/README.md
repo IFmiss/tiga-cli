@@ -8,4 +8,3 @@ Support
 - eslint, prettier, stylelint
 - typescript
 - less/sass/stylus + css modules
-- react router config
