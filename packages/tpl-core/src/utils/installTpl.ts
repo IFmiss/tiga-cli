@@ -15,7 +15,7 @@ export default function installTpl(options: RenderTemplateOptions) {
     : `npx ${templatePkg} init ${shellParams}`;
 
   shSync(str, {
-    errorText: `初始化 ${template} 项目失败`,
+    errorText: `初始化 ${template} 项目失败!`,
     stdio: 'inherit'
   });
 }
