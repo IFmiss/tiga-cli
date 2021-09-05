@@ -1,6 +1,6 @@
 {
   "name": "template-react-components",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "react components template",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli#readme",
@@ -52,5 +52,6 @@
   },
   "bugs": {
     "url": "https://github.com/IFmiss/tiga-cli/issues"
-  }
+  },
+  "gitHead": "564336a2e49d4ce7fa3801f95cb8c0dfbd6e75d0"
 }

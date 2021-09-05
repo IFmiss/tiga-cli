@@ -2,7 +2,7 @@ import { logInfo, obj2shell, shSync } from '@tiga-cli/utils';
 
 import type { RenderTemplateOptions } from '../types/index';
 
-const DEV = true;
+const DEV = false;
 
 export default function installTpl(options: RenderTemplateOptions) {
   const { templatePkg, template } = options;

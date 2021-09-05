@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/tpl-core",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "> TODO: description",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/tpl-core#readme",
@@ -35,7 +35,7 @@
     "semver": "^7.3.5",
     "update-notifier": "^5.1.0"
   },
-  "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113",
+  "gitHead": "564336a2e49d4ce7fa3801f95cb8c0dfbd6e75d0",
   "devDependencies": {
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "webpack-chain": "^6.5.1"

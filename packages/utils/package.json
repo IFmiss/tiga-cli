@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/utils",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "> TODO: description",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/utils#readme",
@@ -52,5 +52,5 @@
     "rimraf": "^3.0.2",
     "signale": "^1.4.0"
   },
-  "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113"
+  "gitHead": "564336a2e49d4ce7fa3801f95cb8c0dfbd6e75d0"
 }

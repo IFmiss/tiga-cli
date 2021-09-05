@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/cli",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Quickly build web projects",
   "author": "ifmiss  <185098535@qq.com>",
   "license": "ISC",
@@ -57,5 +57,5 @@
     "onetime": "^5.1.2",
     "uuid": "^8.3.2"
   },
-  "gitHead": "aa3b4d8a3ba6244d719626c0df8470336b8c9113"
+  "gitHead": "564336a2e49d4ce7fa3801f95cb8c0dfbd6e75d0"
 }
