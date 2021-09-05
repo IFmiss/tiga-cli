@@ -5,13 +5,11 @@
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli#readme",
   "license": "ISC",
-  "main": "lib/template-react-components.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "bin": {
+    "tiga-react-spa": "./dist/bin/index.js"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "repository": {
     "type": "git",
