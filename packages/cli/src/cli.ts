@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const pkg: {
   version: string;
   name: string;
