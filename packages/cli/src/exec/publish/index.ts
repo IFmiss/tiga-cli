@@ -71,7 +71,7 @@ const rollback = onetime(async () => {
       await removeLastCommit();
     }
   } catch (error) {
-    logError(`回滚失败! error:\n${error}`);
+    logError(`回滚失败! \n${error}`);
   }
 });
 

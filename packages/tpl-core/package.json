@@ -35,7 +35,7 @@
     "semver": "^7.3.5",
     "update-notifier": "^5.1.0"
   },
-  "gitHead": "564336a2e49d4ce7fa3801f95cb8c0dfbd6e75d0",
+  "gitHead": "0f7260b26fbe50b53bf63dc91734c576b777ee00",
   "devDependencies": {
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "webpack-chain": "^6.5.1"
