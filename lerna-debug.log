@@ -1,0 +1,497 @@
+0 silly argv {
+0 silly argv   _: [ 'publish' ],
+0 silly argv   composed: 'publish',
+0 silly argv   lernaVersion: '4.0.0',
+0 silly argv   '$0': '../../.npm-global/pnpm-global/5/node_modules/lerna/cli.js'
+0 silly argv }
+1 notice cli v4.0.0
+2 verbose rootPath /Users/daiwei/pr/tiga-cli
+3 verbose session 13a0d98068cef1b3
+4 verbose user-agent lerna/4.0.0/node@v14.17.5+x64 (darwin)
+5 silly argv { _: [ 'publish' ], composed: 'publish', lernaVersion: '4.0.0' }
+6 verbose rootPath /Users/daiwei/pr/tiga-cli
+7 info current version 0.0.19
+8 silly isAnythingCommitted
+9 verbose isAnythingCommitted 1
+10 silly getCurrentBranch
+11 verbose currentBranch 2.0
+12 silly remoteBranchExists
+13 silly isBehindUpstream
+14 silly isBehindUpstream 2.0 is behind origin/2.0 by 0 commit(s) and ahead by 0
+15 silly hasTags
+16 verbose hasTags true
+17 silly git-describe.sync "v0.0.19-1-g280f8c8" => {"lastTagName":"v0.0.19","lastVersion":"v0.0.19","refCount":"1","sha":"280f8c8","isDirty":false}
+18 info Looking for changed packages since v0.0.19
+19 silly checking diff packages/cli
+20 silly found diff in packages/cli/package.json
+21 verbose filtered diff [ 'packages/cli/package.json' ]
+22 silly checking diff packages/template-generic
+23 silly found diff in packages/template-generic/package.json
+24 verbose filtered diff [ 'packages/template-generic/package.json' ]
+25 silly checking diff packages/template-react-components
+26 silly found diff in packages/template-react-components/package.json
+27 verbose filtered diff [ 'packages/template-react-components/package.json' ]
+28 silly checking diff packages/template-react-spa
+29 silly found diff in packages/template-react-spa/package.json
+30 verbose filtered diff [ 'packages/template-react-spa/package.json' ]
+31 silly checking diff packages/tpl-core
+32 silly found diff in packages/tpl-core/package.json
+33 verbose filtered diff [ 'packages/tpl-core/package.json' ]
+34 silly checking diff packages/utils
+35 silly no diff found in @tiga-cli/utils
+36 verbose updated @tiga-cli/cli
+37 verbose updated @tiga-cli/template-generic
+38 verbose updated template-react-components
+39 verbose updated @tiga-cli/template-react-spa
+40 verbose updated @tiga-cli/tpl-core
+41 verbose git-describe undefined => "v0.0.19-1-g280f8c8"
+42 silly git-describe parsed => {"lastTagName":"v0.0.19","lastVersion":"v0.0.19","refCount":"1","sha":"280f8c8","isDirty":false}
+43 info execute Skipping releases
+44 silly lifecycle No script for "preversion" in "root", continuing
+45 silly lifecycle No script for "preversion" in "@tiga-cli/utils", continuing
+46 silly lifecycle No script for "version" in "@tiga-cli/utils", continuing
+47 silly lifecycle No script for "preversion" in "@tiga-cli/tpl-core", continuing
+48 silly lifecycle No script for "version" in "@tiga-cli/tpl-core", continuing
+49 silly lifecycle No script for "preversion" in "@tiga-cli/cli", continuing
+50 silly lifecycle No script for "preversion" in "@tiga-cli/template-generic", continuing
+51 silly lifecycle No script for "version" in "@tiga-cli/cli", continuing
+52 silly lifecycle No script for "version" in "@tiga-cli/template-generic", continuing
+53 silly lifecycle No script for "preversion" in "template-react-components", continuing
+54 silly lifecycle No script for "preversion" in "@tiga-cli/template-react-spa", continuing
+55 silly lifecycle No script for "version" in "template-react-components", continuing
+56 silly lifecycle No script for "version" in "@tiga-cli/template-react-spa", continuing
+57 silly lifecycle No script for "version" in "root", continuing
+58 silly gitAdd [
+58 silly gitAdd   'packages/utils/package.json',
+58 silly gitAdd   'packages/tpl-core/package.json',
+58 silly gitAdd   'packages/cli/package.json',
+58 silly gitAdd   'packages/template-generic/package.json',
+58 silly gitAdd   'packages/template-react-components/package.json',
+58 silly gitAdd   'packages/template-react-spa/package.json',
+58 silly gitAdd   'lerna.json'
+58 silly gitAdd ]
+59 silly gitCommit v0.0.20
+60 verbose git [ 'commit', '-m', 'v0.0.20' ]
+61 silly gitTag v0.0.20
+62 verbose git [ 'tag', 'v0.0.20', '-m', 'v0.0.20' ]
+63 silly lifecycle No script for "postversion" in "@tiga-cli/cli", continuing
+64 silly lifecycle No script for "postversion" in "@tiga-cli/template-generic", continuing
+65 silly lifecycle No script for "postversion" in "template-react-components", continuing
+66 silly lifecycle No script for "postversion" in "@tiga-cli/template-react-spa", continuing
+67 silly lifecycle No script for "postversion" in "@tiga-cli/tpl-core", continuing
+68 silly lifecycle No script for "postversion" in "@tiga-cli/utils", continuing
+69 silly lifecycle No script for "postversion" in "root", continuing
+70 info git Pushing tags...
+71 silly gitPush origin 2.0
+72 info publish Publishing packages to npm...
+73 info Verifying npm credentials
+74 verbose Retrieving npm user profile
+75 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 3038ms
+76 silly npm profile get received {"tfa":{"pending":true,"mode":"auth-only"},"name":"ifmiss","email":"185098535@qq.com","email_verified":true,"created":"2017-11-07T16:02:57.434Z","updated":"2021-02-18T14:24:36.853Z","cidr_whitelist":null,"fullname":"戴伟","homepage":"www.daiwei.org","freenode":"","twitter":"","github":"ifmiss"}
+77 silly get npm username received {"username":"ifmiss","tfa":{"pending":true,"mode":"auth-only"},"name":"ifmiss","email":"185098535@qq.com","email_verified":true,"created":"2017-11-07T16:02:57.434Z","updated":"2021-02-18T14:24:36.853Z","cidr_whitelist":null,"fullname":"戴伟","homepage":"www.daiwei.org","freenode":"","twitter":"","github":"ifmiss"}
+78 silly verifyNpmPackageAccess
+79 http fetch GET 200 https://registry.npmjs.org/-/org/ifmiss/package?format=cli 852ms (cache updated)
+80 info Checking two-factor auth mode
+81 verbose Retrieving npm user profile
+82 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 1432ms
+83 silly npm profile get received {"tfa":{"pending":true,"mode":"auth-only"},"name":"ifmiss","email":"185098535@qq.com","email_verified":true,"created":"2017-11-07T16:02:57.434Z","updated":"2021-02-18T14:24:36.853Z","cidr_whitelist":null,"fullname":"戴伟","homepage":"www.daiwei.org","freenode":"","twitter":"","github":"ifmiss"}
+84 silly 2FA { pending: true, mode: 'auth-only' }
+85 warn ENOLICENSE Packages @tiga-cli/cli, @tiga-cli/template-generic, template-react-components, @tiga-cli/template-react-spa, @tiga-cli/tpl-core, and @tiga-cli/utils are missing a license.
+85 warn ENOLICENSE One way to fix this is to add a LICENSE.md file to the root of this repository.
+85 warn ENOLICENSE See https://choosealicense.com for additional guidance.
+86 silly getCurrentSHA
+87 verbose getCurrentSHA 0f7260b26fbe50b53bf63dc91734c576b777ee00
+88 silly lifecycle No script for "prepublish" in "root", continuing
+89 silly lifecycle No script for "prepare" in "root", continuing
+90 silly lifecycle No script for "prepublishOnly" in "root", continuing
+91 silly lifecycle No script for "prepack" in "root", continuing
+92 verbose pack-directory packages/utils
+93 silly lifecycle No script for "prepublish" in "@tiga-cli/utils", continuing
+94 silly lifecycle No script for "prepare" in "@tiga-cli/utils", continuing
+95 silly lifecycle No script for "prepublishOnly" in "@tiga-cli/utils", continuing
+96 silly lifecycle No script for "prepack" in "@tiga-cli/utils", continuing
+97 silly lifecycle No script for "postpack" in "@tiga-cli/utils", continuing
+98 verbose packed packages/utils
+99 verbose pack-directory packages/tpl-core
+100 silly lifecycle No script for "prepublish" in "@tiga-cli/tpl-core", continuing
+101 silly lifecycle No script for "prepare" in "@tiga-cli/tpl-core", continuing
+102 silly lifecycle No script for "prepublishOnly" in "@tiga-cli/tpl-core", continuing
+103 silly lifecycle No script for "prepack" in "@tiga-cli/tpl-core", continuing
+104 silly lifecycle No script for "postpack" in "@tiga-cli/tpl-core", continuing
+105 verbose packed packages/tpl-core
+106 verbose pack-directory packages/cli
+107 verbose pack-directory packages/template-generic
+108 silly lifecycle No script for "prepublish" in "@tiga-cli/cli", continuing
+109 silly lifecycle No script for "prepublish" in "@tiga-cli/template-generic", continuing
+110 silly lifecycle No script for "prepare" in "@tiga-cli/cli", continuing
+111 silly lifecycle No script for "prepare" in "@tiga-cli/template-generic", continuing
+112 silly lifecycle No script for "prepublishOnly" in "@tiga-cli/cli", continuing
+113 silly lifecycle No script for "prepublishOnly" in "@tiga-cli/template-generic", continuing
+114 silly lifecycle No script for "prepack" in "@tiga-cli/cli", continuing
+115 silly lifecycle No script for "prepack" in "@tiga-cli/template-generic", continuing
+116 silly lifecycle No script for "postpack" in "@tiga-cli/template-generic", continuing
+117 verbose packed packages/template-generic
+118 verbose pack-directory packages/template-react-components
+119 verbose pack-directory packages/template-react-spa
+120 silly lifecycle No script for "prepublish" in "template-react-components", continuing
+121 silly lifecycle No script for "prepublish" in "@tiga-cli/template-react-spa", continuing
+122 silly lifecycle No script for "prepare" in "template-react-components", continuing
+123 silly lifecycle No script for "prepare" in "@tiga-cli/template-react-spa", continuing
+124 silly lifecycle No script for "prepublishOnly" in "template-react-components", continuing
+125 silly lifecycle No script for "prepublishOnly" in "@tiga-cli/template-react-spa", continuing
+126 silly lifecycle No script for "prepack" in "template-react-components", continuing
+127 silly lifecycle No script for "prepack" in "@tiga-cli/template-react-spa", continuing
+128 silly lifecycle No script for "postpack" in "@tiga-cli/cli", continuing
+129 verbose packed packages/cli
+130 silly lifecycle No script for "postpack" in "template-react-components", continuing
+131 verbose packed packages/template-react-components
+132 silly lifecycle No script for "postpack" in "@tiga-cli/template-react-spa", continuing
+133 verbose packed packages/template-react-spa
+134 silly lifecycle No script for "postpack" in "root", continuing
+135 verbose publish @tiga-cli/utils
+136 http fetch PUT 200 https://registry.npmjs.org/@tiga-cli%2futils 5288ms
+137 silly lifecycle No script for "publish" in "@tiga-cli/utils", continuing
+138 silly lifecycle No script for "postpublish" in "@tiga-cli/utils", continuing
+139 success published @tiga-cli/utils 0.0.20
+140 notice
+141 notice 📦  @tiga-cli/utils@0.0.20
+142 notice === Tarball Contents ===
+143 notice 217B  dist/lib/catchReturn.js
+143 notice 3.7kB dist/lib/file.js
+143 notice 3.5kB dist/index.js
+143 notice 3.4kB dist/lib/jsonFileParse.js
+143 notice 2.5kB dist/lib/logger.js
+143 notice 599B  dist/lib/obj2shell.js
+143 notice 446B  dist/lib/resolveCwd.js
+143 notice 4.8kB dist/lib/sh.js
+143 notice 1.9kB dist/lib/shSync.js
+143 notice 2.9kB dist/lib/sleep.js
+143 notice 1.3kB dist/lib/spinner.js
+143 notice 430B  dist/lib/timer.js
+143 notice 1.5kB package.json
+143 notice 20B   README.md
+143 notice 64B   dist/lib/catchReturn.d.ts
+143 notice 240B  dist/lib/file.d.ts
+143 notice 935B  dist/index.d.ts
+143 notice 67B   dist/lib/jsonFileParse.d.ts
+143 notice 446B  dist/lib/logger.d.ts
+143 notice 103B  dist/lib/obj2shell.d.ts
+143 notice 86B   dist/lib/resolveCwd.d.ts
+143 notice 172B  dist/lib/sh.d.ts
+143 notice 273B  dist/lib/shSync.d.ts
+143 notice 61B   dist/lib/sleep.d.ts
+143 notice 413B  dist/lib/spinner.d.ts
+143 notice 127B  dist/lib/timer.d.ts
+144 notice === Tarball Details ===
+145 notice name:          @tiga-cli/utils
+145 notice version:       0.0.20
+145 notice filename:      tiga-cli-utils-0.0.20.tgz
+145 notice package size:  6.1 kB
+145 notice unpacked size: 30.2 kB
+145 notice shasum:        a327cd5c00ce2379a4748474b94d11b604034d6e
+145 notice integrity:     sha512-6DIbzx/EKqR1M[...]GwH6j272zqWVg==
+145 notice total files:   26
+146 notice
+147 verbose publish @tiga-cli/tpl-core
+148 http fetch PUT 200 https://registry.npmjs.org/@tiga-cli%2ftpl-core 3017ms
+149 silly lifecycle No script for "publish" in "@tiga-cli/tpl-core", continuing
+150 silly lifecycle No script for "postpublish" in "@tiga-cli/tpl-core", continuing
+151 success published @tiga-cli/tpl-core 0.0.20
+152 notice
+153 notice 📦  @tiga-cli/tpl-core@0.0.20
+154 notice === Tarball Contents ===
+155 notice 809B  dist/utils/artFont.js
+155 notice 1.9kB dist/utils/checkPkgTool.js
+155 notice 1.1kB dist/utils/checkPort.js
+155 notice 5.6kB dist/utils/createCert.js
+155 notice 879B  dist/utils/fileExt.js
+155 notice 6.9kB dist/utils/git.js
+155 notice 1.9kB dist/constants/index.js
+155 notice 5.2kB dist/index.js
+155 notice 77B   dist/types/index.js
+155 notice 6.5kB dist/constants/inquirer.js
+155 notice 3.7kB dist/utils/installDependencies.js
+155 notice 3.6kB dist/utils/installDependenciesStdout.js
+155 notice 762B  dist/utils/installTpl.js
+155 notice 2.4kB dist/utils/mergedWebpackConfig.js
+155 notice 688B  dist/utils/pkgTool.js
+155 notice 1.5kB dist/utils/renderContextFile.js
+155 notice 1.7kB dist/utils/repoVersion.js
+155 notice 254B  dist/utils/str.js
+155 notice 2.6kB dist/utils/tpl.js
+155 notice 980B  dist/utils/updateNotifier.js
+155 notice 462B  dist/utils/workSpaceNodeModules.js
+155 notice 1.1kB package.json
+155 notice 23B   README.md
+155 notice 54B   dist/utils/artFont.d.ts
+155 notice 131B  dist/utils/checkPkgTool.d.ts
+155 notice 63B   dist/utils/checkPort.d.ts
+155 notice 520B  dist/utils/createCert.d.ts
+155 notice 322B  dist/utils/fileExt.d.ts
+155 notice 713B  dist/utils/git.d.ts
+155 notice 755B  dist/constants/index.d.ts
+155 notice 1.3kB dist/index.d.ts
+155 notice 2.2kB dist/types/index.d.ts
+155 notice 486B  dist/constants/inquirer.d.ts
+155 notice 136B  dist/utils/installDependencies.d.ts
+155 notice 142B  dist/utils/installDependenciesStdout.d.ts
+155 notice 135B  dist/utils/installTpl.d.ts
+155 notice 218B  dist/utils/mergedWebpackConfig.d.ts
+155 notice 223B  dist/utils/pkgTool.d.ts
+155 notice 86B   dist/utils/renderContextFile.d.ts
+155 notice 244B  dist/utils/repoVersion.d.ts
+155 notice 57B   dist/utils/str.d.ts
+155 notice 419B  dist/utils/tpl.d.ts
+155 notice 125B  dist/utils/updateNotifier.d.ts
+155 notice 136B  dist/utils/workSpaceNodeModules.d.ts
+156 notice === Tarball Details ===
+157 notice name:          @tiga-cli/tpl-core
+157 notice version:       0.0.20
+157 notice filename:      tiga-cli-tpl-core-0.0.20.tgz
+157 notice package size:  13.4 kB
+157 notice unpacked size: 59.3 kB
+157 notice shasum:        3d8d358053c66d1628c0b724c43085584f613bcb
+157 notice integrity:     sha512-es1fXJwrleF2G[...]1wqwd2CsLpr7w==
+157 notice total files:   44
+158 notice
+159 verbose publish @tiga-cli/cli
+160 verbose publish @tiga-cli/template-generic
+161 http fetch PUT 200 https://registry.npmjs.org/@tiga-cli%2ftemplate-generic 2661ms
+162 silly lifecycle No script for "publish" in "@tiga-cli/template-generic", continuing
+163 silly lifecycle No script for "postpublish" in "@tiga-cli/template-generic", continuing
+164 success published @tiga-cli/template-generic 0.0.20
+165 notice
+166 notice 📦  @tiga-cli/template-generic@0.0.20
+167 notice === Tarball Contents ===
+168 notice 360B  dist/ide/config.js
+168 notice 1.2kB dist/lint/commitlint/config.js
+168 notice 2.1kB dist/lint/eslint/config.js
+168 notice 762B  dist/lint/lintstaged/config.js
+168 notice 588B  dist/lint/prettier/config.js
+168 notice 2.0kB dist/lint/stylelint/config.js
+168 notice 1.4kB dist/postcss/config.js
+168 notice 695B  dist/tiga/config.js
+168 notice 463B  dist/vscode/configMap.js
+168 notice 1.9kB dist/webpack/css_rule.js
+168 notice 618B  dist/webpack/file_rule.js
+168 notice 334B  dist/git/ignore.js
+168 notice 140B  dist/lint/eslint/ignore.js
+168 notice 358B  dist/lint/prettier/ignore.js
+168 notice 5.2kB dist/index.js
+168 notice 1.6kB dist/webpack/js_rule.js
+168 notice 2.0kB dist/webpack/less_rule.js
+168 notice 1.6kB dist/lint/lintAllScript.js
+168 notice 558B  dist/tiga/pkgConfig.js
+168 notice 2.0kB dist/webpack/sass_rule.js
+168 notice 517B  dist/lint/commitlint/script.js
+168 notice 220B  dist/lint/eslint/script.js
+168 notice 199B  dist/lint/prettier/script.js
+168 notice 225B  dist/lint/stylelint/script.js
+168 notice 2.0kB dist/webpack/stylus_rule.js
+168 notice 841B  package.json
+168 notice 447B  dist/vscode/settings.json
+168 notice 31B   README.md
+168 notice 314B  dist/ide/config.d.ts
+168 notice 861B  dist/lint/commitlint/config.d.ts
+168 notice 122B  dist/lint/eslint/config.d.ts
+168 notice 122B  dist/lint/lintstaged/config.d.ts
+168 notice 395B  dist/lint/prettier/config.d.ts
+168 notice 2.0kB dist/lint/stylelint/config.d.ts
+168 notice 122B  dist/postcss/config.d.ts
+168 notice 122B  dist/tiga/config.d.ts
+168 notice 76B   dist/vscode/configMap.d.ts
+168 notice 125B  dist/webpack/css_rule.d.ts
+168 notice 122B  dist/webpack/file_rule.d.ts
+168 notice 288B  dist/git/ignore.d.ts
+168 notice 94B   dist/lint/eslint/ignore.d.ts
+168 notice 122B  dist/lint/prettier/ignore.d.ts
+168 notice 1.5kB dist/index.d.ts
+168 notice 122B  dist/webpack/js_rule.d.ts
+168 notice 125B  dist/webpack/less_rule.d.ts
+168 notice 122B  dist/lint/lintAllScript.d.ts
+168 notice 175B  dist/tiga/pkgConfig.d.ts
+168 notice 125B  dist/webpack/sass_rule.d.ts
+168 notice 122B  dist/lint/commitlint/script.d.ts
+168 notice 174B  dist/lint/eslint/script.d.ts
+168 notice 153B  dist/lint/prettier/script.d.ts
+168 notice 179B  dist/lint/stylelint/script.d.ts
+168 notice 125B  dist/webpack/stylus_rule.d.ts
+169 notice === Tarball Details ===
+170 notice name:          @tiga-cli/template-generic
+170 notice version:       0.0.20
+170 notice filename:      tiga-cli-template-generic-0.0.20.tgz
+170 notice package size:  9.5 kB
+170 notice unpacked size: 38.1 kB
+170 notice shasum:        d2fcb6f45a80652a6f8b20372761f4cb30c29fef
+170 notice integrity:     sha512-t1+3xDXV2E2dd[...]xPAIh6siR5LmQ==
+170 notice total files:   53
+171 notice
+172 verbose publish template-react-components
+173 verbose publish @tiga-cli/template-react-spa
+174 http fetch PUT 200 https://registry.npmjs.org/template-react-components 2481ms
+175 silly lifecycle No script for "publish" in "template-react-components", continuing
+176 silly lifecycle No script for "postpublish" in "template-react-components", continuing
+177 success published template-react-components 0.0.20
+178 notice
+179 notice 📦  template-react-components@0.0.20
+180 notice === Tarball Contents ===
+181 notice 1.6kB package.json
+181 notice 204B  README.md
+182 notice === Tarball Details ===
+183 notice name:          template-react-components
+183 notice version:       0.0.20
+183 notice filename:      template-react-components-0.0.20.tgz
+183 notice package size:  898 B
+183 notice unpacked size: 1.8 kB
+183 notice shasum:        220527814e22cc4667384777acd76b3aca239d17
+183 notice integrity:     sha512-DrM5qKPKTR6bP[...]I5IFHHt3Dm2pw==
+183 notice total files:   2
+184 notice
+185 http fetch PUT 200 https://registry.npmjs.org/@tiga-cli%2ftemplate-react-spa 5358ms
+186 silly lifecycle No script for "publish" in "@tiga-cli/template-react-spa", continuing
+187 silly lifecycle No script for "postpublish" in "@tiga-cli/template-react-spa", continuing
+188 success published @tiga-cli/template-react-spa 0.0.20
+189 notice
+190 notice 📦  @tiga-cli/template-react-spa@0.0.20
+191 notice === Tarball Contents ===
+192 notice 1.2kB dist/template/src/app.js
+192 notice 197B  dist/template/dependencies/babel_typescript.js
+192 notice 1.5kB dist/template/dependencies/babel.js
+192 notice 1.4kB dist/template/webpack/base.config.js
+192 notice 267B  dist/template/dependencies/commitlint.js
+192 notice 1.1kB dist/template/babel/config.js
+192 notice 1.0kB dist/template/src/router/config.js
+192 notice 1.0kB dist/template/typescript/config.js
+192 notice 7.1kB dist/create.js
+192 notice 218B  dist/template/src/pages/detail/detail_style.js
+192 notice 2.0kB dist/template/webpack/dev.config.js
+192 notice 238B  dist/template/dependencies/eslint_prettier.js
+192 notice 239B  dist/template/dependencies/eslint_react.js
+192 notice 253B  dist/template/dependencies/eslint_typescript.js
+192 notice 1.7kB dist/template/dependencies/eslint.js
+192 notice 217B  dist/template/src/components/Hello/hello_style.js
+192 notice 216B  dist/template/src/pages/home/home_style.js
+192 notice 454B  dist/template/src/index_html.js
+192 notice 885B  dist/template/src/index_style.js
+192 notice 1.6kB dist/bin/index.js
+192 notice 379B  dist/template/declaration/index.js
+192 notice 6.1kB dist/template/dependencies/index.js
+192 notice 3.8kB dist/template/index.js
+192 notice 1.8kB dist/template/pkg/index.js
+192 notice 735B  dist/template/src/components/Hello/index.js
+192 notice 854B  dist/template/src/components/Loading/index.js
+192 notice 405B  dist/template/src/index.js
+192 notice 1.0kB dist/template/src/modules/detail/info/index.js
+192 notice 840B  dist/template/src/pages/detail/index.js
+192 notice 680B  dist/template/src/pages/home/index.js
+192 notice 1.4kB dist/template/src/router/index.js
+192 notice 175B  dist/template/src/modules/detail/info/info_style.js
+192 notice 6.9kB dist/init.js
+192 notice 208B  dist/template/dependencies/less.js
+192 notice 184B  dist/template/dependencies/lint-staged.js
+192 notice 178B  dist/template/src/components/Loading/loading_style.js
+192 notice 194B  dist/template/dependencies/postcss_viewport.js
+192 notice 1.3kB dist/template/dependencies/postcss.js
+192 notice 178B  dist/template/dependencies/prettier.js
+192 notice 4.1kB dist/template/webpack/prod.config.js
+192 notice 437B  dist/template/dependencies/react.js
+192 notice 462B  dist/template/readme/readme-zh.js
+192 notice 411B  dist/template/readme/readme.js
+192 notice 619B  dist/template/src/router/router_declaration.js
+192 notice 209B  dist/template/dependencies/sass.js
+192 notice 3.2kB dist/template/src/srcFileMap.js
+192 notice 266B  dist/template/dependencies/stylelint.js
+192 notice 212B  dist/template/dependencies/stylus.js
+192 notice 252B  dist/template/dependencies/tiga.js
+192 notice 77B   dist/template/dependencies/types.js
+192 notice 180B  dist/template/dependencies/typescript.js
+192 notice 844B  dist/template/dependencies/webpack.js
+192 notice 1.6kB package.json
+192 notice 198B  README.md
+192 notice 122B  dist/template/src/app.d.ts
+192 notice 150B  dist/template/dependencies/babel_typescript.d.ts
+192 notice 541B  dist/template/dependencies/babel.d.ts
+192 notice 122B  dist/template/webpack/base.config.d.ts
+192 notice 215B  dist/template/dependencies/commitlint.d.ts
+192 notice 122B  dist/template/babel/config.d.ts
+192 notice 122B  dist/template/src/router/config.d.ts
+192 notice 988B  dist/template/typescript/config.d.ts
+192 notice 123B  dist/create.d.ts
+192 notice 172B  dist/template/src/pages/detail/detail_style.d.ts
+192 notice 122B  dist/template/webpack/dev.config.d.ts
+192 notice 190B  dist/template/dependencies/eslint_prettier.d.ts
+192 notice 190B  dist/template/dependencies/eslint_react.d.ts
+192 notice 203B  dist/template/dependencies/eslint_typescript.d.ts
+192 notice 179B  dist/template/dependencies/eslint.d.ts
+192 notice 171B  dist/template/src/components/Hello/hello_style.d.ts
+192 notice 170B  dist/template/src/pages/home/home_style.d.ts
+192 notice 408B  dist/template/src/index_html.d.ts
+192 notice 122B  dist/template/src/index_style.d.ts
+192 notice 31B   dist/bin/index.d.ts
+192 notice 333B  dist/template/declaration/index.d.ts
+192 notice 496B  dist/template/dependencies/index.d.ts
+192 notice 451B  dist/template/index.d.ts
+192 notice 122B  dist/template/pkg/index.d.ts
+192 notice 122B  dist/template/src/components/Hello/index.d.ts
+192 notice 122B  dist/template/src/components/Loading/index.d.ts
+192 notice 122B  dist/template/src/index.d.ts
+192 notice 122B  dist/template/src/modules/detail/info/index.d.ts
+192 notice 122B  dist/template/src/pages/detail/index.d.ts
+192 notice 122B  dist/template/src/pages/home/index.d.ts
+192 notice 122B  dist/template/src/router/index.d.ts
+192 notice 129B  dist/template/src/modules/detail/info/info_style.d.ts
+192 notice 121B  dist/init.d.ts
+192 notice 159B  dist/template/dependencies/less.d.ts
+192 notice 137B  dist/template/dependencies/lint-staged.d.ts
+192 notice 132B  dist/template/src/components/Loading/loading_style.d.ts
+192 notice 148B  dist/template/dependencies/postcss_viewport.d.ts
+192 notice 180B  dist/template/dependencies/postcss.d.ts
+192 notice 132B  dist/template/dependencies/prettier.d.ts
+192 notice 122B  dist/template/webpack/prod.config.d.ts
+192 notice 372B  dist/template/dependencies/react.d.ts
+192 notice 122B  dist/template/readme/readme-zh.d.ts
+192 notice 122B  dist/template/readme/readme.d.ts
+192 notice 510B  dist/template/src/router/router_declaration.d.ts
+192 notice 159B  dist/template/dependencies/sass.d.ts
+192 notice 198B  dist/template/src/srcFileMap.d.ts
+192 notice 213B  dist/template/dependencies/stylelint.d.ts
+192 notice 163B  dist/template/dependencies/stylus.d.ts
+192 notice 139B  dist/template/dependencies/tiga.d.ts
+192 notice 216B  dist/template/dependencies/types.d.ts
+192 notice 134B  dist/template/dependencies/typescript.d.ts
+192 notice 753B  dist/template/dependencies/webpack.d.ts
+193 notice === Tarball Details ===
+194 notice name:          @tiga-cli/template-react-spa
+194 notice version:       0.0.20
+194 notice filename:      tiga-cli-template-react-spa-0.0.20.tgz
+194 notice package size:  18.2 kB
+194 notice unpacked size: 74.2 kB
+194 notice shasum:        60c9040b12ab23a53e473c028804085925ded821
+194 notice integrity:     sha512-VH3CdGd7Ue4+j[...]pjCte9Nseo9UA==
+194 notice total files:   106
+195 notice
+196 silly FetchError: request to https://registry.npmjs.org/@tiga-cli%2fcli failed, reason: socket hang up
+196 silly     at ClientRequest.<anonymous> (/Users/daiwei/pr/tiga-cli/node_modules/minipass-fetch/lib/index.js:97:14)
+196 silly     at ClientRequest.emit (events.js:400:28)
+196 silly     at TLSSocket.socketOnEnd (_http_client.js:499:9)
+196 silly     at TLSSocket.emit (events.js:412:35)
+196 silly     at endReadableNT (internal/streams/readable.js:1317:12)
+196 silly     at processTicksAndRejections (internal/process/task_queues.js:82:21)
+196 silly  FetchError: request to https://registry.npmjs.org/@tiga-cli%2fcli failed, reason: socket hang up
+196 silly     at ClientRequest.<anonymous> (/Users/daiwei/pr/tiga-cli/node_modules/minipass-fetch/lib/index.js:97:14)
+196 silly     at ClientRequest.emit (events.js:400:28)
+196 silly     at TLSSocket.socketOnEnd (_http_client.js:499:9)
+196 silly     at TLSSocket.emit (events.js:412:35)
+196 silly     at endReadableNT (internal/streams/readable.js:1317:12)
+196 silly     at processTicksAndRejections (internal/process/task_queues.js:82:21) {
+196 silly   code: 'ECONNRESET',
+196 silly   errno: 'ECONNRESET',
+196 silly   type: 'system'
+196 silly }
+197 error ECONNRESET request to https://registry.npmjs.org/@tiga-cli%2fcli failed, reason: socket hang up
+198 error FetchError: request to https://registry.npmjs.org/@tiga-cli%2fcli failed, reason: socket hang up
+198 error     at ClientRequest.<anonymous> (/Users/daiwei/pr/tiga-cli/node_modules/minipass-fetch/lib/index.js:97:14)
+198 error     at ClientRequest.emit (events.js:400:28)
+198 error     at TLSSocket.socketOnEnd (_http_client.js:499:9)
+198 error     at TLSSocket.emit (events.js:412:35)
+198 error     at endReadableNT (internal/streams/readable.js:1317:12)

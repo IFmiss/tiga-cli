@@ -1,0 +1,32 @@
+{
+  "name": "@tiga-cli/template-generic",
+  "version": "0.0.33",
+  "description": "generic template",
+  "author": "ifmiss <185098535@qq.com>",
+  "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/template-generic#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IFmiss/tiga-cli.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "npm run clear && tsc --build",
+    "clear": "rm -rf ./dist"
+  },
+  "bugs": {
+    "url": "https://github.com/IFmiss/tiga-cli/issues"
+  },
+  "dependencies": {
+    "@tiga-cli/tpl-core": "^0.0.33",
+    "@tiga-cli/utils": "^0.0.33"
+  },
+  "gitHead": "9464ff94cf362164977d670ac1753d1a4845110c"
+}

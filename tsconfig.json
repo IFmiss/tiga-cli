@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "target": "ES5",
+    "module": "commonjs",
+    "removeComments": false,
+    "declaration": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "downlevelIteration": true,
+    "allowJs": true,
+    "jsx": "react",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "global.d.ts",
+      "typings"
+    ],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "sourceMap": false,
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "node_modules/",
+    "__test__/"
+  ]
+}

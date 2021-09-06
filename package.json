@@ -1,39 +1,20 @@
 {
-  "name": "tiga-cli",
-  "version": "1.0.7",
-  "description": "Quickly build a react project",
-  "bin": {
-    "tiga": "./bin/index.js"
-  },
+  "name": "root",
+  "private": true,
+  "description": "Quickly build web projects",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "b": "lerna bootstrap & lerna link",
+    "dev": "lerna run dev --stream",
+    "build": "lerna run build --stream",
+    "lint": "eslint packages/",
+    "lint:fix": "eslint packages/ --fix",
+    "release": "yarn build && lerna publish"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IFmiss/Tiga.git"
-  },
-  "keywords": [
-    "tiga",
-    "tiga-cli",
-    "react-cli"
+  "workspaces": [
+    "packages/*"
   ],
-  "author": "",
+  "author": "ifmiss",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/IFmiss/Tiga/issues"
-  },
-  "homepage": "https://github.com/IFmiss/Tiga#readme",
-  "dependencies": {
-    "chalk": "^3.0.0",
-    "commander": "^4.1.0",
-    "download-git-repo": "^3.0.2",
-    "fs-extra": "^8.1.0",
-    "glob": "^7.1.6",
-    "handlebars": "^4.7.2",
-    "inquirer": "^7.0.3",
-    "inquirer-select-line": "^1.1.3",
-    "metalsmith": "^2.3.0",
-    "ora": "^4.0.3",
-    "shelljs": "^0.8.3"
-  }
+  "dependencies": {}
 }
