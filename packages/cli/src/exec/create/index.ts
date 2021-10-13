@@ -28,10 +28,11 @@ export default async function create(
   // check overwrite before create
   const overwrite = await checkOverwrite(name);
 
-  const mergeOptions = Object.assign({}, DEFAULT_CREATE_OPTOPNS, {
+  const mergeOptions = {
+    ...DEFAULT_CREATE_OPTOPNS,
     overwrite,
     name
-  });
+  };
 
   // init config
   const config = await inquirer.prompt([
@@ -43,14 +44,15 @@ export default async function create(
     questionpPkgTool
   ]);
 
-  const renderTplOptions: RenderTemplateOptions = Object.assign(mergeOptions, {
+  const renderTplOptions: RenderTemplateOptions = {
+    ...mergeOptions,
     ...config,
     uuid: uuid(),
     runtimePath: process.cwd(),
     projectPath: `${process.cwd()}/${name}`,
     date: new Date().getTime().toString(),
     templatePkg: TEMPLATE_MAP[config?.template || 'react-spa'].pkg
-  });
+  };
 
   // double confirm before create
   if (overwrite) {
