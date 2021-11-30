@@ -4,8 +4,6 @@ import { tpl } from '@tiga-cli/tpl-core';
 export default function compile(options: InitShellType): string {
   const { name, template, uuid } = options;
   const str = `
-    const path = require('path');
-
     module.exports = {
       type: '${template}', // 模版类型
       uuid: '${uuid}', // 项目 uuid
