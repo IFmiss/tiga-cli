@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/cli",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "description": "Quickly build web projects",
   "author": "ifmiss <185098535@qq.com>",
   "license": "ISC",
@@ -47,8 +47,8 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@tiga-cli/tpl-core": "^0.0.39",
-    "@tiga-cli/utils": "^0.0.39",
+    "@tiga-cli/tpl-core": "^0.0.40",
+    "@tiga-cli/utils": "^0.0.40",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
     "inquirer": "^8.1.1",
