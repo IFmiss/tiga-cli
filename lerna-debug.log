@@ -1,5 +1,5 @@
-48 error Error: Command failed with exit code 128: git tag v0.0.38 -m v0.0.38
-48 error fatal: tag 'v0.0.38' already exists
+48 error Error: Command failed with exit code 128: git tag v0.0.42 -m v0.0.42
+48 error fatal: tag 'v0.0.42' already exists
 48 error     at makeError (/Users/dw/sf/tiga-cli/node_modules/execa/lib/error.js:60:11)
 48 error     at handlePromise (/Users/dw/sf/tiga-cli/node_modules/execa/index.js:118:26)
 48 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
