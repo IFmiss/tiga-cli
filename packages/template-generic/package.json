@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/template-generic",
-  "version": "0.0.33",
+  "version": "0.0.34-alpha.157+a3856f5",
   "description": "generic template",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/template-generic#readme",
@@ -28,5 +28,5 @@
     "@tiga-cli/tpl-core": "^0.0.33",
     "@tiga-cli/utils": "^0.0.33"
   },
-  "gitHead": "9464ff94cf362164977d670ac1753d1a4845110c"
+  "gitHead": "a3856f579f4c8b204918ec8597f6688c54be9792"
 }
