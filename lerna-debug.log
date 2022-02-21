@@ -1,6 +1,6 @@
-50 error Error: Command failed with exit code 128: git tag v0.0.34 -m v0.0.34
-50 error fatal: tag 'v0.0.34' already exists
-50 error     at makeError (/Users/dw/sf/tiga-cli/node_modules/execa/lib/error.js:60:11)
-50 error     at handlePromise (/Users/dw/sf/tiga-cli/node_modules/execa/index.js:118:26)
-50 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
-50 error     at async Promise.all (index 0)
+48 error Error: Command failed with exit code 128: git tag v0.0.35 -m v0.0.35
+48 error fatal: tag 'v0.0.35' already exists
+48 error     at makeError (/Users/dw/sf/tiga-cli/node_modules/execa/lib/error.js:60:11)
+48 error     at handlePromise (/Users/dw/sf/tiga-cli/node_modules/execa/index.js:118:26)
+48 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+48 error     at async Promise.all (index 0)
