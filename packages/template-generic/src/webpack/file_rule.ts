@@ -7,7 +7,6 @@ export default function compile(options: InitShellType): string {
     test: /\\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/i,
     dependency: { not: ['url'] },
     use: [
-      'cache-loader',
       'thread-loader',
       {
         loader: 'url-loader',

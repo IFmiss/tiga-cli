@@ -9,6 +9,7 @@
     "build": "lerna run build --stream",
     "lint": "eslint packages/",
     "lint:fix": "eslint packages/ --fix",
+    "alpha": "yarn build && lerna publish --canary",
     "release": "yarn build && lerna publish"
   },
   "workspaces": [
