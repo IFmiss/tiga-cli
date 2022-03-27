@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/template-generic",
-  "version": "0.0.33",
+  "version": "0.0.49",
   "description": "generic template",
   "author": "ifmiss <185098535@qq.com>",
   "homepage": "https://github.com/IFmiss/tiga-cli/tree/main/packages/template-generic#readme",
@@ -25,8 +25,8 @@
     "url": "https://github.com/IFmiss/tiga-cli/issues"
   },
   "dependencies": {
-    "@tiga-cli/tpl-core": "^0.0.33",
-    "@tiga-cli/utils": "^0.0.33"
+    "@tiga-cli/tpl-core": "^0.0.49",
+    "@tiga-cli/utils": "^0.0.49"
   },
-  "gitHead": "9464ff94cf362164977d670ac1753d1a4845110c"
+  "gitHead": "660a64d500c7c3659e3d8e7a0d1bf7f13392eef0"
 }

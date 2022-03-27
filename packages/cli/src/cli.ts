@@ -43,7 +43,10 @@ program
   .action((name, options) => {
     updateNotifier(pkg);
     if (name) {
-      create(name, options);
+      create(name, {
+        ...options,
+        version: pkg.version
+      });
     }
   });
 
@@ -53,7 +56,9 @@ program
   .description('init a project by local config file')
   .action(() => {
     updateNotifier(pkg);
-    init();
+    init({
+      version: pkg.version
+    });
   });
 
 /** start dev serve */
@@ -65,7 +70,10 @@ program
   .option('-c --config <value>', 'custom dev config path')
   .action((options) => {
     const config = getTigaConfig();
-    serve(config, options);
+    serve(config, {
+      ...options,
+      version: pkg.version
+    });
   });
 
 /** build file */
@@ -76,7 +84,10 @@ program
   .option('--component', 'custom build config path')
   .action((options) => {
     const config = getTigaConfig();
-    build(config, options);
+    build(config, {
+      ...options,
+      version: pkg.version
+    });
   });
 
 /** update version */

@@ -39,7 +39,7 @@ export default function compile(options: InitShellType): string {
       cache: {
         // 将缓存类型设置为文件系统,默认是memory
         type: 'filesystem',
-        cacheDirectory: path.resolve(__dirname, './../', '.temp_cache'),
+        cacheDirectory: path.resolve(__dirname, './../node_modules', '.temp_cache'),
         buildDependencies: {
           // 更改配置文件时，重新缓存
           config: [__filename]

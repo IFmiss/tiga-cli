@@ -1,6 +1,6 @@
 {
   "name": "@tiga-cli/cli",
-  "version": "0.0.33",
+  "version": "0.0.49",
   "description": "Quickly build web projects",
   "author": "ifmiss <185098535@qq.com>",
   "license": "ISC",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/commander": "^2.12.2",
     "@types/inquirer": "^7.3.2",
-    "@types/node": "^15.12.4",
+    "@types/node": "^16.10.3",
     "@types/signale": "^1.4.1",
     "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
@@ -47,8 +47,8 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@tiga-cli/tpl-core": "^0.0.33",
-    "@tiga-cli/utils": "^0.0.33",
+    "@tiga-cli/tpl-core": "^0.0.49",
+    "@tiga-cli/utils": "^0.0.49",
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
     "inquirer": "^8.1.1",
@@ -56,5 +56,5 @@
     "onetime": "^5.1.2",
     "uuid": "^8.3.2"
   },
-  "gitHead": "9464ff94cf362164977d670ac1753d1a4845110c"
+  "gitHead": "660a64d500c7c3659e3d8e7a0d1bf7f13392eef0"
 }

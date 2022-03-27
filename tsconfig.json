@@ -22,6 +22,9 @@
       "global.d.ts",
       "typings"
     ],
+    "types": [
+      "node"
+    ],
     "lib": [
       "dom",
       "esnext"

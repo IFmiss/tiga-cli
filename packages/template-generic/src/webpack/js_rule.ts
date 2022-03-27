@@ -5,7 +5,6 @@ export default function compile(options: InitShellType): string {
   const str = `{
     test: /\\.(js|jsx|ts|tsx)$/,
     use: [
-      'cache-loader',
       {
         loader: 'thread-loader',
         options: {

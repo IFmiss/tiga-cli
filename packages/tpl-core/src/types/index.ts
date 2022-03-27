@@ -17,6 +17,7 @@ export type TypeCreateOptions = {
   template: TypeTemplate;
   pkgtool: TypePkgTool;
   lint: Array<TypeLint>;
+  version?: string;
 };
 
 export type RenderTemplateOptions = {
@@ -49,6 +50,7 @@ export type InitShellType = {
   date?: string;
   templatePkg?: string;
   initFile?: string;
+  version?: string;
 };
 
 export type TigaConfig = {

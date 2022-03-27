@@ -64,6 +64,5 @@ export default async function init(options: InitShellType) {
       `${t.getTime()}s`
     )} \n`
   );
-  console.info(` ${chalk.green('-')} cd ${name} \n`);
   console.info(` ${chalk.green('-')} ${run} serve \n`);
 }

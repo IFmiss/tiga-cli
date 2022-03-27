@@ -6,8 +6,8 @@ import {
   removeLastCommit,
   repoVersion
 } from '@tiga-cli/tpl-core';
-import { logError, logInfo, resolveCwd } from '@tiga-cli/utils';
-import { sh, shSync } from '@tiga-cli/utils';
+import { logError, resolveCwd } from '@tiga-cli/utils';
+import { shSync } from '@tiga-cli/utils';
 import chalk from 'chalk';
 import { QuestionCollection } from 'inquirer';
 import inquirer from 'inquirer';
@@ -98,7 +98,7 @@ export default async function publish() {
 
   try {
     await shSync(npmVersionStr);
-    await shSync(`npm publish`);
+    await shSync('npm publish --registry=https://registry.npmjs.org');
   } catch (e) {
     // revert
     rollback();
