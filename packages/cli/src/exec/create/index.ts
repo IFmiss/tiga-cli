@@ -48,6 +48,7 @@ export default async function create(
     ...mergeOptions,
     ...config,
     uuid: uuid(),
+    version: options.version,
     runtimePath: process.cwd(),
     projectPath: `${process.cwd()}/${name}`,
     date: new Date().getTime().toString(),
