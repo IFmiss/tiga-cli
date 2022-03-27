@@ -26,6 +26,7 @@ export type RenderTemplateOptions = {
   runtimePath: string;
   projectPath: string;
   initFile?: string;
+  version: string;
 } & TypeCreateOptions;
 
 export type InitShellType = {
@@ -49,6 +50,7 @@ export type InitShellType = {
   date?: string;
   templatePkg?: string;
   initFile?: string;
+  version: string;
 };
 
 export type TigaConfig = {

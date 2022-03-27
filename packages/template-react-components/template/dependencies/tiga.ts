@@ -1,6 +1,10 @@
-export default {
-  devDependencies: {
-    '@tiga-cli/cli': `^0.0.45`
-  },
-  dependencies: {}
-};
+import type { InitShellType } from '@tiga-cli/tpl-core';
+
+export default function tigaDependencies ({ version }: InitShellType) {
+  return {
+    devDependencies: {
+      '@tiga-cli/cli': version
+    },
+    dependencies: {}
+  }
+}
