@@ -55,7 +55,7 @@ export default async function create(
     templatePkg: TEMPLATE_MAP[config?.template || 'react-spa'].pkg
   };
 
-  // double confirm before create
+  // double confirm before create.
   if (overwrite) {
     const res = await checkOverwrite(name, true);
     if (res) {
