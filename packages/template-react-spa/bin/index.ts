@@ -31,6 +31,7 @@ program
   .option('--templatePkg <value>', 'templatePkg')
   .option('--overwrite')
   .option('--initFile <value>', 'init porject local config')
+  .option('--version <value>', 'current tiga version')
   .action((args: RenderTemplateOptions) => {
     if (args.initFile) {
       return init(args);
