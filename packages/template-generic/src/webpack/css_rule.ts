@@ -12,7 +12,6 @@ export default function compile(styleRuleParmas: {
       {
         resourceQuery: /modules/,
         use: [
-          'cache-loader',
           ${useMiniCssExtractPlugin
             ? `{
                 loader: MiniCssExtractPlugin.loader,
@@ -42,7 +41,6 @@ export default function compile(styleRuleParmas: {
       },
       {
         use: [
-          'cache-loader',
           ${useMiniCssExtractPlugin
             ? `{
                 loader: MiniCssExtractPlugin.loader,
